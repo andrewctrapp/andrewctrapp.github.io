@@ -1,0 +1,3622 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<!--     Change these for LinkedIn posts -->
+    <meta property="og:title" content="New Manuscript Accepted at Operations Research: Dynamic Placement in Refugee Resettlement"/>
+    <meta property="og:image" content="https://andrewctrapp.github.io/img/Annie.gif"/>
+    <meta property="og:description" content="New manuscript explores a dynamic allocation mechanism based on stochastic programming to account for the value of future slots of capacity to inform resettlement decisions."/>
+    <meta property="og:url" content="https://andrewctrapp.github.io/index.html#dynamic-refugee-resettlement"/>
+<!--     <meta property="og:title" content="Select, Route and Schedule: Optimizing Community Paramedicine Service Delivery with Mandatory Visits and Patient Prioritization"/> -->
+<!--     <meta property="og:image" content="https://andrewctrapp.github.io/img/CP_Plot.png"/> -->
+<!--     <meta property="og:description" content="My newest manuscript on community paramedicine is now available online at Optimization Online."/> -->
+<!--     <meta property="og:url" content="https://andrewctrapp.github.io/index.html#community-paramedicine"/> -->
+
+<!-- Cite like this: -->
+<!-- https://andrewctrapp.github.io/index.html#METU-Refugee-Talk -->
+
+    <!-- Important favicon (icon for tab on browser) -->
+    <link rel="icon" href="img/favicon.ico" />
+
+    <!--Set up Google Analytics-->
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-148275737-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-148275737-1');
+      gtag('set', {'user_id': 'USER_ID'}); // Set the user ID using signed-in user_id.
+    </script>
+    <!--End of Google Analytics-->
+    <!--Bootstrap CDN-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.2.0/css/all.css"
+    />
+
+  </head>
+  <title>Andrew C. Trapp</title>
+<!--   <link rel="shortcut icon" type="image/jpg" href="Favicon_Image_Location"/> -->
+  <body>
+    <!--Navbar-->
+
+    <nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Andrew C. Trapp</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#recent-accomplishments">Recent Accomplishments</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="publications.htm">Publications</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="team.htm">Research Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="joining.htm">Joining</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="platforms-and-software.htm">Platforms & Software</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!--Profile-->
+
+    <div class="container">
+      <div class="row justify-content-center align-self-center">
+        <div class="col-lg-5 ">
+          <div class="text-center">
+            <img
+              src="img/ACT_2024.png"
+              class="img-fluid"
+              alt="profile photo"
+            />
+          </div>
+          <div class="card border-primary">
+              <div class="card-header">
+                <h5><strong>Professor &vert; Founder &amp; Director, ARCHES</strong></h5>
+              </div>
+                <div class="card-body">
+                <p>
+                  <a href="https://ise.rpi.edu"><i>Industrial and Systems Engineering</i></a>
+                  <br>
+                  <a href="https://www.rpi.edu"><i>Rensselaer Polytechnic Institute</i></a>
+<!--                   <br> -->
+<!--                   <a href="https://www.wpi.edu/academics/departments/data-science"><i>Data Science</i></a> -->
+<!--                   &vert; -->
+<!--                   <a href="https://www.wpi.edu/academics/departments/mathematical-sciences"><i>Mathematical Sciences</i></a> -->
+<!--                   &vert; -->
+<!--                   <a href="https://www.wpi.edu/academics/departments/computer-science"><i>Computer Science</i></a> -->
+                </p>
+              <div style="clear:both;"></div>
+
+              <div>
+                <a href="mailto:trappa@rpi.edu"><i class="fas fa-envelope"></i></a>
+                <a href="mailto:trappa@rpi.edu">trappa@rpi.edu</a>
+              </div>
+              <div class="linkedin">
+                <a
+                  href="https://www.linkedin.com/in/andytrapp"
+                  ,
+                  target="_blank"
+                >
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/andytrapp"
+                  ,
+                  target="_blank"
+                  >LinkedIn</a
+                >
+              </div>
+              <div class="google">
+                <a
+                  href="https://scholar.google.com/citations?user=ZASbboYAAAAJ&hl=en&oi=ao"
+                  ,
+                  target="_blank"
+                >
+                  <i class="fab fa-google"></i>
+                </a>
+                <a
+                  href="https://scholar.google.com/citations?user=ZASbboYAAAAJ&hl=en&oi=ao"
+                  ,
+                  target="_blank"
+                  >Google Scholar</a
+                >
+              </div>
+              <div class="cv">
+                <a href="cv.pdf" download, target="_blank">
+                  <i class="fas fa-file-alt"></i>
+                </a>
+                <a href="cv.pdf" download, target="_blank"
+                  >CV</a
+                >
+              </div>
+            </div>
+            </div>
+          </div>
+          <br>
+       
+        <div class="col-lg-7">
+          <h4>About Me</h4>
+          <p class="medium-text-justify" align="justify">
+            In an era of expanding data and finite resources, advanced analytics and optimization <i>guide decisions that matter</i>: for <i>people</i>, <i>communities</i>, and <i>systems</i>. My research centers on integer and nonlinear optimization and its use, together with machine learning and algorithms, to effectively allocate scarce resources and build decision support that can be used in practice. My research initiative, <a href="https://arches.wpi.edu">ARCHES</a>, and I employ mathematical modeling, methods and open-source software to benefit underserved individuals, groups, and communities.
+          <br>
+          <br>
+            The convergence of mathematical optimization, machine learning, and open-source software can creates solutions that improve quality of life, increase fairness, restore dignity, and transform the world around us. 
+            Active research areas include integer and stochastic optimization, matching and mechanism design, and hybrid predictive plus prescriptive methods, aimed at improving decisions in public and nonprofit systems such as refugee and asylum support, child welfare, housing and homelessness services, health care related trafficking response, and nonprofit operations.
+            My research is supported by National Science Foundation awards
+            <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2431414", target="_blank"
+              >CIVIC-PG-2431414</a
+            >,
+            <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2222713", target="_blank"
+              >FW-HTF-2222713</a
+            >,
+            <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2233377", target="_blank"
+              >CMMI-2233377</a
+            >,
+            <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1825348", target="_blank"
+              >CMMI-1825348</a
+            >,
+            <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1841893", target="_blank"
+              >CMMI-1841893</a
+            >,
+            <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1935602", target="_blank"
+              >CMMI-1935602</a
+            >, the
+            <a href="https://www.troweprice.com/corporate/us/en/what-sets-us-apart/corporate-responsibility/community-commitment/trp-foundation.html", target="_blank"
+              >T. Rowe Price Foundation</a
+            >, the 
+            <a href="https://france-merrickfdn.org/", target="_blank"
+              >France-Merrick Foundation</a
+            >, the
+            <a href="https://ki.se/en/research/ragnar-soderberg-foundation", target="_blank"
+              >Ragnar S&ouml;derberg Foundation</a
+            >, anonymous donors, and more.
+          <br>
+          <br>
+            As a scholar, I have the great honor to train students in developing the skills and knowledge they need to address some of the most pressing challenges facing our world. My students learn to leverage theory, models and algorithms to push the boundaries of current knowledge and make contributions that are substantive to the field and meaningful to society.
+            Many go on to earn advanced degrees and have successful, influential careers, in academia as well as industry.
+            <i>If you would like to be part of this transformative research</i>, <a href="mailto:trappa@rpi.edu">email me</a> a short note about what you hope to work on and an example of your work.
+		  <br>
+          <br>
+            In March 2026 I joined Rensselaer Polytechnic Institute as the Frank and Lillian Gilbreth Endowed Chair in Industrial and Systems Engineering, and hold a PhD in Industrial Engineering from the University
+            of Pittsburgh. I serve as an Associate Editor for the Societal Impact Area of <i>Operations Research</i> and am Past President of the INFORMS Section on Public and Societal Operations Research. My work on refugee placement was featured as a <a href="https://cacm.acm.org/research-highlights/technical-perspective-improving-refugees-integration-with-online-resource-allocation">Research Highlight</a> in the <i>Communications of the ACM</i> in 2024. I publish in outlets such as
+            <i>Operations Research</i>, 
+            <i>INFORMS Journal on Computing</i>, 
+            <i>PLOS ONE</i>, 
+            <i>European Journal of Operational Research</i>, 
+            <i>IISE Transactions</i>, 
+            <i>Production and Operations Management</i>, 
+            <i>Decision Support Systems</i>, 
+            <i>Discrete Optimization</i>, 
+            <i>IJCAI</i>, 
+            <i>Socio-Economic Planning Sciences</i>, 
+            <i>Journal of Cleaner Production</i>, 
+            <i>Journal of Combinatorial Optimization</i>, 
+            <i>Health Systems</i>, 
+            and 
+            <i>Bioinformatics</i>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <!--Recent Accomplishments-->
+
+    <div id="recent-accomplishments">
+    <div class="container">
+      <h4>Recent Accomplishments</h4>
+    </div>
+
+    <br>
+
+	<div id="RPIChair2026A">
+	  <div class="container">
+		<div class="card">
+		  <div class="row">
+			<div class="col-lg-5 d-flex align-items-center">
+			  <div class="card-header">
+				<img class="card-img-bottom" src="img/RPI_logo.png" alt="" />
+			  </div>
+			</div>
+			<div class="col-lg-7">
+			  <div class="card-body">
+				<h5 class="card-title">
+				  <font color="red"><b><u>New Appointment at RPI</u></b></font><br>
+				  <b>Joining RPI as the Frank and Lillian Gilbreth Endowed Chair in Industrial and Systems Engineering</b>
+				</h5>
+
+				<h6 class="card-subtitle text-muted">
+				  March 16, 2026
+				</h6>
+				<br />
+
+				<p class="card-text" align="justify">
+				  On March 16, 2026, I began as the Frank and Lillian Gilbreth Endowed Chair in Industrial and Systems Engineering at Rensselaer Polytechnic Institute.
+				  I am grateful for the opportunity to build on research at the intersection of mathematical optimization, machine learning, and decision support for societal impact.
+				  RPI's commitment to advancing science and engineering in service of major societal challenges aligns strongly with the kind of work I hope to grow in this next chapter.
+				</p>
+
+				<a href="https://faculty.rpi.edu/andrew-trapp" target="_blank" class="btn btn-primary">Read More</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+	<br>
+
+	<div id="ABWWebinar2026A">
+	  <div class="container">
+		<div class="card">
+		  <div class="row">
+			<div class="col-lg-5 d-flex align-items-center">
+			  <div class="card-header">
+				<img class="card-img-bottom" src="img/ABW_logo.png" alt="" />
+			  </div>
+			</div>
+			<div class="col-lg-7">
+			  <div class="card-body">
+				<h5 class="card-title">
+				  <font color="red"><b><u>Recent SWAP-and-Route Webinar at Analytics for a Better World</u></b></font><br>
+				  <b>Fast Resource Exchange and Collaborative Routing for NPOs</b>
+				</h5>
+
+				<h6 class="card-subtitle text-muted">
+				  March 3, 2026
+				</h6>
+				<br />
+
+				<p class="card-text" align="justify">
+				  I was honored to present the inaugural ABW Research Webinar Series with a presentation on SWAP-and-Route.
+				  My presentation focused on how nonprofit resource exchange and collaborative routing can be coordinated under tight time horizons in emergency settings.
+				  This work is led by talented students <a href="https://www.linkedin.com/in/ozgekoc" target="_blank">Özge Aygül</a> and <a href="https://arches.wpi.edu/people" target="_blank">Yasutora Ito</a>, as well as colleague <a href="https://faculty.rpi.edu/jennifer-pazour" target="_blank">Jennifer Pazour</a>.
+				  Many thanks to <a href="https://analyticsbetterworld.org/people/dick-den-hertog/" target="_blank">Professor Dick den Hertog</a> and the Analytics for a Better World team for creating a global platform for analytics in service of mission-driven organizations.
+				</p>
+
+				<a href="https://analyticsbetterworld.org/updates/join-the-first-edition-of-the-new-abw-research-webinar-series-with-professors-andrew-trapp-and-den-hertog/" target="_blank" class="btn btn-primary">Event Page</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+	<br>
+
+	<div id="PittVisit2026A">
+	  <div class="container">
+		<div class="card">
+		  <div class="row">
+			<div class="col-lg-5 d-flex align-items-center">
+			  <div class="card-header">
+				<img class="card-img-bottom" src="img/Pitt_logo.png" alt="" />
+			  </div>
+			</div>
+			<div class="col-lg-7">
+			  <div class="card-body">
+				<h5 class="card-title">
+				  <font color="red"><b><u>Return Visit to Pitt</u></b></font><br>
+				  <b>Sustainability Capstone and Industrial Engineering Seminar</b>
+				</h5>
+
+				<h6 class="card-subtitle text-muted">
+				  February 26, 2026
+				</h6>
+				<br />
+
+				<p class="card-text" align="justify">
+				  It was a pleasure to return to the University of Pittsburgh, where I earned my PhD in Industrial Engineering, for a visit that included both the Sustainability Capstone course and the Industrial Engineering graduate seminar.
+				  In the seminar, I spoke on SWAP-and-Route and how analytics can support rapid nonprofit coordination in emergency response.
+				  Returning as an alumnus made the visit especially meaningful, and I appreciated the chance to engage with students thinking carefully about sustainability, systems, and impact.
+				</p>
+
+				<a href="https://calendar.pitt.edu/event/ie-seminar-andy-trapp-swap-and-route-fast-resource-exchange-and-collaborative-routing" target="_blank" class="btn btn-primary">IE Seminar Details</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+	<br>
+
+	<div id="EAAMOOxford2025A">
+	  <div class="container">
+		<div class="card">
+		  <div class="row">
+			<div class="col-lg-5 d-flex align-items-center">
+			  <div class="card-header">
+				<img class="card-img-bottom" src="img/EAAMO_Oxford_2025.png" alt="" />
+			  </div>
+			</div>
+			<div class="col-lg-7">
+			  <div class="card-body">
+				<h5 class="card-title">
+				  <font color="red"><b><u>Recent Talk at EAAMO Local | Oxford</u></b></font><br>
+				  <b>From Auction to Delivery: Fast Resource Exchange and Collaborative Routing with SWAP-and-Route</b>
+				</h5>
+
+				<h6 class="card-subtitle text-muted">
+				  November 6, 2025
+				</h6>
+				<br />
+
+				<p class="card-text" align="justify">
+				  I presented our work on SWAP-and-Route at EAAMO Local at the University of Oxford in Oxford, UK.
+				  This research connects combinatorial exchange and collaborative routing to help nonprofits respond more quickly and collectively when emergency needs arise.
+				  I am grateful to coauthors <a href="https://www.linkedin.com/in/ozgekoc" target="_blank">Özge Aygül</a>, <a href="https://arches.wpi.edu/people" target="_blank">Yasutora Ito</a>, and <a href="https://faculty.rpi.edu/jennifer-pazour" target="_blank">Jennifer Pazour</a>, and to the EAAMO community for creating space for rigorous, impact-oriented work.
+				  Many thanks also to <a href="https://www.economics.ox.ac.uk/people/alex-teytelboym" target="_blank">Alex Teytelboym</a> for extending the invitation and <a href="https://www.economics.ox.ac.uk/people/edwin-lock" target="_blank">Edwin Lock</a> for hosting.
+				</p>
+				<a href="https://conference2025.eaamo.org/oxford_event/" target="_blank" class="btn btn-primary">Conference Page</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+	<br>
+
+	<div id="INFORMSAtlanta2025A">
+	  <div class="container">
+		<div class="card">
+		  <div class="row">
+			<div class="col-lg-5 d-flex align-items-center">
+			  <div class="card-header">
+				<img class="card-img-bottom" src="img/INFORMS_Atlanta_2026_ARCHES_cut.jpg" alt="" />
+<!-- 				<img class="card-img-bottom" src="img/INFORMS_Atlanta_2025.png" alt="" /> -->
+			  </div>
+			</div>
+			<div class="col-lg-7">
+			  <div class="card-body">
+				<h5 class="card-title">
+				  <font color="red"><b><u>INFORMS Annual Meeting in Atlanta, Georgia</u></b></font><br>
+				  <b>Always Great to See Colleagues</b>
+				</h5>
+
+				<h6 class="card-subtitle text-muted">
+				  October 25-28, 2025
+				</h6>
+				<br />
+
+				<p class="card-text" align="justify">
+				  I was glad to join colleagues, students, and collaborators at the 2025 INFORMS Annual Meeting in Atlanta.
+				  From methodological advances to high-impact applications, INFORMS continues to be the leading venue where the OR/MS field shows its technical depth and practical reach.
+				  I am grateful for the conversations, the ideas, and the many chances to reconnect with people helping move the discipline forward.
+				</p>
+
+				<a href="https://meetings.informs.org/wordpress/annual2025/" target="_blank" class="btn btn-primary">Meeting Website</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+	<br>
+
+	<div id="CornellCWOS2025A">
+	  <div class="container">
+		<div class="card">
+		  <div class="row">
+			<div class="col-lg-5 d-flex align-items-center">
+			  <div class="card-header">
+				<img class="card-img-bottom" src="img/CWOS_2025.png" alt="" />
+			  </div>
+			</div>
+			<div class="col-lg-7">
+			  <div class="card-body">
+				<h5 class="card-title">
+				  <font color="red"><b><u>Child Welfare Operations Symposium</u></b></font><br>
+				  <b>Hosted at Cornell University</b>
+				</h5>
+
+				<h6 class="card-subtitle text-muted">
+				  October 13, 2025
+				</h6>
+				<br />
+
+				<p class="card-text" align="justify">
+				  It was a pleasure to continue the Child Welfare Operations Symposium at Cornell as part of a growing community of researchers and practitioners in this space.
+				  The symposium brought together people working on how analytics and operations thinking can support child welfare systems facing complex and evolving needs.
+				  I continue to believe this area offers major opportunities for rigorous analytics, intentional system design, and close partnership with practitioners.
+				</p>
+
+				<a href="https://events.cornell.edu/event/child-welfare-symposium" target="_blank" class="btn btn-primary">Event Page</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+    <br>
+
+    <!-- New Paper Accepted at Omega (2025) -->
+    <div id="OmegaCourseScheduling2025">
+      <div class="container">
+        <div class="card">
+          <div class="row">
+            <div class="col-lg-5 d-flex align-items-center">
+              <div class="card-header">
+                <img class="card-img-bottom" src="img/Violation.png" alt="" />
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <font color="red"><b><u>New Paper Appearing at <i>Omega</i></u></b></font><br>
+                  <b>A Predict-and-Prescribe Framework for Dynamic Course Scheduling Toward Strategic University Scaling</b>
+                </h5>
+
+                <h6 class="card-subtitle text-muted">
+                  August 6, 2025
+                </h6>
+                <br />
+
+                <p class="card-text" align="justify">
+                  Our paper <i><a href="https://doi.org/10.1016/j.omega.2025.103406">A Predict-and-Prescribe Framework for Dynamic Course Scheduling Toward Strategic University Scaling</a></i> with 
+                <a href="https://www.linkedin.com/in/ozgekoc" target="_blank">Özge Aygül</a>,
+                <a href="https://www.linkedin.com/in/teodor-hellgren" target="_blank">Teodor Hellgren</a>, and
+                <a href="https://www.linkedin.com/in/shimaazizi" target="_blank">Shima Azizi</a> 
+                now appears at <i>Omega</i>.
+                  This work connects predictive modeling and prescriptive optimization to support strategic, scalable course planning,
+                  while keeping the overall decision process transparent and operationally grounded.
+                </p>
+
+                <a href="https://doi.org/10.1016/j.omega.2025.103406" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <br>
+
+    <!-- New Journal Paper in Journal of Forensic Nursing (2025) -->
+    <div id="ForensicNursingHT2025">
+      <div class="container">
+        <div class="card">
+          <div class="row">
+            <div class="col-lg-5 d-flex align-items-center">
+              <div class="card-header">
+                <img class="card-img-bottom" src="img/Trafficking_HC.png" alt="" />
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <font color="red"><b><u>New Journal Paper at <i>Journal of Forensic Nursing</i></u></b></font><br>
+                  <b>From Data to Action: Responsible Analytics for Tackling Human Trafficking in the Health Care Sector</b>
+                </h5>
+
+                <h6 class="card-subtitle text-muted">
+                  July 1, 2025
+                </h6>
+                <br />
+
+                <p class="card-text" align="justify">
+                  Our paper <i><a href="https://doi.org/10.1097/JFN.0000000000000558">From Data to Action: Responsible Analytics for Tackling Human Trafficking in the Health Care Sector</a></i> with 
+                <a href="https://www.bryant.edu/academics/faculty/dimas-geri-louise" target="_blank">Geri L. Dimas</a>,
+                <a href="https://coe.northeastern.edu/people/maass-kayse/" target="_blank">Kayse L. Maass</a>,
+                <a href="https://www.wpi.edu/people/faculty/rkonrad" target="_blank">Renata A. Konrad</a>, and
+                <a href="https://physiciandirectory.brighamandwomens.org/details/2253/hanni-stoklosa-emergency_medicine-boston" target="_blank">Hanni M. Stoklosa</a>
+                  now appears at <i>Journal of Forensic Nursing</i>.
+                  The paper surveys responsible analytics and discusses practical, decision-relevant ways that data can support efforts
+                  to recognize and respond to trafficking in the health care sector.
+                </p>
+
+                <a href="https://doi.org/10.1097/JFN.0000000000000558" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <br>
+
+    <!-- New Book Chapter (Springer, 2025) -->
+    <div id="ChildWelfareBookChapter2025">
+      <div class="container">
+        <div class="card">
+          <div class="row">
+            <div class="col-lg-5 d-flex align-items-center">
+              <div class="card-header">
+                <img class="card-img-bottom" src="img/ChildrenFC3.png" alt="" />
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <font color="red"><b><u>New Book Chapter (Springer)</u></b></font><br>
+                  <b>Child Welfare Services in the United States: An Operations Research Perspective</b>
+                </h5>
+
+                <h6 class="card-subtitle text-muted">
+                  March 29, 2025
+                </h6>
+                <br />
+
+                <p class="card-text" align="justify">
+                  Our book chapter <i><a href="https://link.springer.com/chapter/10.1007/978-3-031-74994-0_14">Child Welfare Services in the United States: An Operations Research Perspective</a></i> with 
+                <a href="https://business.cornell.edu/faculty-research/faculty/vws8" target="_blank">Vincent W. Slaugh</a>,
+                <a href="https://business.uic.edu/profiles/dierks-ludwig" target="_blank">Ludwig Dierks</a>,
+                <a href="https://scholars.cmu.edu/416-alan-schellerwolf" target="_blank">Alan Scheller-Wolf</a>, and 
+                <a href="https://sites.bc.edu/utku-unver" target="_blank">M. Utku Ünver</a>
+                  appears in a Springer Nature volume on nonprofit operations and supply chain management, edited by the excellent Gemma Berenguer and Milind G. Sohoni.
+                  Our chapter situates child welfare as a domain where optimization, analytics, and intentional system design can strengthen
+                  planning, transparency, and performance measurement.
+                </p>
+
+                <a href="https://link.springer.com/chapter/10.1007/978-3-031-74994-0_14" target="_blank" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="WeixiaoDefense">
+      <div class="container">
+        <div class="card">
+          <div class="row">
+            <div class="col-lg-5 d-flex align-items-center">
+              <div class="card-header">
+                <img class="card-img-bottom" src="img/Weixiao_Huang_PhD.png" alt="" />
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <font color="red"><b><u>Congratulations to Our Newest PhD:</u></b></font> <b>Dr. Weixiao Huang</b>
+                </h5>
+
+                <h6 class="card-subtitle text-muted">
+                  December 9, 2024
+                </h6>
+                <br />
+
+                <p class="card-text" align="justify">
+                  Dr. Weixiao Huang successfully defended her PhD dissertation entitled 
+                  <i>Improving Performance in Decision Making via Preference Learning and Optimization</i>. 
+                  Her research advances decision science by integrating data-driven preference learning with 
+                  optimization techniques, improving real-world systems across multiple domains. Many thanks to Weixiao's dissertation committee members
+                  <a href="https://www.wpi.edu/people/faculty/omangoubi" target="_blank">Dr. Oren Mangoubi</a>,
+                  <a href="https://faculty.rpi.edu/jennifer-pazour" target="_blank">Dr. Jennifer A. Pazour</a>, and
+                  <a href="https://www.economics.ox.ac.uk/people/alex-teytelboym" target="_blank">Dr. Alexander Teytelboym</a> 
+                  for their guidance and contributions. Congratulations, Weixiao! We are excited to see your research continue to advance.
+                </p>
+                <a href="https://www.linkedin.com/in/weixiao-olivia-huang-66a878128" target="_blank" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="nonlinear_2SS">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/DEA_Dashboard_2.png" alt="" />
+<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" /> -->
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Manuscript at <i>Socio-Economic Planning Sciences</i></u></b></font><br><b>Performance Evaluation of Child Welfare Departments Using Data Envelopment Analysis: A Comparative Study across US States</b>
+              </h5>
+              <h6 class="card-subtitle text-muted">
+                November 7, 2024
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                Our paper <i>
+              <a href="https://www.sciencedirect.com/science/article/pii/S003801212400301X">
+              Performance Evaluation of Child Welfare Departments Using Data Envelopment Analysis: A Comparative Study across US States</a></i> with 
+                <a href="https://www.linkedin.com/in/sepideh-sedghi-299564220/", target="_blank">
+                Sepideh Sedghi</a>,                
+                <a href="https://www.linkedin.com/in/shimaazizi/", target="_blank">
+                Shima Azizi</a>,                
+                <a href="https://www.linkedin.com/in/katherinecanada/", target="_blank">
+                Katherine Canada</a>, and 
+                <a href="https://pure.qub.ac.uk/en/persons/charles-vincent", target="_blank">
+                Charles Vincent</a> now appears at <i>Socio-Economic Planning Sciences</i>.
+                This study uses Data Envelopment Analysis (DEA) to evaluate how well US child welfare agencies are performing. By analyzing statewide data from the Child and Family Services Review (CFSR) and clustering agencies based on family support policies, we identify best practices. Our results offer guidance for child welfare agencies working to improve safety and stability for children.</p>
+              <a
+                href="https://www.sciencedirect.com/science/article/pii/S003801212400301X", target="_blank"
+                class="btn btn-primary"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="nonlinear_2SS">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/JOGOv3.png" alt="" />
+<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" /> -->
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Manuscript at <i>Journal of Global Optimization</i></u></b></font><br><b>Solving a Class of Two-Stage Stochastic Nonlinear Integer Programs Using Value Functions</b>
+              </h5>
+              <h6 class="card-subtitle text-muted">
+                September 24, 2024
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                Our paper <i>
+              <a href="https://link.springer.com/article/10.1007/s10898-024-01433-w">
+              Solving a Class of Two-Stage Stochastic Nonlinear Integer Programs Using Value Functions</a></i> with 
+                <a href="https://www.ie.tsinghua.edu.cn/eng/info/1017/1324.htm", target="_blank">
+                Junlong Zhang</a>,                
+                and <a href="https://ise.ncsu.edu/people/oyozalti/", target="_blank">
+                Osman Özaltın</a> now appears at the <i>Journal of Global Optimization</i>.
+                This study develops solution methods for two-stage nonconvex integer programs with stochastic right-hand sides. We leverage a level-set characterization of the value function and solve some of the largest stochastic quadratic integer programs to date, including complex assignment and quadratic integer programs. Great to see a first of hopefully many publications with Osman and Junlong!</p>
+              <a
+                href="https://link.springer.com/article/10.1007/s10898-024-01433-w", target="_blank"
+                class="btn btn-primary"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+       <div class="card">
+           <div class="row">
+               <div class="col-lg-5 d-flex align-items-center">
+                   <div class="card-header">
+<!--                        <img class="card-img-bottom" src="img/NSF.png" alt="" /> -->
+                       <img class="card-img-bottom" src="img/Fatemehv2.png" style="max-width: 18rem;" alt="" />
+
+                   </div>
+               </div>
+               <div class="col-lg-7">
+                   <div class="card-body">
+                       <h5 class="card-title">
+                           <font color="red"><b>New NSF INTERN Award!</b></font>
+                       </h5>
+                       <h6 class="card-subtitle text-muted">
+                           August 31, 2024
+                       </h6>
+                       <br />
+                       <p class="card-text" align="justify">
+                           As a supplement to our existing NSF RAPID award, with excellent colleague
+                           <a href="https://www.wpi.edu/people/faculty/sstanlick", target="_blank">
+                           Sarah Stanlick</a> (co-PI), I am proud to announce that ARCHES PhD student 
+                           <a href="https://www.linkedin.com/in/fatemehfrj", target="_blank">
+                           Fatemeh Farajzadeh</a> 
+                           has secured a 6-month NSF INTERN award. In partnership with <a href="https://www.welcomenst.org">WelcomeNST</a>, the largest convener of neighborhood support teams in the US, this award will further support pre-arrival and post-arrival data collection for refugees that have been relocated to the United States through the pathway of humanitarian parole. The original NSF RAPID award is "RAPID: Data Collection for Designing Refugee Matching Systems," <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2233377", target="_blank"> research award CMMI-2233377</a>.</p>
+                       </p>
+                       <a
+                               href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2233377", target="_blank"
+                               class="btn btn-primary"
+                       >Read More</a>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
+
+    <br>
+    <div class="container">
+       <div class="card">
+           <div class="row">
+               <div class="col-lg-5 d-flex align-items-center">
+                   <div class="card-header">
+<!--                        <img class="card-img-bottom" src="img/NSF.png" alt="" /> -->
+                       <img class="card-img-bottom" src="img/NSF.png" style="max-width: 18rem;" alt="" />
+
+                   </div>
+               </div>
+               <div class="col-lg-7">
+                   <div class="card-body">
+                       <h5 class="card-title">
+                           <font color="red"><b>New NSF CIVIC Track B Award!</b></font>
+                       </h5>
+                       <h6 class="card-subtitle text-muted">
+                           August 29, 2024
+                       </h6>
+                       <br />
+                       <p class="card-text" align="justify">
+                           In parallel with our existing NSF award on sharing nonprofit resources through SWAP, I am co-PI on a new NSF CIVIC-PG Track B award led by excellent colleague
+                           <a href="https://www.wpi.edu/people/faculty/sstanlick", target="_blank">
+                           Sarah Stanlick</a> (PI) as well as <a href="https://www.wpi.edu/people/faculty/ydtelliel", target="_blank">Yunus Telliel</a> (co-PI). This work will bring the innovation that is SWAP for facilitating resource sharing among nonprofits to emergency response contexts where urgent needs exist that quickly require addressing. We believe SWAP has great potential in this context. The original NSF RAPID award is "Collaborative Research: FW-HTF-R: Mobilizing Nonprofit Resources and Talents with a Community Tool for Purpose-Driven Work," <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2222713", target="_blank"> research award CMMI-2222713</a>.</p>
+                       </p>
+                       <a
+                               href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2431414", target="_blank"
+                               class="btn btn-primary"
+                       >Read More</a>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
+
+    <br>
+
+    <div id="Sabbatical">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/sabbatical.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b>Sabbatical Has Arrived!</b></font>
+              </h5>
+              <h6 class="card-subtitle text-muted">
+                August 14, 2024
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                I was granted sabbatical for the 2024-2025 academic year. It was effective July 1, 2024 and I've just been having too much fun traveling this past month. I've been keeping active with research and also more time with family and some side work as well. Drop me a line if you'd like to connect! Would love to hear from you.
+                </p>
+<!--               <a -->
+<!--                 href="https://www.wpi.edu/news/wpi-announces-faculty-promotions-and-tenure-awards-4", target="_blank" -->
+<!--                 class="btn btn-primary" -->
+<!--                 >wpi promotion announcements</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="dynamic-refugee-resettlement-cacm">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/cacm_ref.png" alt="" />
+<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" /> -->
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b>Dynamic Placement in Refugee Resettlement</font>, appearing in</b><br><b><i>Research Highlights</i> of the <i>Communications of the ACM</i></b>
+              </h5>
+              <h6 class="card-subtitle text-muted">
+                March 24, 2024
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                A version of our paper <i>
+              <a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.2021.0534">
+              Dynamic Placement in Refugee Resettlement</a></i> with 
+                <a href="https://www.linkedin.com/in/narges-ahani/", target="_blank">
+                Narges Ahani</a>,                
+                <a href="https://paulgoelz.de", target="_blank">
+                Paul Gölz</a>,                
+                <a href="http://procaccia.info", target="_blank">
+                Ariel Procaccia</a>,
+                and <a href="https://www.economics.ox.ac.uk/faculty/alex-teytelboym", target="_blank">
+                Alex Teytelboym</a> was just published in the <i>Research Highlights</i> of the <i>Communications of the ACM</i>.
+                We introduce a dynamic allocation mechanism based on stochastic programming that accounts for the value of future slots of capacity to inform resettlement decisions. The approach recovers over 99% of the hindsight optimal allocation as in <a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.2020.2093"><i>Placement Optimization in Refugee Resettlement</i></a>, and is used by HIAS, a leading American refugee resettlement agency. We are grateful to the National Science Foundation Operations Engineering program for their support (award number <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1825348">1825348</a>).</p>
+                <p>The link to the technical perspective (kindly written by Dr. Daniel Freund) is <a href="https://cacm.acm.org/opinion/technical-perspective-improving-refugees-integration-with-online-resource-allocation", target="_blank">here</a>, and the research paper is <a href="https://cacm.acm.org/research/dynamic-placement-in-refugee-resettlement", target="_blank">here</a>. Enjoy reading!
+                </p>
+              <a
+                href="https://cacm.acm.org/opinion/technical-perspective-improving-refugees-integration-with-online-resource-allocation", target="_blank"
+                class="btn btn-primary"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="Full">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/ACT_2024.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b>I Made Full Professor :)</b></font>
+              </h5>
+              <h6 class="card-subtitle text-muted">
+                February 23, 2024
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                I was promoted to Full Professor at Worcester Polytechnic Institute, effective July 1, 2024. This is a great honor for me, I have been very fortunate to collaborate with so many talented individuals. I am also pursuing sabbatical for the 2024-2025 academic year. Drop me a line if you'd like to connect! Would love to hear from you.
+                </p>
+              <a
+                href="https://www.wpi.edu/news/wpi-announces-faculty-promotions-and-tenure-awards-4", target="_blank"
+                class="btn btn-primary"
+                >WPI Promotion Announcements</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="ORAE">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/ORAE.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b>Associate Editor at <i>Operations Research</i>: Societal Impact</b></font>
+              </h5>
+              <h6 class="card-subtitle text-muted">
+                January 1, 2024
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                It was my honor, and a career highlight, to accept an invitation to join the editorial board of <i>Operations Research</i>, the first elite journal in which I published my 2013 work <a href="https://pubsonline.informs.org/doi/10.1287/opre.1120.1156", target="_blank"><i>On a Level-Set Characterization of the Value Function of an Integer Program and Its Application to Stochastic Programming</i></a> that develops the idea of level-set minimal vectors, leveraging results from integer programming duality, to solve larger two-stage stochastic integer programs. We devised innovative algorithmic ideas including global branch and bound to solve problems orders of magnitude larger than in the literature. Two of my more recent works also appear at OR: <a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.2020.2093", target="_blank"><i>Placement Optimization in Refugee Resettlement</i></a> and <a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.2021.0534", target="_blank"><i>Dynamic Placement in Refugee Resettlement</i></a>. I invite those interested to consider submitting to the new Societal Impact area that emphasizes papers on significant societal decisions, advocating for innovative, data-driven analyses in fields like health care and sustainability, and valuing collaborations beyond the OR community to generate impactful insights.
+                </p>
+              <a
+                href="https://pubsonline.informs.org/page/opre/editorial-board", target="_blank"
+                class="btn btn-primary"
+                >View Editorial Board</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="CWOS">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/CWOS.jpeg" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b>Child Welfare Operations Symposium at Cornell University</b></font>
+              </h5>
+              <h6 class="card-subtitle text-muted">
+                November 9, 2023
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                It was a great honor to co-organize the inaugural Child Welfare Operations Symposium in Ithaca, NY on November 9, 2023. I joined co-organizers
+                <a href="https://business.cornell.edu/faculty-research/faculty/vws8", target="_blank">
+                Dr. Vince Slaugh</a> and 
+                <a href="https://scholars.cmu.edu/416-alan-schellerwolf", target="_blank">
+                Dr. Alan Scheller-Wolf</a>
+                and a host of incredible practitioners at the one-day event. The day was filled with great discussions on the challenges that child welfare practitioners face at the strategic, operational and tactical levels, as well as what academics can offer to improve real-world operations. Here is a <a href="https://www.youtube.com/watch?v=yPEervjBMbQ&t=0s", target="_blank">video</a> of us three co-organizers discussing the results of the symposium, as well as some practitioners commenting on the day's events.</p>
+                </p>
+              <a href="https://www.youtube.com/watch?v=yPEervjBMbQ&t=0s", target="_blank"
+                class="btn btn-primary"
+                >Watch Video</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="swap_eaamo">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/SWAP_Diagram.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b>New Manuscript at <i>ACM EAAMO 2023</i>!</b></font><br><b>SWAP for Optimizing Nonprofit Resource Sharing</b>
+              </h5>
+              <h6 class="card-subtitle text-muted">
+                October 30, 2023
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                I am delighted to share that our latest manuscript on enabling nonprofit organizations to share resources with multilateral combinatorial exchange via our SWAP platform, has been accepted at ACM EAAMO 2023 and invited for oral presentation. Amazing PhD student 
+                <a href="https://www.wpi.edu/people/staff/whuang2", target="_blank">
+                Weixiao Huang</a> and MS student
+                <a href="https://www.linkedin.com/in/elise-deshusses", target="_blank">
+                Elise Deshusses</a>,
+                along with with excellent colleagues
+                <a href="https://faculty.rpi.edu/jennifer-pazour", target="_blank">
+                Jen Pazour</a>,                
+                <a href="https://www.wpi.edu/people/faculty/ydtelliel", target="_blank">
+                Yunus Telliel</a>,                
+                and <a href="https://www.wpi.edu/people/faculty/sstanlick", target="_blank">
+                Sarah Stanlick</a> made this happen. While designing theory and methods is very exciting, just as exciting is the real-world deployment of SWAP to move from competition to sharing and greater collective impact. This is funded through an NSF (FW-HTF) award "Collaborative Research: FW-HTF-R: Mobilizing Nonprofit Resources and Talents with a Community Tool for Purpose-Driven Work," <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2222713", target="_blank"> FW-HTF-2222713</a>.</p>
+                </p>
+              <a
+                href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4531080", target="_blank"
+                class="btn btn-primary"
+                >Download Preprint</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br>
+
+    <div id="RUTHPaper">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/RUTH.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b>New Manuscript at <i>ACM EAAMO 2023</i>!</b></font><br><b>Optimizing Sponsored Humanitarian Parole</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                October 30, 2023
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                  Together with amazing collaborators
+                <a href="https://www.economics.ox.ac.uk/faculty/alex-teytelboym", target="_blank">
+                Alex Teytelboym</a> and
+                WPI Data Science students 
+                <a href="https://www.linkedin.com/in/ryan-killea-6a66a785", target="_blank">
+                Ryan Killea</a> and
+                <a href="https://www.linkedin.com/in/fatemehfrj", target="_blank">
+                Fatemeh Farajzadeh</a>,
+                and in partnership with HIAS, we introduce RUTH: Refugees Uniting Through HIAS. RUTH is a new software platform that, in the context of humanitarian parole with sponsorship, elicits preferences of Ukrainians displaced by the war, and then uses intentionally designed algorithms to recommend welcoming community sponsors throughout the United States that honor the expressed preferences of refugees. This is funded in part through an NSF CMMI award "RAPID: Data Collection for Designing Refugee Matching Systems," <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2233377", target="_blank"> CMMI-2233377</a>.
+                </p>
+              <a
+                href="https://arxiv.org/abs/2310.05983", target="_blank"
+                class="btn btn-primary"
+                >Download preprint</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="dynamic-refugee-resettlement">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Annie.gif" alt="" />
+<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" /> -->
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Manuscript at <i>Operations Research</i></u></b></font><br><b>Dynamic Placement in Refugee Resettlement</b>
+              </h5>
+              <h6 class="card-subtitle text-muted">
+                September 28, 2023
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                Our paper <i>
+              <a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.2021.0534">
+              Dynamic Placement in Refugee Resettlement</a></i> with 
+                <a href="https://www.linkedin.com/in/narges-ahani/", target="_blank">
+                Narges Ahani</a>,                
+                <a href="https://paulgoelz.de", target="_blank">
+                Paul Gölz</a>,                
+                <a href="http://procaccia.info", target="_blank">
+                Ariel Procaccia</a>,
+                and <a href="https://www.economics.ox.ac.uk/faculty/alex-teytelboym", target="_blank">
+                Alex Teytelboym</a> now appears at <i>Operations Research</i>.
+                We introduce a dynamic allocation mechanism based on stochastic programming that accounts for the value of future slots of capacity to inform resettlement decisions. The approach recovers over 99% of the hindsight optimal allocation as in <a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.2020.2093"><i>Placement Optimization in Refugee Resettlement</i></a>, and is used by HIAS, a leading American refugee resettlement agency. We are grateful to the National Science Foundation Operations Engineering program for their support (award number <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1825348">1825348</a>).</p>
+                <p>A link to a preprint is <a href="https://arxiv.org/abs/2105.14388", target="_blank">here</a>. Enjoy reading!
+                </p>
+              <a
+                href="https://pubsonline.informs.org/doi/abs/10.1287/opre.2021.0534", target="_blank"
+                class="btn btn-primary"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="IIAC">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/WorldMapImage_Hero.jpeg" alt="" />
+<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" /> -->
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>Recent Conference</u></b></font> <b>Innovations in Immigration Analytics</b>
+              </h5>
+              <h6 class="card-subtitle text-muted">
+                July 2, 2023
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                On June 2, 2023 WPI hosted the <i>
+              <a href="https://www.wpi.edu/c/iiac">
+              Innovations in Immigration Analytics</a></i> Conference, co-chaired by 
+                <a href="https://www.bryant.edu/academics/faculty/dimas-geri-louise", target="_blank">
+                Geri L. Dimas</a>
+                 and 
+                <a href="https://www.wpi.edu/people/faculty/dreichman", target="_blank">
+                Daniel Reichman</a>. Over 80 persons attended to learn of how advanced analytics, intentionally designed, can positively affect areas of immigration including migration, refugee causes, and asylum.
+                </p>
+              <a
+                href="https://www.wpi.edu/c/iiac", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br>
+
+    <div id="diverse_BB">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/DiversiTree_v2.png" alt="" />
+<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" /> -->
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Manuscript at INFORMS Journal on Computing</u></b></font><br><b>On Efficiently Computing Diverse Sets of Near-Optimal Solutions to Mixed-Integer Optimization Problems</b>
+              </h5>
+              <h6 class="card-subtitle text-muted">
+                June 29, 2023
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                Our paper <i>
+              <a href="https://arxiv.org/abs/2105.14388">
+              DiversiTree: A New Method to Efficiently Compute Diverse Sets of Near-Optimal Solutions to Mixed-Integer Optimization Problems</a></i> with 
+                <a href="https://www.linkedin.com/in/izuwa-ahanor/", target="_blank">
+                Izuwa Ahanor</a>
+                 and 
+                <a href="https://ise.utk.edu/people/hugh-medal/", target="_blank">
+                Hugh Medal</a> has been accepted at <i>INFORMS Journal on Computing</i>.
+                We develop a new method for mixed-integer programs that emphasizes diversity in near-optimal solutions. Compared to existing methods, our approach significantly increases solution set diversity without sacrificing runtime. Our methods can be easily integrated into integer programming solvers to enhance solution diversity.
+                </p>
+              <a
+                href="https://arxiv.org/abs/2204.03822", target="_blank"
+                class="btn btn-primary"
+                >Download Preprint</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br>
+
+
+    <div id="GeriDefense">
+      <div class="container">
+        <div class="card">
+          <div class="row">
+            <div class="col-lg-5 d-flex align-items-center">
+              <div class="card-header">
+                <img class="card-img-bottom" src="img/Geri_Dimas_PhD.png" alt="" />
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="card-body">
+                <h5 class="card-title">
+                    <font color="red"><b><u>Congratulations to Our Newest PhD:</u></b></font><b> Dr. Geri Louise Dimas</b>
+                </h5>
+
+                <h6 class="card-subtitle text-muted">
+                  May 1, 2023
+                </h6>
+                <br />
+                <p class="card-text" align="justify">
+                  Dr. Geri Louise Dimas successfully defended her PhD dissertation entitled 
+                  <i>Data Science for Improving Operations in Organizations that Serve Vulnerable Populations</i>. 
+                  Her research applies advanced data science and operations research techniques to enhance decision-making in critical areas, 
+                  with a particular focus on anti-human trafficking and immigration system analytics. Many thanks to Geri's dissertation committee members
+                  <a href="https://www.wpi.edu/people/faculty/rkonrad" target="_blank">Dr. Renata A. Konrad</a> (Co-Advisor),
+                  <a href="https://www.wpi.edu/people/faculty/dreichman" target="_blank">Dr. Daniel Reichman</a>, and
+                  <a href="https://coe.northeastern.edu/people/maass-kayse" target="_blank">Dr. Kayse Lee Maass</a> for their guidance and contributions. Congratulations, Geri! We are proud of your achievements and excited for the impact your work will have.
+                </p>
+                <a href="https://www.bryant.edu/academics/faculty/dimas-geri-louise" target="_blank" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="IISE_2023_PodCast">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/IISE_Podcast_Badge.png" alt="" />
+<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" /> -->
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Podcast!</u></b></font> <b>IISE OR for Social Good</b>
+              </h5>
+              <h6 class="card-subtitle text-muted">
+                March 30, 2023
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                I had the pleasure of joining 
+                <a href="https://www.clemson.edu/cecas/departments/ie/people/faculty/yongjis.html", target="_blank">
+                Dr. Yongjia Song of Clemson University
+                </a> and 
+                <a href="https://engineering.lehigh.edu/faculty/karmel-shehadeh", target="_blank">
+                Dr. Karmel Shehadeh of Lehigh University
+                </a>                 
+                for a recent IISE OR for Social Good podcast to discuss my work in using operations research and analytics to benefit vulnerable populations. It's a great honor to work with many dedicated and talented collaborators, including amazing students here at Worcester Polytechnic Institute, to advance these causes together, and I am grateful to have the opportunity to amplify their efforts. I hope you get a chance to listen in, and that together we can continue to build a brighter future.</p>
+              <a
+                href="https://open.spotify.com/episode/02JUmBiSHkVfheWem6TZ8d?si=2e5c89dfc63a4958&nd=1", target="_blank"
+                class="btn btn-primary"
+                >Listen!</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br>
+
+    <div id="CNN_Annie">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Ellis_Island_Pic.png" alt="" />
+<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" /> -->
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>CNN</u></b></font>: <b>Irish immigrant Annie Moore first to arrive on Ellis Island</b>
+              </h5>
+              <h6 class="card-subtitle text-muted">
+                March 17, 2023
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                Was proud to see the shout out on our refugee resettlement work on <a href="https://www.cnn.com/2023/03/17/us/irish-history-ellis-island-annie-moore-cec/index.html">CNN</a>! <i>Annie</i>&#8482; MOORE</i> is our refugee resettlement software named after the Irish woman Annie Moore from the late 1800s, who was the first immigrant to arrive on Ellis Island. <i>Annie</i>&#8482; </i> is developed for and used by HIAS, a leading American refugee resettlement agency, to resettle refugees in the United States. Grateful to the National Science Foundation Operations Engineering program for their support (award number <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1825348">1825348</a>).</p>
+              <a
+                href="https://www.cnn.com/2023/03/17/us/irish-history-ellis-island-annie-moore-cec/index.html", target="_blank"
+                class="btn btn-primary"
+                >Read online</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br>
+
+    <div id="PSORYT2023">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/PSORYT2023.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>INFORMS Interview</u></b></font><br><b>Outgoing President of PSOR</b>
+              </h5>
+              <h6 class="card-subtitle text-muted">
+                February 16, 2023
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                INFORMS interviewed me as the outgoing president of the INFORMS PSOR section. As I am passionate about improving outcomes for vulnerable populations and I shared about the wide range of public sector applications at PSOR. From combatting human trafficking to tackling governmental challenges and public health issues, PSOR has many impactful activities in using operations research and analytics for societal benefit.
+                </p>
+              <a
+                href="https://www.youtube.com/watch?v=nagkn3VJCNw", target="_blank"
+                class="btn btn-primary"
+                >Watch Clip</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br>
+
+    <div id="PINLO">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/pinlo.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Manuscript at Optimization Letters</u></b></font><br><b>A Reformulation Technique to Linearize A Class of Polynomial Functions of Bounded Integer Variables</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                January 30, 2023
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                 Congratulations to my outstanding colleague and former student
+                 <a href="https://www.linkedin.com/in/pitchaya-wiratchotisatian", target="_blank">
+                     Pitchaya Wiratchotisatian</a> for her great work on our joint manuscript "A Reformulation Technique to Linearize A Class of Polynomial Functions of Bounded Integer Variables".
+                </a>
+                We present a mathematical reformulation technique that linearizes polynomial functions of integer variables of any degree, and shows through computational experiments that it is effective in solving large integer optimization problems, indicating its potential for real-world applications.
+                <p>A link to a preprint is <a href="https://optimization-online.org/2021/08/8529", target="_blank">here</a>. Enjoy reading!
+                </p>
+              <a
+                href="https://optimization-online.org/2021/08/8529", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="PINLO">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Victim_Origins.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Manuscript at INFORMS Journal on Applied Analytics</u></b></font><br><b>Estimating Effectiveness of Identifying Human Trafficking via Data Envelopment Analysis</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                December 21, 2022
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                 Congratulations to my outstanding colleagues, including
+                 WPI Data Science PhD candidate
+                 <a href="https://www.bryant.edu/academics/faculty/dimas-geri-louise", target="_blank">
+                     Geri L. Dimas</a>,
+                 former WPI Industrial Engineering student
+                 <a href="https://www.linkedin.com/in/malak-el-khalkhali-b0276a1ba/", target="_blank">
+                     Malak El Khalkhali</a>,
+                 former Northeastern Industrial Engineering student
+                 <a href="https://www.linkedin.com/in/alexdavidbender/", target="_blank">
+                     Alex Bender</a>,
+                  Northeastern Assistant Professor
+                 <a href="https://kayse-lee.wixsite.com/kayseleemaass", target="_blank">
+                     Kayse Lee Maass</a>,
+                 WPI Associate Professor
+                 <a href="https://www.renata-konrad.com/", target="_blank">
+                     Renata A. Konrad</a>, domain expert
+                 <a href="https://www.endslaverynow.org/blog/authors/jeff-blom", target="_blank">
+                     Jeff Blom</a>, and
+                 WPI Professor
+                 <a href="https://www.wpi.edu/people/faculty/jzhu", target="_blank">
+                     Joe Zhu</a>
+                on our manuscript "Estimating Effectiveness of Identifying Human Trafficking via Data Envelopment Analysis".
+                </a>
+                The article discusses the first application of data envelopment analysis (DEA) to evaluate the performance of transit monitoring stations at intercepting potential human-trafficking victims along the Nepal-India border, and recommends specific operational improvements based on our evaluation of station performance.
+                <p>A link to a preprint is <a href="https://arxiv.org/abs/2012.07746", target="_blank">here</a>. Enjoy reading!
+                </p>
+              <a
+                href="https://pubsonline.informs.org/doi/epdf/10.1287/inte.2023.1162", target="_blank"
+                class="btn btn-primary"
+                >Read at IJAA</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="HTPerspectives">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/HT_Paper_Trends.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Manuscript at European Journal of Operational Research</u></b></font><br><b>Perspectives on How to Conduct Responsible Anti-Human Trafficking Research in Operations and Analytics</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                December 19, 2022
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                 Congratulations to my outstanding colleagues, including WPI Associate Professor
+                 <a href="https://www.renata-konrad.com/", target="_blank">
+                     Renata A. Konrad</a>, 
+                  joint with Northeastern Assistant Professor
+                 <a href="https://kayse-lee.wixsite.com/kayseleemaass", target="_blank">
+                     Kayse Lee Maass</a>, and
+                  WPI Data Science PhD candidate
+                 <a href="https://www.bryant.edu/academics/faculty/dimas-geri-louise", target="_blank">
+                     Geri L. Dimas</a>, on our next manuscript "Perspectives on How to Conduct Responsible Anti-Human Trafficking Research in Operations and Analytics".
+                </a>
+                Here we showcase Operations Research and Analytics can aid in combating human trafficking, with insights divided into three categories: representation of trafficking, survivor and community considerations, and analytics.
+                <p>A link to a preprint is <a href="https://arxiv.org/abs/2006.16445", target="_blank">here</a>. Enjoy reading!
+                </p>
+              <a
+                href="https://arxiv.org/abs/2006.16445", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="RUTHHIAS">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/RUTH.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <b>New Algorithm for Preference-Based Matching for Ukrainian Refugees to US Communities</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                December 15, 2022
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                  Together with amazing collaborators
+                <a href="https://www.economics.ox.ac.uk/faculty/alex-teytelboym", target="_blank">
+                Alex Teytelboym</a> and
+                WPI Data Science students 
+                <a href="https://www.linkedin.com/in/ryan-killea-6a66a785", target="_blank">
+                Ryan Killea</a> and
+                <a href="https://www.linkedin.com/in/fatemehfrj", target="_blank">
+                Fatemeh Farajzadeh</a>,
+                and in partnership with HIAS, we introduce RUTH: Refugees Uniting Through HIAS. RUTH is a new software platform that elicits preferences of Ukrainians displaced by the war, and then uses intentionally designed algorithms to recommend welcoming communities throughout the United States that honor the expressed preferences of refugees. 
+                </p>
+              <a
+                href="https://hias.org/news/how-innovative-algorithm-helps-ukrainian-refugees-find-new-homes", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="NYC">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/NYC_Replications.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Manuscript on arXiv:</u></b></font><br><b>On the Optimization of Benefit to Cost Ratios for Public Sector Decision Making</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                December 8, 2022
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                  We develop a new algorithmic framework for public sector decision making, joint with outstanding WPI undergraduate
+                  <a href="https://fimiller.github.io/", target="_blank">
+                  Frederick "Forrest" Miller</a>, Northeastern IE PhD candidate
+                  <a href="https://yarenbilgekaya.wixsite.com/yarenbilgekaya", target="_blank">
+                  Yaren Kaya</a>, WPI Data Science PhD candidate
+                  <a href="https://www.bryant.edu/academics/faculty/dimas-geri-louise", target="_blank">
+                  Geri L. Dimas</a>, Dr. 
+                  <a href="https://kayse-lee.wixsite.com/kayseleemaass", target="_blank">
+                  Kayse Lee Maass</a>, and Dr. 
+                  <a href="https://www.renata-konrad.com/", target="_blank">
+                  Renata A. Konrad</a>.
+                  Our framework optimizes the benefit to cost ratio of decision problems, exemplified through the challenge of expanding capacity for NYC's runaway and homeless youth shelter system, resulting in optimal marginal deployments of capacity that are both low-cost and efficient, and has potential for use in other public sector challenges.
+                </p>
+              <a
+                href="https://arxiv.org/abs/2212.04534", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="borderOps">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/BorderOps.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Manuscript at Encyclopedia of Optimization</u></b></font><br><b>Optimization for Secure and Humane Border Operations</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                September 30, 2022
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                Way to go,
+                <a href="https://www.wpi.edu/people/doctoral-student/ffarajzadeh", target="_blank">
+                Fatemeh Farajzadeh
+                </a>
+                on our first joint manuscript "Optimization for Secure and Humane Border Operations".
+                </a>
+                Here we explore that large migrant movements worldwide create complex humanitarian crises at national borders, and outline how advanced analytics and optimization techniques can be used to address common operational challenges and improve both security and humanitarian aspects of border operations.
+                <p>A link to a preprint is <a href="https://arxiv.org/abs/2201.10341", target="_blank">here</a>. Enjoy reading!
+                </p>
+              <a
+                href="https://arxiv.org/abs/2201.10341", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="SPC">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/SPC_CDF_Alt2.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Manuscript at IJOC!</u></b></font><br><b>Stability Representations of Many-to-One Matching Problems: An Integer Optimization Approach</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                September 30, 2022
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                Super proud of the hard work and dedication of
+                <a href="https://scholar.google.hu/citations?user=2uCF9GgAAAAJ&hl=hu", target="_blank">
+                Dr. Pitchaya Wiratchotisatian 
+                </a>
+                on her most recent manuscript "Stability Representations of Many-to-One Matching Problems An Integer Optimization Approach", together with sharp colleague
+                <a href="https://www.jmu.edu/cob/faculty/all-faculty/atef-yetka-hoda.shtml", target="_blank">
+                Dr. Hoda Atef Yekta.
+                </a>
+                Here we explore novel representations for stability in solving stable many-to-one matching problems, including the construction of cohorts.
+                <p>A link to a preprint is <a href="http://www.optimization-online.org/DB_HTML/2021/02/8272.html", target="_blank">here</a>, and a link to the INFORMS Journal on Computing version is<a
+                       href="https://pubsonline.informs.org/doi/full/10.1287/ijoc.2022.1237", target="_blank"> here</a>. Enjoy the read!
+                </p>
+              <a
+                href="http://www.optimization-online.org/DB_HTML/2021/02/8272.html", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+       <div class="card">
+           <div class="row">
+               <div class="col-lg-5 d-flex align-items-center">
+                   <div class="card-header">
+                       <img class="card-img-bottom" src="img/Shelter_Access.png" alt="" />
+                   </div>
+               </div>
+               <div class="col-lg-7">
+                   <div class="card-body">
+                       <h5 class="card-title">
+                           <font color="red"><b><u>New Manuscript! IISE Transactions</u></b></font> <br><i>Improving Access to Services for Runaway Youth in New York City</i>
+                       </h5>
+
+                       <h6 class="card-subtitle text-muted">
+                           September 02, 2022
+                       </h6>
+                       <br />
+                       <p class="card-text" align="justify">
+                           A recent <a href="https://www.tandfonline.com/doi/full/10.1080/24725854.2022.2120223", target="_blank">manuscript</a> has been accepted at <b><i>IISE Transactions</i></b> on how to project the collective capacity required by service providers to adequately meet the needs of RHY in NYC.
+                           This project was led from beginning to end by outstanding Northeastern Industrial Engineering PhD candidate
+                           <a href="https://yarenbilgekaya.wixsite.com/yarenbilgekaya", target="_blank">
+                               Yaren Bilge Kaya</a>, and joint with Northeastern Assistant Professor
+                           <a href="https://kayse-lee.wixsite.com/kayseleemaass", target="_blank">
+                               Kayse Lee Maass</a>, WPI Data Science PhD candidate
+                           <a href="https://www.bryant.edu/academics/faculty/dimas-geri-louise", target="_blank">
+                               Geri L. Dimas</a>, WPI Associate Professor
+                           <a href="https://www.renata-konrad.com/", target="_blank">
+                               Renata A. Konrad</a>, and NYU Research Professor
+                           <a href="https://www.linkedin.com/in/meredith-dank-33771a2b/", target="_blank">
+                               Meredith Dank</a>.</p>
+                       <p>A link to a preprint is <a href="https://arxiv.org/abs/2202.00138", target="_blank">here</a>, and a link to the IISE Transactions version is<a
+                               href="https://www.tandfonline.com/doi/full/10.1080/24725854.2022.2120223", target="_blank"> here</a>.
+                       </p>
+                       <a
+                               href="https://arxiv.org/abs/2202.00138", target="_blank"
+                               class="btn btn-primary"
+                       >Read Preprint</a
+                       >
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
+    
+    
+    <br>
+
+    <div class="container">
+       <div class="card">
+           <div class="row">
+               <div class="col-lg-5 d-flex align-items-center">
+                   <div class="card-header">
+<!--                        <img class="card-img-bottom" src="img/NSF.png" alt="" /> -->
+                       <img class="card-img-bottom" src="img/NSF.png" style="max-width: 18rem;" alt="" />
+
+                   </div>
+               </div>
+               <div class="col-lg-7">
+                   <div class="card-body">
+                       <h5 class="card-title">
+                           <font color="red"><b>New NSF RAPID Award!</b></font>
+                       </h5>
+                       <h6 class="card-subtitle text-muted">
+                           August 31, 2022
+                       </h6>
+                       <br />
+                       <p class="card-text" align="justify">
+                           I am PI on a new NSF RAPID award, with excellent colleague
+                           <a href="https://www.wpi.edu/people/faculty/sstanlick", target="_blank">
+                           Sarah Stanlick</a> (co-PI). This award will support pre-arrival and post-arrival data collection for refugees that have been relocated to the United States through the pathway of humanitarian parole. There is great potential for this data to inform context-appropriate matching systems to better serve needs. This is NSF RAPID award "RAPID: Data Collection for Designing Refugee Matching Systems," <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2233377", target="_blank"> research award CMMI-2233377</a>.</p>
+                       </p>
+                       <a
+                               href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2233377", target="_blank"
+                               class="btn btn-primary"
+                       >Read More</a>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+       <div class="card">
+           <div class="row">
+               <div class="col-lg-5 d-flex align-items-center">
+                   <div class="card-header">
+                       <img class="card-img-bottom" src="img/Combat_HT.png" alt="" />
+                   </div>
+               </div>
+               <div class="col-lg-7">
+                   <div class="card-body">
+                       <h5 class="card-title">
+                           <font color="red"><b><u>New Manuscript! PLOS One</u></b></font> <br><i>OR and Analytics to Combat Trafficking: Extensive Lit Review</i>
+                       </h5>
+
+                       <h6 class="card-subtitle text-muted">
+                           August 29, 2022
+                       </h6>
+                       <br />
+                       <p class="card-text" align="justify">
+                          A recent <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0273708", target="_blank">manuscript</a> has been accepted at <b><i>PLOS One</i></b> that classifies the body of Operations Research and Analytics research related to the anti-human trafficking domain. It was led from start to finish by amazing WPI Data Science PhD candidate
+                          <a href="https://www.bryant.edu/academics/faculty/dimas-geri-louise", target="_blank">
+                          Geri L. Dimas</a>, and joint with WPI Associate Professor
+                          <a href="https://www.renata-konrad.com/", target="_blank">
+                          Renata A. Konrad</a>, and Northeastern Assistant Professor
+                          <a href="https://kayse-lee.wixsite.com/kayseleemaass", target="_blank">
+                          Kayse Lee Maass</a>. We are grateful to the thoughtful comments of the editorial team that improved the paper, as well as National Science Foundation Operations Engineering program for their support of this research (award number <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1841893">1841893</a> and<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1935602">1935602</a>).</p>
+                       <p>A link to a preprint is <a href="https://arxiv.org/abs/2103.16476", target="_blank">here</a>, and a link to the PLOS One version is<a
+                               href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0273708", target="_blank"> here</a>.
+                       </p>
+                       <a
+                               href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0273708", target="_blank"
+                               class="btn btn-primary"
+                       >Read full version</a
+                       >
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
+
+    <br>
+
+    <div id="swap_nsf">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/SWAP_Logo.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b>New NSF Award!</b></font> <i>Nonprofit Resource Sharing</i>
+              </h5>
+              <h6 class="card-subtitle text-muted">
+                August 11, 2022
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                I am PI on a new NSF Future of Work award! We will use combinatorial optimization to exchange resources among participating nonprofit organizations to maximize total surplus value. This is with excellent colleagues:
+                <a href="https://faculty.rpi.edu/jennifer-pazour", target="_blank">
+                Jen Pazour</a> (PI, RPI),                
+                <a href="https://www.wpi.edu/people/faculty/ydtelliel", target="_blank">
+                Yunus Telliel</a> (co-PI),                
+                and <a href="https://www.wpi.edu/people/faculty/sstanlick", target="_blank">
+                Sarah Stanlick</a> (co-PI). This award is my largest thus far and lasts four years. While the anticipated theoretical and methodological contributions are exciting, just as exciting is the expected shaping of the nonprofit ecosystems to move from competing to sharing and empowering. This is NSF (FW-HTF) award "Collaborative Research: FW-HTF-R: Mobilizing Nonprofit Resources and Talents with a Community Tool for Purpose-Driven Work," <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2222713", target="_blank"> award FW-HTF-2222713</a>.</p>
+                </p>
+              <a
+                href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2222713", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br>
+
+    <div id="ShimaDefense">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/ShimaDefense.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>Newly Minted PhD:</u></b></font><br><b>Introducing Dr. Shima Azizi</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                May 3, 2022
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                Dr. Shima Azizi successfully defended her PhD dissertation entitled <i>Mixed Integer Linear and Nonlinear Optimization for Disadvantaged Populations with Accents of Fairness and Balance</i> focusing on the application of advanced integer linear and nonlinear optimization to improve outcomes for disadvantaged populations such as high needs emergency room utilizers, refugees, and foster care children. Many thanks to Shima's committee members 
+                <a href="https://www.wpi.edu/people/faculty/rkonrad", target="_blank">
+                Dr. Renata Konrad</a>, 
+                <a href="https://www.wpi.edu/people/faculty/sharon", target="_blank">
+                Dr. Sharon Johnson</a>, and 
+                <a href="https://www.ozyegin.edu.tr/en/faculty/erhunkundakcioglu", target="_blank">
+                Dr. Erhun Kundakcıoğlu</a> 
+                for their consideration and contributions.
+                Congrats, Shima! We are very glad that you have had a successful conclusion of this chapter of your career. We from the WPI community wish you the very best in your next steps! You have a bright future ahead of you.                
+                </p>
+              <a
+                href="https://www.wpi.edu/people/doctoral-student/sazizi#profile-doctoral_profile", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="NargesDefense">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/NargesDefense2.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>Newly Minted PhD:</u></b></font><br><b>Introducing Dr. Narges Ahani</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                April 29, 2022
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                Dr. Narges Ahani successfully defended her PhD dissertation entitled <i>Analytics for Refugee Resettlement</i> and focusing on the application of advanced analytics, including machine learning and integer optimization, to improve refugee outcomes. We are grateful for committee members 
+                <a href="https://www.wpi.edu/people/faculty/rcpaffenroth", target="_blank">
+                Dr. Randy Paffenroth</a>, 
+                <a href="https://www.ise.ncsu.edu/people/oyozalti/", target="_blank">
+                Dr. Osman Özaltın</a>, and 
+                <a href="https://www.economics.ox.ac.uk/people/alex-teytelboym", target="_blank">
+                Dr. Alexander Teytelboym</a> 
+                for their time and energy. We also thank the National Science Foundation (NSF) (Operations Engineering) grant 
+                <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1825348", target="_blank">
+                CMMI-1825348</a>, 
+                and others for supporting Narges on her journey.
+                Congrats, Narges! We wish you well on the next chapter of your career! You have a bright and impactful career ahead.
+                </p>
+              <a
+                href="https://www.wpi.edu/people/doctoral-student/nahani", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="INFORMSAudioInterviewRefugees">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/informs_logo.png" alt="" />
+<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" /> -->
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New INFORMS Audio Interview on YouTube</u></b></font><br><b>My Thoughts on the Ukrainian Refugee Crisis</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                April 25, 2022
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                I was interviewed by INFORMS on the Ukrainian refugee crisis. As of late April 2022 there are over 5 millions refugees and 13 million displaced peoples in Ukraine. I shared thoughts on how intentional use of operations research and data science technologies like <i>Annie</i>&#8482; MOORE</i> can help with such crises.
+                </a>
+                </p>
+              <a
+                href="https://www.youtube.com/watch?v=ZD6aOJMmulA", target="_blank"
+                class="btn btn-primary"
+                >Listen!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="DiversityPaper">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/rhy_sim.png" alt="" />
+<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" /> -->
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Manuscript!</u></b></font><br><b>Simulation to Analyze NYC Shelter Capacity</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                April 23, 2022
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                This is a new manuscript with excellent coauthors 
+                <a href="https://www.linkedin.com/in/sophia-mantell/", target="_blank">
+                Sophia Mantell</a>, 
+                <a href="https://www.linkedin.com/in/yarenbilgekaya/", target="_blank">
+                Yaren Bilge Kaya</a>, 
+                <a href="https://coe.northeastern.edu/people/maass-kayse/", target="_blank">
+                Kayse Lee Maass</a>, 
+                <a href="https://www.wpi.edu/people/faculty/rkonrad", target="_blank">
+                Renata Konrad</a>, 
+                <a href="https://www.linkedin.com/in/geri-louise-dimas-551402a3/", target="_blank">
+                Geri L. Dimas</a>, and 
+                <a href="https://marroninstitute.nyu.edu/people/meredith-dank", target="_blank">
+                Meredith Dank</a> 
+                on the use of discrete event simulation to investigate runaway and homeless youth shelters and associated capacity shortages. We consider a realistic shelter setting in New York City and study various capacity interventions to alleviate resource scarcity.
+                </a>
+                </p>
+              <a
+                href="https://arxiv.org/abs/2204.13162", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="DiversityPaper">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/diversitree.png" alt="" />
+<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" /> -->
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Manuscript!</u></b></font><br><b>DiversiTREE for finding diverse near-optima</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                April 8, 2022
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                This is a new manuscript with excellent coauthors 
+                <a href="https://www.linkedin.com/in/izuwa-ahanor/", target="_blank">
+                Izuwa Ahanor</a> 
+                and 
+                <a href="https://ise.utk.edu/people/hugh-medal/", target="_blank">
+                Hugh Medal</a> 
+                from the University of Tennessee, Knoxville. We introduce diversity metrics into the node selection rules of branch-and-bound algorithms to improve the diversity of encountered high-quality solutions. The collected sets of high-quality solutions exhibit higher levels of diversity than comparable approaches.
+                </a>
+                </p>
+              <a
+                href="https://arxiv.org/abs/2204.03822", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="PennStateTalk">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/PSU.png" alt="" />
+<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" /> -->
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b>Recent Talk</b></font><br><b>Penn State University, IME Department Seminar</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                March 29, 2022
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                I had the honor of giving an invited talk at the Industrial and Manufacturing Engineering departmental colloquium this spring at Penn State University. The topic of the talk was on risk-averse refugee resettlement. It was a great visit! Many thanks to 
+                <a href="https://www.ime.psu.edu/department/directory-detail-g.aspx?q=JAV1", target="_blank">
+                Dr. Jose Ventura
+                </a> 
+                and 
+                <a href="https://directory.smeal.psu.edu/sub32", target="_blank">
+                Dr. Saurabh Bansal
+                </a> 
+                for the invitation, and 
+                <a href="https://www.ime.psu.edu/department/directory-detail-g.aspx?q=jtw108", target="_blank">
+                James Wyland
+                </a>
+                for his kind assistance with accommodations.
+                </p>
+              <a
+                href="docs/PSU_Trapp_Talk_March_2022.pdf", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="borderOps">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/BorderOps.png" alt="" />
+<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" /> -->
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Manuscript!</u></b></font><br><b>Optimization for Secure and Humane Border Operations</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                January 26, 2022
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                WPI Data Science PhD student 
+                <a href="https://www.linkedin.com/in/fatemehfrj/", target="_blank">
+                Fatemeh Farajzadeh</a> 
+                and I coauthored this technical report. Tens of millions of individuals experiencing forced migration call for operations research and analytics researchers to attend to optimization challenges along the borderlands of nations. Guided by dual humanitarian and security purposes, in this short review we outline key borderland operations challenges and propose avenues for future research to proactively mitigate such challenges. We are grateful for the support of the <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1825348">
+                National Science Foundation (Operations Engineering) grant CMMI-1825348.
+                </a>
+                </p>
+              <a
+                href="https://arxiv.org/abs/2201.10341", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="hcdss">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Annie.gif" alt="" />
+<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" /> -->
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Manuscript!</u></b></font><br><b>Human-Centric Decision Support Tools: Insights from Real-World Design and Implementation</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                November 10, 2021
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                WPI Data Science PhD student 
+                <a href="https://www.wpi.edu/people/doctoral-student/nahani", target="_blank">
+                Narges Ahani</a> 
+                and I coauthored this technical report on designing human-centric decision support systems, the thinking that underscores the design of <i>Annie</i>&#8482; MOORE</i>, the world's first refugee resettlement software. Our premise: while outstanding technology and knowledge exists to solve real-world decision optimization and analytics challenges, only by having a deep understanding of the problem at hand via mutual trust from the stakeholders, is it possible to develop sustained technological solutions to address real stakeholder needs. Several vignettes are presented with unique insights that highlight how this looks in associated contexts. Special thanks to the
+                <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1825348">
+                National Science Foundation (Operations Engineering) grant CMMI-1825348
+                </a> 
+                for their support.
+                </p>
+              <a
+                href="https://arxiv.org/abs/2111.05796", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="nethope21">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/NetHope21.jpg" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b>Panel Session at NetHope Global Summit 2021</b></font>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                November 8, 2021
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                I am serving as a panelist on Friday November 19 at the (virtual) 
+                <a href="https://www.nethopeglobalsummit.org/", target="_blank">
+                2021 NetHope Global Summit</a> 
+                for a panel session on nonprofits and partnerships in AI and technology. I will speak about our successful partnership with
+                <a href="https://www.hias.org", target="_blank">
+                HIAS</a> 
+                and soon-to-graduate WPI Data Science PhD student
+                <a href="https://www.wpi.edu/people/doctoral-student/nahani", target="_blank">
+                Narges Ahani</a> 
+                on the development of <i>Annie</i>&#8482; MOORE</i>, the world's first refugee resettlement software that uses machine learning and optimization to recommend placements of refugees to communities. I will be joined on the panel by 
+                <a href="https://www.hotosm.org/people/bo-percival/", target="_blank">
+                Bo Percival</a> 
+                from Humanitarian OpenStreetMap and
+                <a href="https://developmentseed.org/team/sajjad-anwar/", target="_blank">
+                Sajjad Anwar</a> 
+                from Development Seed. Many thanks to 
+                <a href="https://www.linkedin.com/in/leilat/", target="_blank">
+                Leila Toplic</a> 
+                at NetHope for organizing this session and to the National Science Foundation (award number <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1825348">1825348</a>) for supporting the associated research.</p>
+              <a
+                href="https://www.nethopeglobalsummit.org/", target="_blank"
+                class="btn btn-primary"
+                >NetHope Global Summit 2021</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div id="psor_21-22">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/PSOROfficers2122.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b>President, INFORMS Public Sector Operations Research (PSOR)</b></font>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                October 27, 2021
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                I am now serving as President for the 
+                <a href="https://connect.informs.org/public-sector-operations-research/home", target="_blank">
+                INFORMS Section on Public Sector Operations Research (PSOR)</a>, 
+                which was announced at the recent PSOR Business Meeting associated with INFORMS Annual Conference. PSOR is the INFORMS subdivision dedicated to, in the words of the INFORMS slogan, "doing good with good OR." It is an honor to serve with these outstanding individuals who each are doing terrific work to elevate operations research and analytics in the public sector.</p>
+              <a
+                href="https://connect.informs.org/public-sector-operations-research/home", target="_blank"
+                class="btn btn-primary"
+                >INFORMS PSOR Home</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <br>
+
+    <div id="pinlo">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/pinlo.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Manuscript!</u></b></font><br><b>A Reformulation Technique to Solve Polynomial Optimization Problems with Separable Objective Functions of Bounded Integer Variables</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                August 2, 2021
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                Excellent PhD student Pitchaya Wiratchotisatian and I recently submitted a manuscript "A Reformulation Technique to Solve Polynomial Optimization Problems with Separable Objective Functions of Bounded Integer Variables." We explore novel reformulations of a class of polynomial integer optimization problems having separable objective functions of bounded integer variables. I particularly like this work due to an algebraic identity we leverage to reformulate polynomial functions of bounded integer variables into integer linear expressions that are amenable to integer optimization solvers. And it works! We demonstrate strong performance on fairly large test instances. Hope you enjoy reading!</p>
+              <a
+                href="http://www.optimization-online.org/DB_HTML/2021/08/8529.html", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+
+    <div id="refugee-aid-allocation">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/RefCamp_Allocation_vs_Supply.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>Accepted: Production and Operations Management</u></b></font> <br><i>Aid Allocation for Camp-Based and Urban Refugees with Uncertain Demand and Replenishments</i>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                June 30, 2021
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                A recent <a href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/poms.13531", target="_blank">manuscript</a> has been accepted at <b><i>Production and Operations Management</i></b> (FT Top 50 Outlet!) on how to efficiently allocate aid to refugee camp systems under uncertainty, coauthored with senior WPI Operations PhD candidate
+                <a href="https://www.wpi.edu/people/doctoral-student/sazizi", target="_blank">
+                Shima Azizi</a>, as well as Ozyegin PhD student
+                <a href="https://www.linkedin.com/in/cem-deniz-caglar-bozkir-2b25541b1/", target="_blank">
+                Cem Deniz Caglar Bozkir, Ozyegin Professor
+                <a href="https://www.ozyegin.edu.tr/en/faculty/erhunkundakcioglu", target="_blank">
+                O. Erhun Kundakcioglu</a>, and Northwestern PhD student
+                <a href="https://www.linkedin.com/in/ali-kaan-kurbanzade-28115a80/", target="_blank">
+                Ali Kaan Kurbanzade</a>. We are grateful to the thoughtful comments of the editorial team that improved the paper, as well as National Science Foundation Operations Engineering program for their support of this research (award number <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1825348">1825348</a>).</p>
+              <p>A link to a preprint is <a href="http://www.optimization-online.org/DB_HTML/2020/05/7779.html", target="_blank">here</a>, as well as the link to the online version at POM <a
+                href="https://onlinelibrary.wiley.com/doi/epdf/10.1111/poms.13531", target="_blank">here</a>.
+              </p>
+              <a
+                href="http://www.optimization-online.org/DB_HTML/2020/05/7779.html", target="_blank"
+                class="btn btn-primary"
+                >Read Preprint</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="commencement-shoutout-2021">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Pres_Leshin_2021.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <b>Refugee Job Placement Research Featured by WPI President Laurie Leshin at 2021 Commencement</b>
+              </h5>
+              <h6 class="card-subtitle text-muted">
+                May 21, 2021
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                It's so rewarding to see the great work of students be recognized! Newly graduated WPI IE senior Johanna (Joey) Whitwell was given a shout out by Worcester Polytechnic Institute President Laurie Leshin at the 2021 commencement ceremony. Joey was featured for her work with me in developing methods to match refugees to safe, stable employment options in Mexico City with amazing social startup <a href="https://www.intrare.ai/en">INTRARE</a>.</p>
+              <a
+                href="https://www.youtube.com/watch?v=8_SUEcawsiA&t=2205s", target="_blank"
+                class="btn btn-primary"
+                >Watch Clip</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br>
+
+    <div id="DOT-talk">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/DOTs.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b>Recent Talk</b></font> | Talk at DOTs Series Now Available
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                April 19, 2021
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                <a href="https://akazachk.github.io/">Aleksandr Kazachkov</a> and <a href="https://ekhalil.com/">Elias Khalil</a> are doing an amazing job of organizing the Discrete Optimization Talks (DOTs) series. There are a number of really great talks in the DOTs series, and I'm honored to be among them! My recent talk on new stability representations for many-to-one matching via integer optimization, which is joint work with great colleagues <a href="https://www.wpi.edu/people/doctoral-student/pwiratchotisatia">Pitchaya Wiratchotisatian</a> and <a href="https://www.jmu.edu/cob/faculty/all-faculty/yekta-hoda-atef.shtml">Hoda Atef-Yekta</a>, is now up at
+                <a href="https://talks.discreteopt.com/past">here</a>, where you can also see all of the previous talks in the series.
+                </p>
+              <a
+                href="https://talks.discreteopt.com/past", target="_blank"
+                class="btn btn-primary"
+                >Link to DOT Talk</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br>
+
+    <div id="psor_20-21">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/PSOR_Officers.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b>President-Elect of the INFORMS Section on Public Sector Operations Research (PSOR)</b></font>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                April 19, 2021
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                I have the honor of serving as President-Elect for the INFORMS Section on Public Sector Operations Research (PSOR). We are the INFORMS subdivision dedicated to, in the words of the INFORMS slogan, "doing good with good OR." Here are
+                <a href="https://twitter.com/phebe_vayanos/status/1369815128850325504">all of this year's officers</a>, with a hat tip to <a href="https://viterbi.usc.edu/directory/faculty/Vayanos/Phebe">Phebe Vayanos</a> who assembled the figure and is serving as the PSOR Communications Officer.</p>
+              <a
+                href="https://twitter.com/phebe_vayanos/status/1369815128850325504", target="_blank"
+                class="btn btn-primary"
+                >PSOR Officers</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br>
+
+    <div id="refugee-resettlement">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/RR_ROC.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b>Available at Operations Research, Articles in Advance:</b></font> <i>Placement Optimization in Refugee Resettlement</i> Paper
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                March 24, 2021
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                Our manuscript <i><a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.2020.2093">Placement Optimization in Refugee Resettlement</a></i> with outstanding colleagues and WPI Data Science PhD student
+                <a href="https://www.wpi.edu/people/doctoral-student/nahani", target="_blank">
+                Narges Ahani</a>,                
+                <a href="https://portal.research.lu.se/portal/en/persons/tommy-andersson(5ea16e8c-c79e-4f87-9865-06617376521f).html", target="_blank">
+                Tommy Andersson</a>,
+                <a href="https://www.alemartinello.com/", target="_blank">
+                Alessandro Martinello</a>,
+                and <a href="https://www.economics.ox.ac.uk/faculty/alex-teytelboym", target="_blank">
+                Alex Teytelboym</a> is now available online at <i>Operations Research</i>. We use analytics, specifically integer optimization and machine learning, to improve refugee resettlement. Our paper includes a case study with the US resettlement agency HIAS where we deploy <i>Annie</i>&#8482; MOORE</i>, the software tool we develop and describe that can sort through vast refugee-host matching possibilities to optimize integration outcomes. We are grateful to the National Science Foundation Operations Engineering program for their support of this research (award number <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1825348">1825348</a>).</p>
+              <a
+                href="https://ideas.repec.org/p/hhs/lunewp/2018_023.html", target="_blank"
+                class="btn btn-primary"
+                >Download Preprint</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br>
+
+    <div id="CDO">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/CDO.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+              Among Chief Data Officer (CDO) Magazine's <br>2021 list of Academic Data Leaders
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                January 5, 2021
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                I recently learned that I am among this year's list of Academic Data Leaders at Chief Data Officer Magazine. Certainly an honor! Thank you, CDO Magazine.</p>
+              <a
+                href="https://www.cdomagazine.tech/cdo_magazine/topics/leadership/cdo-magazine-announces-its-2021-list-of-leading-academic-data-leaders/article_c2d71764-4468-11eb-9c4b-af371efc64f4.html", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="community-paramedicine">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/CP_Plot.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b>On Optimization Online:</b></font> Optimizing Community Paramedicine Service Delivery with Mandatory Visits and Patient Prioritization
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                December 10, 2020
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                Here is a recent <a href="http://www.optimization-online.org/DB_HTML/2020/12/8151.html", target="_blank">technical report</a> posted to Optimization Online on community medicine: how to select, route, and schedule medical workers to visit patients in the community. This research was led by WPI Operations PhD student <a href="https://www.wpi.edu/people/doctoral-student/sazizi", target="_blank">
+                Shima Azizi</a>, in collaboration with <a href="https://www.wpi.edu/people/faculty/bdfaber", target="_blank"> Brenton Faber</a>, <a href="https://www.wpi.edu/people/faculty/sharon", target="_blank"> Sharon Johnson</a>, <a href="https://www.wpi.edu/people/faculty/rkonrad", target="_blank"> Renata Konrad</a>, and myself. This study is the first optimization-based framework for programmatically operating community paramedicine and derives insights into the model's behavior by conducting comprehensive analytical experiments on test instances based on real data. We are grateful to WPI's Healthcare Delivery Institute for their support.</p>
+              <a
+                href="http://www.optimization-online.org/DB_HTML/2020/12/8151.html", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="maritime-container-shipping-coopetition">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Coopetition_CO2_Emissions.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Manuscript</u></b></font><br><b>Maritime Container Shipping: Does Coopetition Improve Cost and Environmental Efficiencies?</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                August 26, 2020
+              </h6>
+              <br />
+                <p class="card-text" align="justify">Recently published paper at Transportation Research Part D with excellent colleagues <a href="https://www.cardiff.ac.uk/people/view/598276-harris-irina", target="_blank">Irina Harris</a> and <a href="https://www.cardiff.ac.uk/people/view/598319-sanchez-rodrigues-vasco", target="_blank">Vasco Sanchez Rodrigues</a> at Cardiff Business School, as well as <a href="https://www.wpi.edu/people/faculty/jsarkis", target="_blank">Joe Sarkis</a> at WPI. We study the effects of coopetition in maritime logistics, specifically container shipping. Using realistic data from two major retailers, we develop a novel integer optimization model that allocates goods to containers, and containers to vessels, in a manner that minimizes both traditional economic costs as well as environmental costs, and provide analyses and insights. We believe our research sets the stage for future investigations.</p>
+              <a
+                href="https://www.sciencedirect.com/science/article/pii/S1361920920306945", target="_blank"
+                class="btn btn-primary"
+                >Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="Responsible-Research-HT-ORandA">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/arxiv4.jpg" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New Manuscript</u></b></font><br><b> Responsible Anti-Human Trafficking Research in Operations And Analytics</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                July 1, 2020
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                A nice <a href="https://arxiv.org/abs/2006.16445">opinion piece</a> about how to conduct responsible anti-human trafficking research in operation and analytics, with excellent colleagues <a href="https://www.wpi.edu/people/faculty/rkonrad", target="_blank">R. A. Konrad</a> and <a href="https://coe.northeastern.edu/people/maass-kayse/", target="_blank">K. Maass</a>. Very grateful for the support of the National Science Foundation Operations Engineering program (award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1841893">1841893</a> and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1935602">1935602</a>).</p>
+              <a
+                href="https://arxiv.org/abs/2006.16445", target="_blank"
+                class="btn btn-primary"
+                >Download from arXiv</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/UNGA.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <b>United Nations Report Mentions Anti-Human Trafficking Work</b>
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                May 26, 2020
+              </h6>
+              <br />
+                <p class="card-text" align="justify">
+                A recent <a href="https://documents-dds-ny.un.org/doc/UNDOC/GEN/G19/226/64/PDF/G1922664.pdf", target="_blank">UN report</a> describes in its "Anti-Slavery Agenda of Tomorrow" section some recent work with <a href="https://coe.northeastern.edu/people/maass-kayse/", target="_blank">K. Maass</a> and <a href="https://www.wpi.edu/people/faculty/rkonrad", target="_blank">R. A. Konrad</a>. It reads <i>Computational analysis may be useful to this end, for example in optimizing resource allocation to ensure maximum social impact</i>. We are grateful for the support of the National Science Foundation Operations Engineering program (award number <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1841893">1841893</a>).</p>
+              <a
+                href="https://documents-dds-ny.un.org/doc/UNDOC/GEN/G19/226/64/PDF/G1922664.pdf", target="_blank"
+                class="btn btn-primary"
+                >Download Report</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+
+
+    <div id="outlier-aware-fixation-detection">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Outlier_Aware_Fixations.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <font color="red"><b><u>New!</u></b></font> Outlier-Aware, Density-Based Gaze Fixation Identification
+              </h5>
+    
+              <h6 class="card-subtitle text-muted">
+                June 30, 2020
+              </h6>
+              <br />
+              <p class="card-text" align="justify">
+              A recently accepted manuscript is now available online at <i>Omega</i>:
+              
+              <a href="https://www.wpi.edu/people/doctoral-student/wliu3", target="_blank">W. Liu</a>, A. C. Trapp, <a href="https://www.wpi.edu/people/faculty/djamasbi", target="_blank">S. Djamasbi</a>, "<a href="https://www.sciencedirect.com/science/article/pii/S0305048320306526?via%3Dihub", target="_blank">Outlier-Aware, Density-Based Gaze Fixation Identification</a>," available online, Omega, 2020.</p>
+                
+              <a
+                href="docs/Preprint_Outlier-Aware,_Density-Based_Gaze_Fixation_Identification.pdf", target="_blank"
+                class="btn btn-primary"
+                >Read Preprint</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="closing-the-loop">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Closing-the-Loopv2.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                Closing the Loop: Forging High Quality Agile Virtual Enterprises in a Reverse Supply Chain via Solution Portfolios
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                Available online May 12, 2020
+              </h6>
+              <br />
+              <p class="card-text" align="justify">
+                A recent manuscript was published and is now available online at JORS:
+              </p>
+              <p>A. C. Trapp, <a href="https://www.wpi.edu/people/faculty/rkonrad", target="_blank">R. A. Konrad</a>, <a href="https://www.wpi.edu/people/faculty/jsarkis", target="_blank">J. Sarkis</a>, <a href="https://www.hartford.edu/directory/barney/zeng-amy.aspx", target="_blank">Amy Z. Zeng</a>, <i><a href="https://www.tandfonline.com/doi/full/10.1080/01605682.2019.1707721", target="_blank">Closing the Loop: Forging High Quality Agile Virtual Enterprises in a Reverse Supply Chain via Solution Portfolios</a></i>, Journal of the Operational Research Society, 2020.
+              </p>
+              <p>A link to a preprint is <a
+                href="docs/Preprint_Closing_the_Loop_-_Forging_High-Quality_Agile_Virtual_Enterprises_in_a_Reverse_Supply_Chain_via_Solution_Portfolios.pdf", target="_blank">here</a>, or download one of 50 free copies from JORS <a
+                href="https://www.tandfonline.com/eprint/RRFCXIMWJ8WKAH5YDADK/full?target=10.1080/01605682.2019.1707721", target="_blank">here</a>.
+              </p>
+              <a
+                href="docs/Preprint_Closing_the_Loop_-_Forging_High-Quality_Agile_Virtual_Enterprises_in_a_Reverse_Supply_Chain_via_Solution_Portfolios.pdf", target="_blank"
+                class="btn btn-primary"
+                >Read Preprint</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/MAP_Convergence.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                On arXiv: New Technical Report on Maximum A-Posteriori (MAP) Clustering via mixed-Integer Nonlinear Optimization
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                April 1, 2020 (No Fooling!)
+              </h6>
+              <br />
+              <p class="card-text" align="justify">
+                Here is a recent preprint joint with excellent coauthors
+                <a href="https://www.math.umass.edu/directory/faculty/patrick-flaherty", target="_blank">
+                Pat Flaherty</a> (UMass Amherst), WPI Data Science PhD student
+                <a href="https://www.wpi.edu/people/doctoral-student/pwiratchotisatia", target="_blank">
+                Pitchaya Wiratchotisatian</a>, UMass Amherst PhD student
+                <a href="https://www.math.umass.edu/directory/graduate-students/ji-ah-lee", target="_blank">
+                Ji Ah Lee</a>, and UMass Amherst PhD student Zhou Tang on solving the maximum a-posteriori (MAP) clustering problem under the Gaussian mixture model. We develop exact approaches to solve this problem using mixed-integer nonlinear optimization techniques.
+              </p>
+              <a
+                href="https://arxiv.org/abs/1911.04285", target="_blank"
+                class="btn btn-primary"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Friends_of_Europe.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                Policy Article at <i>Friends of Europe</i> Think Tank
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                March 26, 2020
+              </h6>
+              <br />
+              <p class="card-text" align="justify">
+                Here is a recent policy article by esteemed colleague <a href="https://portal.research.lu.se/portal/en/persons/tommy-andersson(5ea16e8c-c79e-4f87-9865-06617376521f).html", target="_blank">
+                Tommy Andersson</a> urging the European Union to adopt AI-based matching of refugees to host communities. Tommy is a key collaborator on <i>Annie</i>&#8482; MOORE</i>, our software tool that can sort through vast refugee-host matching possibilities to optimize integration outcomes.
+              </p>
+              <a
+                href="https://www.friendsofeurope.org/insights/can-artificial-intelligence-help-the-eu-to-resettle-refugees/", target="_blank"
+                class="btn btn-primary"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Annie_MOORE_Video.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                <i>Annie</i>&#8482; MOORE Video
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                February 20, 2020
+              </h6>
+              <br />
+              <p class="card-text" align="justify">
+                Here is a short video explaining the highlights of our refugee resettlement software tool <i>Annie</i>&#8482; MOORE</i>. More info at our <a href="https://refugees.ai" target="_blank">refugees.ai</a> website.
+              </p>
+              <a
+                href="https://youtu.be/0zfO6voMK84", target="_blank" class="btn btn-primary"
+                >Watch here!</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/RefCamp.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                Coverage in Forbes Magazine
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                January 16, 2020
+              </h6>
+              <br />
+              <p class="card-text" align="justify">
+                Forbes Magazine recently featured an <a href="https://www.forbes.com/sites/oraclecloud/2020/01/16/autonomous-in-action-self-driving-cars-get-all-the-publicity-but-other-industries-are-already-getting-exceptional-value-from-ai-based-systems/">article</a> with a vignette on joint work with terrific colleagues
+                <a href="https://www.economics.ox.ac.uk/faculty/alex-teytelboym", target="_blank">
+                Alex Teytelboym</a>,
+                <a href="https://www.alemartinello.com/", target="_blank">
+                Alessandro Martinello</a>,
+                <a href="https://portal.research.lu.se/portal/en/persons/tommy-andersson(5ea16e8c-c79e-4f87-9865-06617376521f).html", target="_blank">
+                Tommy Andersson</a>, and WPI Data Science PhD student
+                <a href="https://www.wpi.edu/people/doctoral-student/nahani", target="_blank">
+                Narges Ahani</a>                
+                on using analytics to improve refugee resettlement. We appreciate the attention to detail, as they note that our matching software <i>Annie</i>&#8482; MOORE <i>recommends</i> match outcomes, that can then be fine-tuned by resettlement decision-makers. The associated technical report can be found at this <a href="https://ideas.repec.org/p/hhs/lunewp/2018_023.html">link</a>. We are grateful to the National Science Foundation (NSF), especially the Operations Engineering program, for their support of this research.</p>
+              <a
+                href="https://www.forbes.com/sites/oraclecloud/2020/01/16/autonomous-in-action-self-driving-cars-get-all-the-publicity-but-other-industries-are-already-getting-exceptional-value-from-ai-based-systems/", target="_blank"
+                class="btn btn-primary"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Shima_Picture_Passed_Qual.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                PhD Student Shima Azizi Passes Qualifying Exam!
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                December 13, 2019
+              </h6>
+              <br />
+              <p class="card-text" align="justify">
+                Good news: PhD student <a href="https://www.wpi.edu/people/doctoral-student/sazizi", target="_blank">Shima Azizi</a> passed her qualifier this week! We are all very proud of her hard work on the topic of improving efficiency in community paramedicine. I'm grateful for both committee members, Prof. <a href="https://www.wpi.edu/people/faculty/mjginzberg", target="_blank">Michael Ginzberg</a> and Prof. <a href="https://www.wpi.edu/people/faculty/sharon", target="_blank">Sharon Johnson</a> (pictured), as well as Prof. <a href="https://www.wpi.edu/people/faculty/bdfaber" target="_blank">Brent Faber</a> and Prof. <a href="https://www.wpi.edu/people/faculty/rkonrad", target="_blank">Renata Konrad</a>, for their support.
+              </p>
+              <a
+                href="https://www.linkedin.com/feed/update/urn:li:activity:6611334685400317953/", target="_blank"
+                class="btn btn-primary"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Toronto-Engineering.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                OR Seminar: Placement Optimization in Refugee Resettlement with Andrew C. Trapp
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                November 27, 2019
+              </h6>
+              <br />
+              <p class="card-text" align="justify">
+                I had the privilege of visiting the University of Toronto and speaking in their Operations Research Seminar on refugee resettlement research, joint with colleagues <a
+                href="https://www.wpi.edu/people/doctoral-student/nahani"
+                ,
+                target="_blank"
+                >Narges Ahani</a
+                >, <a
+                href="https://portal.research.lu.se/portal/en/persons/tommy-andersson(5ea16e8c-c79e-4f87-9865-06617376521f).html"
+                ,
+                target="_blank"
+                >Tommy Andersson</a>, 
+                <a href="https://paulgoelz.de"
+                ,
+                target="_blank">Paul G&oumllz</a>, 
+                <a href="https://www.alemartinello.com/" 
+                , 
+                target="_blank"
+                >Alessandro Martinello</a>, 
+                <a href="https://www.csd.cs.cmu.edu/people/faculty/ariel-procaccia"
+                ,
+                target="_blank">Ariel Procaccia</a>, 
+                and <a
+                href="https://www.economics.ox.ac.uk/faculty/alex-teytelboym"
+                ,
+                target="_blank"
+                >Alex Teytelboym</a>. Thanks to <a href="https://www.mie.utoronto.ca/faculty_staff/chan/", target="_blank"> Tim Chan</a> for the invitation!
+                
+              </p>
+              <a
+                href="https://www.engineering.utoronto.ca/event/or-seminar-placement-optimization-in-refugee-resettlement-with-andrew-c-trapp/", target="_blank"
+                class="btn btn-primary"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="asylum-tool">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Podcast.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                  Tool to Recommend Improvements to US Asylum Process
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                November 27, 2019
+              </h6>
+              <br />
+              <audio controls>
+                <source src="Tool.mp3" type="audio/mp3">
+              </audio>
+              <a href="Tool.mp3" download>
+                <i class="fas fa-download"></i>
+              </a>
+              <p class="card-text" align="justify">
+              National Public Radio (90.9 WBUR) had a short feature on my research on using predictive analytics, queueing theory and optimization to improve the asylum process at the US Southern border.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br>
+
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Fabulous-Talk.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                Fabulous Talk on Refugee Resettlement Optimization in Our UMass
+                Amherst INFORMS Speaker Series
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                September 30, 2019
+              </h6>
+              <br />
+              <p class="card-text" align="justify">
+                Had the opportunity to present on placement optimization in
+                refugee resettlement at the INFORMS Speaker Series of the
+                Isenberg School of Management, University of Massachusetts
+                Amherst. This is joint work with
+                <a
+                  href="https://www.economics.ox.ac.uk/faculty/alex-teytelboym"
+                  ,
+                  target="_blank"
+                  >Alex Teytelboym</a
+                >,
+                <a href="https://www.alemartinello.com/" , target="_blank"
+                  >Alessandro Martinello</a
+                >,
+                <a
+                  href="https://portal.research.lu.se/portal/en/persons/tommy-andersson(5ea16e8c-c79e-4f87-9865-06617376521f).html"
+                  ,
+                  target="_blank"
+                  >Tommy Andersson</a
+                >, and
+                <a
+                  href="https://www.wpi.edu/people/doctoral-student/nahani"
+                  ,
+                  target="_blank"
+                  >Narges Ahani</a
+                >.
+              </p>
+              <a
+                href="https://www.linkedin.com/pulse/fabulous-talk-refugee-resettlement-optimization-our-umass-nagurney/", target="_blank"
+                class="btn btn-primary"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br>
+
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Asylum_A_S.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                Lightning Talk at WPI Arts & Sciences Week 2019
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                September 16, 2019
+              </h6>
+              <br />
+              <p class="card-text" align="justify">
+                Here is a short video clip of my lightning talk presentation for the "Global Impact: The Latin American Experience" series at WPI's 2019 Arts & Sciences Week. My talk was entitled: <i>Developing Data-Informed Holding and Judicial Capacity Levels for Asylum Seekers at the Southern Border</i>.
+              </p>
+              <a
+                href="https://www.youtube.com/watch?v=Lg0pSLst7e0", target="_blank"
+                class="btn btn-primary"
+                >Watch here!</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="Conversation-with-President-Laurie-Leshin">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Conversation.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                Andrew Trapp: Conversation with the President
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                September 13, 2019
+              </h6>
+              <br />
+              <p class="card-text" align="justify">
+                Had the privilege of speaking with Laurie Leshin, President of WPI, about the work of my research team and I in improving refugee resettlement matching, as well as matching WPI students to project centers.</p>
+              <a
+                href="https://www.wpi.edu/news/andrew-trapp-conversation-president", target="_blank"
+                class="btn btn-primary"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Research-Grant.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                ISN2: Disrupting Human Trafficking via Needs Matching and Capacity Expansion
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                Jan. 2020 through Dec. 2022
+              </h6>
+              <br />
+              <p class="card-text" align="justify">
+                <a href="https://www.wpi.edu/people/faculty/rkonrad", target="_blank">R. A. Konrad</a> (PI), A. C. Trapp (co-PI), <a href="https://www.urban.org/author/meredith-dank",target="_blank">M. Dank </a>(co-PI), <a href="https://coe.northeastern.edu/people/maass-kayse/", target="_blank">K. Maass </a>(co-PI), NSF (Operations Engineering) award "ISN2: Disrupting Human Trafficking via Needs Matching and Capacity Expansion," <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1935602", target="_blank">Research award CMMI-1935602</a></p>
+              <a
+                href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1935602", target="_blank"
+                class="btn btn-primary"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <br>
+
+    <div id="HT-Shelter-Location">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/Optimizing-Placement-of.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                Optimizing Placement of Residential Shelters for Human Trafficking Survivors
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                Available online August 3, 2019
+              </h6>
+              <br />
+              <p class="card-text" align="justify">
+                <a href="https://kayse-lee.wixsite.com/kayseleemaass", target="_blank">K. Maass</a>, A. C. Trapp, <a href="https://www.wpi.edu/people/faculty/rkonrad", target="_blank">R. A. Konrad</a>, "<a href="https://www.sciencedirect.com/science/article/abs/pii/S0038012119301132", target="_blank">Optimizing Placement of Residential Shelters for Human Trafficking Survivors</a>" accepted for publication, Socio-Economic Planning Sciences, 2019.</p>
+              <a
+                href="docs/Preprint_Optimizing_Placement_of_Residential_Shelters_for_Human_Trafficking_Survivors.pdf", target="_blank"
+                class="btn btn-primary"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<br>
+
+<div class="container">
+  <div class="card">
+    <div class="row">
+      <div class="col-lg-5 d-flex align-items-center">
+        <div class="card-header">
+          <img class="card-img-bottom" src="img/Research-Grant.png" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="card-body">
+          <h5 class="card-title">
+            Matching Problems in Refugee Resettlement
+          </h5>
+
+          <h6 class="card-subtitle text-muted">
+            Aug. 2019 through Aug. 2020
+          </h6>
+          <br />
+          <p class="card-text" align="justify">
+            A. C. Trapp, NSF (Operations Engineering) supplement award to "Matching Problems in Refugee Resettlement," <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1825348", target="_blank">Research award CMMI-1825348</a>: "Extension of Immigration Study to Operational Challenges at the United States Southern Border,"</p>
+          <a
+            href="docs/Preprint_Closing_the_Loop_-_Forging_High-Quality_Agile_Virtual_Enterprises_in_a_Reverse_Supply_Chain_via_Solution_Portfolios.pdf", target="_blank"
+            class="btn btn-primary"
+            >Read More</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="container">
+  <div class="card">
+    <div class="row">
+      <div class="col-lg-5 d-flex align-items-center">
+        <div class="card-header">
+          <img class="card-img-bottom" src="img/A-Global-Optimization.png" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="card-body">
+          <h5 class="card-title">
+            A Global Optimization Algorithm for Sparse Mixed Membership Matrix Factorization
+          </h5>
+
+          <h6 class="card-subtitle text-muted">
+            First online July 09, 2019
+          </h6>
+          <br />
+          <p class="card-text" align="justify">
+            <a href="https://immunogenomics.hms.harvard.edu/people/fan-zhang", target="_blank">F. Zhang</a>, <a href="http://labs.wpi.edu/qci/members/", target="_blank">C. Wang</a>, A. C. Trapp, <a href="https://www.math.umass.edu/directory/faculty/patrick-flaherty", target="_blank">P. Flaherty, <a href="https://rd.springer.com/chapter/10.1007/978-3-030-15310-6_7", target="_blank">A Global Optimization Algorithm for Sparse Mixed Membership Matrix Factorization</a>, New Advances in Statistics and Data Science, ICSA Book Series in Statistics, Springer, pp. 129-156, 2019.</p>
+          <a
+            href="https://rd.springer.com/chapter/10.1007/978-3-030-15310-6_7", target="_blank"
+            class="btn btn-primary"
+            >Read More</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+
+    <div id="METU-Refugee-Talk">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-5 d-flex align-items-center">
+            <div class="card-header">
+              <img class="card-img-bottom" src="img/METU2.png" alt="" />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body">
+              <h5 class="card-title">
+                METU Seminar: Placement Optimization in Refugee Resettlement by Andrew C. Trapp
+              </h5>
+
+              <h6 class="card-subtitle text-muted">
+                May 24, 2019
+              </h6>
+              <br />
+              <p class="card-text" align="justify">
+                I had the privilege of visiting Middle Eastern Technical University (METU) and giving a seminar to their IE group on refugee resettlement research, joint with colleagues
+                
+                <a href="https://www.wpi.edu/people/doctoral-student/nahani", target="_blank">
+                Narges Ahani</a>, 
+                <ahref="https://www.economics.ox.ac.uk/faculty/alex-teytelboym", target="_blank">
+                Alex Teytelboym</a>, 
+                <a href="https://portal.research.lu.se/portal/en/persons/tommy-andersson(5ea16e8c-c79e-4f87-9865-06617376521f).html", target="_blank">
+                Tommy Andersson</a>, and
+                <a href="https://www.alemartinello.com/", target="_blank">
+                Alessandro Martinello</a>. Thanks to <a href="https://ie.metu.edu.tr/en/sakine-batun-assist-prof-dr", target="_blank"> Sakine Batun</a> for the invitation!
+              </p>
+              <a
+                href="http://ie.metu.edu.tr/en/announcement/seminar-may-24-2019", target="_blank"
+                class="btn btn-primary"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+
+<div id="The-Atlantic-Refugee-Resettlement">
+<div class="container">
+  <div class="card">
+    <div class="row">
+      <div class="col-lg-5 d-flex align-items-center">
+        <div class="card-header">
+          <img class="card-img-bottom" src="img/How-Technology-Could.png" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="card-body">
+          <h5 class="card-title">
+            How Technology Could Revolutionize Refugee Resettlement
+          </h5>
+
+          <h6 class="card-subtitle text-muted">
+            April 26, 2019
+          </h6>
+          <br />
+          <p class="card-text" align="justify">
+            The Atlantic covered our research on using integer optimization and machine learning to improve refugee resettlement</p>
+          <a
+            href="https://www.theatlantic.com/international/archive/2019/04/how-technology-could-revolutionize-refugee-resettlement/587383/", target="_blank"
+            class="btn btn-primary"
+            >Read More</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+<div class="container">
+  <div class="card">
+    <div class="row">
+      <div class="col-lg-5 d-flex align-items-center">
+        <div class="card-header">
+          <img class="card-img-bottom" src="img/Research-Grant.png" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="card-body">
+          <h5 class="card-title">
+            EAGER: ISN: A Data Analytic Approach to Understanding Human Trafficking Networks
+          </h5>
+
+          <h6 class="card-subtitle text-muted">
+            Aug. 2018 through Aug. 2019
+          </h6>
+          <br />
+          <p class="card-text" align="justify">
+            <a href="https://www.wpi.edu/people/faculty/rkonrad", target="_blank">R. A. Konrad</a> (PI), A. C. Trapp (co-PI), M. Dank (co-PI), <a href="https://coe.northeastern.edu/people/maass-kayse/", target="_blank">K. Maass</a> (co-PI), NSF (Operations Engineering) award "EAGER: ISN: A Data Analytic Approach to Understanding Human Trafficking Networks," <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1841893", target="_blank">Research award CMMI-1841893</a></p>
+          <a
+            href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1841893", target="_blank"
+            class="btn btn-primary"
+            >Read More</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+<div class="container">
+  <div class="card">
+    <div class="row">
+      <div class="col-lg-5 d-flex align-items-center">
+        <div class="card-header">
+          <img class="card-img-bottom" src="img/Enriching-Solutions-to.png" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="card-body">
+          <h5 class="card-title">
+            Enriching Solutions to Combinatorial Problems via Solution Engineering
+          </h5>
+
+          <h6 class="card-subtitle text-muted">
+            2019
+          </h6>
+          <br />
+          <p class="card-text" align="justify">
+            <a href="https://scholar.google.fr/citations?user=aFQ2gLMAAAAJ&hl=en", target="_blank">T. Petit</a>, A. C. Trapp, "<a href="https://pubsonline.informs.org/doi/abs/10.1287/ijoc.2018.0855", target="_blank">Enriching Solutions to Combinatorial Problems via Solution Engineering</a>" published online, INFORMS Journal on Computing, 2019</p>
+          <a
+            href="https://pubsonline.informs.org/doi/abs/10.1287/ijoc.2018.0855", target="_blank"
+            class="btn btn-primary"
+            >Read More</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+<div id="FID-opt">
+<div class="container">
+  <div class="card">
+    <div class="row">
+      <div class="col-lg-5 d-flex align-items-center">
+        <div class="card-header">
+          <img class="card-img-bottom" src="img/Identifying-Fixations-in.png" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="card-body">
+          <h5 class="card-title">
+            Identifying Fixations in Gaze Data via Inner-Density and Optimization
+          </h5>
+
+          <h6 class="card-subtitle text-muted">
+            April 26, 2019
+          </h6>
+          <br />
+          <p class="card-text" align="justify">
+            A. C. Trapp, <a href="https://www.wpi.edu/people/doctoral-student/wliu3", target="_blank">W. Liu</a>, <a href="https://www.wpi.edu/people/faculty/djamasbi", target="_blank">S. Djamasbi</a>, "<a href="https://pubsonline.informs.org/doi/abs/10.1287/ijoc.2018.0859", target="_blank">Identifying Fixations in Gaze Data via Inner-Density and Optimization</a>" published online, INFORMS Journal on Computing, 2019.</p>
+          <a
+            href="docs/Identifying_Fixations_in_Gaze_Data_via_Inner-Density_and_Optimization.pdf", target="_blank"
+            class="btn btn-primary"
+            >Read More</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+<div class="container">
+  <div class="card">
+    <div class="row">
+      <div class="col-lg-5 d-flex align-items-center">
+        <div class="card-header">
+          <img class="card-img-bottom" src="img/Detecting-Task-Demand.png" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="card-body">
+          <h5 class="card-title">
+            Detecting Task Demand via an Eye Tracking Machine Learning System
+          </h5>
+
+          <h6 class="card-subtitle text-muted">
+            Decision Support Systems Volume 116,January 2019, Pages 91-101
+          </h6>
+          <br />
+          <p class="card-text" align="justify">
+            <a href="https://www.wpi.edu/people/doctoral-student/minashojaei", target="_blank">M. Shojaiezadeh</a>, <a href="https://www.wpi.edu/people/faculty/djamasbi", target="_blank">S. Djamasbi</a>, <a href="https://users.wpi.edu/~rcpaffenroth/index.html", target="_blank"> R. Paffenroth</a>, A. C. Trapp, "<a href="https://www.sciencedirect.com/science/article/pii/S0167923618301696", target="_blank">Detecting Task Demand via an Eye Tracking Machine Learning System</a>" Decision Support Systems, Vol. 116, pp. 91-101, 2019.</p>
+          <a
+            href="docs/Preprint_Detecting_Task_Demand_via_an_Eye_Tracking_Machine_Learning_System.pdf", target="_blank"
+            class="btn btn-primary"
+            >Read More</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+<div class="container">
+  <div class="card">
+    <div class="row">
+      <div class="col-lg-5 d-flex align-items-center">
+        <div class="card-header">
+          <img class="card-img-bottom" src="img/Refugee-Resettlement-via.png" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="card-body">
+          <h5 class="card-title">
+            Refugee Resettlement via Machine Learning and Integer Optimization
+          </h5>
+
+          <h6 class="card-subtitle text-muted">
+            Keynote Presentation and Paper for OR60 Annual Conference, Lancaster, UK, 2018
+          </h6>
+          <br />
+          <p class="card-text" align="justify">
+            A. C. Trapp, <a href="https://www.economics.ox.ac.uk/faculty/alex-teytelboym", target="_blank">A. Teytelboym</a>, <a href="https://www.wpi.edu/people/doctoral-student/nahani", target="_blank">N. Ahani</a>, <a href="https://portal.research.lu.se/portal/en/persons/tommy-andersson(5ea16e8c-c79e-4f87-9865-06617376521f).html", target="_blank">T. Andersson</a>, "Refugee Resettlement via Machine Learning and Integer Optimization," Keynote Presentation and Paper for OR60 Annual Conference, Lancaster, UK, 2018.</p>
+          <a
+            href="https://www.theorsociety.com/media/3848/keynote-papers-or60-2018-final_19082018160138.pdf", target="_blank"
+            class="btn btn-primary"
+            >Read More</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+
+<div id="Combatting-HT-OR-Analytics">
+<div class="container">
+  <div class="card">
+    <div class="row">
+      <div class="col-lg-5 d-flex align-items-center">
+        <div class="card-header">
+          <img class="card-img-bottom" src="img/Overcoming-human-trafficking.png" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="card-body">
+          <h5 class="card-title">
+            Overcoming human trafficking via operations research and analytics: Opportunities for methods, models, and applications
+          </h5>
+
+          <h6 class="card-subtitle text-muted">
+            European Journal of Operational Research Volume 259, Issue 2, 1 June 2017, Pages 733-745
+          </h6>
+          <br />
+          <p class="card-text" align="justify">
+            <a href="https://www.wpi.edu/people/faculty/rkonrad", target="_blank">R. A. Konrad</a>, A. C. Trapp, <a href="http://www.newhaven.edu/Faculty-Staff-Profiles/Timothy-Palmbach/", target="_blank">T. Palmbach</a>, J. S. Blom, "<a href="https://www.sciencedirect.com/science/article/abs/pii/S0377221716308992", target="_blank">Overcoming Human Trafficking via Operations Research and Analytics: Opportunities for Methods, Models, and Applications</a>," European Journal of Operational Research, Vol. 259 (2), pp. 733-745, 2017. </p>
+            <h5>Derivative works of the above article include:</h5>
+            <ul>
+              <li>
+                Data Science Can Help Us Fight Human Trafficking, <a href="https://theconversation.com/data-science-can-help-us-fight-human-trafficking-81647", target="_blank">The Conversation</a>, <a href="https://www.scientificamerican.com/article/data-science-can-help-us-fight-human-trafficking/", target="_blank">Scientific American</a>, <a href="http://www.pbs.org/newshour/rundown/data-science-can-help-us-fight-human-trafficking/", target="_blank">PBS Newshour</a>
+              </li>
+              <li>
+                Human Trafficking Analysis, <a href="https://www.informs.org/ORMS-Today/Public-Articles/April-Volume-44-Number-2/Human-trafficking-analysis", target="_blank">Informs.org</a>
+              </li>
+            </ul>
+            <a
+            href="docs/Preprint_Overcoming_Human_Trafficking_via_Operations_Research_and_Analytics_Opportunities_for_Methods_Models_and_Applications.pdf", target="_blank"
+            class="btn btn-primary"
+            >Read More</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+
+  </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+          © 2026 Copyright:
+          <a href="index.html"> Andrew C. Trapp</a>
+        </div>
+      </footer>
+      <div class="text-center">
+          Created By:
+          <a href="https://www.minkunliu.com">Minkun Liu</a>
+      </div>
+    </div>
+
+    <!--JavaScript CDN-->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $('body').scrollspy({target:'#main-nav'});
+
+      //Add smooth scrolling
+      $('main-nav a').on('click',function(e){
+         //Check for a hash value
+         if(this.hash !=='') {
+            //Prevent default behavior
+            e.preventDefault();
+
+            //Store hash
+            const hash = this.hash;
+
+            //Animate smooth scroll
+            $('html, body').animate({
+              scrollTop:$(hash).offset().top
+            },900, function(){
+              //Add hash to URL after scroll
+              window.location.hash = hash;
+            });
+         }
+      });
+    </script>
+<!-- <!--Start of StatCounter Code for Default Guide--> -->
+<!-- <script type="text/javascript"> -->
+<!--   var sc_project=7139907;  -->
+<!--   var sc_invisible=1;  -->
+<!--   var sc_security="48ef0ec4";  -->
+<!--   </script> -->
+<!--   <script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script> -->
+<!-- <!--End of StatCounter Code for Default Guide--> -->
+
+<!-- Default Statcounter code for WPI Personal website
+http://users.wpi.edu/~atrapp/index.htm -->
+<!-- Default Statcounter code for WPI Personal website
+http://users.wpi.edu/~atrapp/index.htm -->
+<script type="text/javascript">
+var sc_project=7139907; 
+var sc_invisible=1; 
+var sc_security="48ef0ec4"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - Statcounter" href="https://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/7139907/0/48ef0ec4/1/"
+alt="Web Analytics Made Easy - Statcounter"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+
+  </body>
+</html>
