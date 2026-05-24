@@ -115,14 +115,14 @@
         text-decoration: underline;
       }
       /* === Alternating mirror layout (every other card flipped) === */
-      #recent-accomplishments .mirror-card .card > .row {
+      #recent-accomplishments .card.card-mirror > .row {
         flex-direction: row-reverse;
       }
-      /* === Archive divider and toggle button (cutoff: cards before Jan 2025) === */
+      /* === Archive divider (shown once, above first year-toggle) === */
       .archive-divider {
         position: relative;
         text-align: center;
-        margin: 48px auto 0;
+        margin: 48px auto 24px;
         max-width: 600px;
       }
       .archive-divider hr {
@@ -143,34 +143,53 @@
         letter-spacing: 0.08em;
         font-weight: 600;
       }
-      .archive-toggle-wrap {
+      /* === Per-year toggle (one per year of archived cards) === */
+      .year-toggle-wrap {
         text-align: center;
-        margin: 28px auto 56px;
+        margin: 18px auto;
       }
-      .archive-toggle-wrap .toggle-meta {
-        display: block;
-        color: #6b7280;
-        font-size: 0.85rem;
-        margin-bottom: 14px;
-      }
-      #show-earlier-btn {
-        padding: 14px 36px;
-        font-size: 1.02rem;
+      .year-toggle {
+        padding: 12px 28px;
+        font-size: 1rem;
         font-weight: 500;
         border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(30, 58, 95, 0.15);
+        box-shadow: 0 1px 4px rgba(0,0,0,0.06);
         transition: all 0.2s;
+        min-width: 280px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
       }
-      #show-earlier-btn:hover {
+      .year-toggle:hover {
         transform: translateY(-1px);
-        box-shadow: 0 4px 14px rgba(30, 58, 95, 0.25);
+        box-shadow: 0 3px 10px rgba(30, 58, 95, 0.15);
       }
-      #show-earlier-btn .fas {
-        margin-right: 8px;
+      .year-toggle .fas {
+        margin-right: 10px;
         transition: transform 0.25s;
+        font-size: 0.85rem;
       }
-      #show-earlier-btn.expanded .fas {
+      .year-toggle.expanded .fas {
         transform: rotate(180deg);
+      }
+      .year-toggle .year-num {
+        font-weight: 700;
+        font-size: 1.05rem;
+        letter-spacing: 0.02em;
+      }
+      .year-toggle .year-count {
+        color: #6b7280;
+        font-weight: 400;
+        margin-left: 6px;
+      }
+      .year-toggle.expanded .year-count {
+        color: #fff;
+        opacity: 0.85;
+      }
+      .year-toggle.expanded {
+        background: #1e3a5f;
+        border-color: #1e3a5f;
+        color: #fff;
       }
       /* === Fade-in animation on revealed cards === */
       @keyframes fadeInUp {
@@ -179,21 +198,6 @@
       }
       .reveal-anim {
         animation: fadeInUp 0.45s ease forwards;
-      }
-      /* === Year markers (inserted between groups of expanded cards) === */
-      .year-marker {
-        margin: 32px auto 14px;
-        text-align: center;
-      }
-      .year-marker-inner {
-        display: inline-block;
-        background: #1e3a5f;
-        color: #fff;
-        padding: 5px 22px;
-        border-radius: 4px;
-        font-size: 0.95rem;
-        font-weight: 600;
-        letter-spacing: 0.06em;
       }
       /* === Floating back-to-top button === */
       #back-to-top {
@@ -3840,129 +3844,113 @@ alt="Web Analytics Made Easy - Statcounter"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
 
-    <!-- Recent Accomplishments enhancements: mirror, cutoff w/ toggle, year markers, lazy-load, back-to-top -->
+    <!-- Recent Accomplishments enhancements: mirror, per-year toggles, lazy-load, back-to-top -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        var CUTOFF_YEAR = 2025;
-        var cards = document.querySelectorAll('#recent-accomplishments > div[id]');
+        var CUTOFF_YEAR = 2024;   // cards with year >= CUTOFF_YEAR are always visible
+        var section = document.getElementById('recent-accomplishments');
+        if (!section) return;
 
-        // 1. Mirror alternating cards
-        cards.forEach(function(card, i) {
-          if (i % 2 === 1) card.classList.add('mirror-card');
+        // 1. Find every card via its card-subtitle (one per card, regardless of wrapper depth)
+        var subtitles = section.querySelectorAll('.card-subtitle');
+        var cards = [];
+        subtitles.forEach(function(sub, i) {
+          var card = sub.closest('.card');
+          if (!card) return;
+          var m = sub.textContent.match(/\b(20\d{2})\b/);
+          var year = m ? parseInt(m[1], 10) : 0;
+          card.dataset.year = year;
+          if (i % 2 === 1) card.classList.add('card-mirror');
+          cards.push(card);
         });
 
-        // 2. Annotate each card with parsed year; hide older ones; lazy-load their images
-        var hiddenCards = [];
-        var hiddenYears = [];
+        // 2. Group archive cards (year < CUTOFF_YEAR) by year
+        var groups = {};   // year -> [cards]
         cards.forEach(function(card) {
-          var sub = card.querySelector('.card-subtitle');
-          if (!sub) return;
-          var m = sub.textContent.match(/\b(20\d{2})\b/);
-          var year = m ? parseInt(m[1], 10) : 9999;
-          card.dataset.year = year;
-          if (year < CUTOFF_YEAR) {
-            card.style.display = 'none';
-            var n = card.nextElementSibling;
-            while (n && n.tagName === 'BR') {
-              n.style.display = 'none';
-              n = n.nextElementSibling;
-            }
-            // Lazy-load images inside hidden cards (no download until expanded)
-            card.querySelectorAll('img').forEach(function(img) {
-              if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
-            });
-            hiddenCards.push(card);
-            hiddenYears.push(year);
+          var year = parseInt(card.dataset.year, 10);
+          if (year > 0 && year < CUTOFF_YEAR) {
+            (groups[year] = groups[year] || []).push(card);
           }
         });
 
-        // 3. Build archive divider + prominent toggle button
-        if (hiddenCards.length > 0) {
-          var earliestYear = Math.min.apply(null, hiddenYears);
-          var latestHiddenYear = Math.max.apply(null, hiddenYears);
-          var rangeLabel = (earliestYear === latestHiddenYear)
-            ? earliestYear
-            : earliestYear + ' – ' + latestHiddenYear;
+        var years = Object.keys(groups).map(Number).sort(function(a, b) { return b - a; }); // newest first
+        if (years.length === 0) return;
+
+        // 3. Hide all archive cards + lazy-load their images
+        years.forEach(function(year) {
+          groups[year].forEach(function(card) {
+            card.style.display = 'none';
+            card.querySelectorAll('img').forEach(function(img) {
+              if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+            });
+          });
+        });
+
+        // Helper: find the topmost ancestor of `card` that is a direct child of `section`
+        function topAncestorIn(card, section) {
+          var n = card;
+          while (n.parentNode && n.parentNode !== section) {
+            n = n.parentNode;
+          }
+          return n.parentNode === section ? n : null;
+        }
+
+        // 4. Insert the Archive divider above the first year-toggle
+        var firstYearFirstCard = groups[years[0]][0];
+        var anchorForDivider = topAncestorIn(firstYearFirstCard, section);
+        if (anchorForDivider) {
+          var divider = document.createElement('div');
+          divider.className = 'container';
+          divider.innerHTML = '<div class="archive-divider"><hr><span class="archive-label">Archive</span></div>';
+          section.insertBefore(divider, anchorForDivider);
+        }
+
+        // 5. For each year, build a toggle button inserted before that year's first wrapper
+        years.forEach(function(year) {
+          var yearCards = groups[year];
+          var firstCard = yearCards[0];
+          var anchor = topAncestorIn(firstCard, section);
 
           var wrap = document.createElement('div');
-          wrap.className = 'container';
-          wrap.id = 'archive-wrap';
+          wrap.className = 'container year-toggle-wrap';
           wrap.innerHTML =
-            '<div class="archive-divider"><hr><span class="archive-label">Archive</span></div>' +
-            '<div class="archive-toggle-wrap">' +
-              '<span class="toggle-meta">' + hiddenCards.length + ' earlier accomplishments from ' + rangeLabel + '</span>' +
-              '<button id="show-earlier-btn" class="btn btn-primary" type="button">' +
-                '<i class="fas fa-chevron-down"></i>Show earlier accomplishments' +
-              '</button>' +
-            '</div>';
-          document.getElementById('recent-accomplishments').appendChild(wrap);
+            '<button class="btn btn-outline-secondary year-toggle" type="button">' +
+              '<i class="fas fa-chevron-down"></i>' +
+              '<span class="year-num">' + year + '</span>' +
+              '<span class="year-count">&nbsp;&middot;&nbsp;' + yearCards.length + ' accomplishment' + (yearCards.length !== 1 ? 's' : '') + '</span>' +
+            '</button>';
 
+          if (anchor) section.insertBefore(wrap, anchor);
+
+          var btn = wrap.querySelector('button');
           var expanded = false;
-          var btn = document.getElementById('show-earlier-btn');
-          var insertedYearMarkers = [];
-
           btn.addEventListener('click', function() {
             expanded = !expanded;
             if (expanded) {
-              // Reveal cards + insert year-group headers between year boundaries
-              var currentYear = null;
-              hiddenCards.forEach(function(c, i) {
-                var year = parseInt(c.dataset.year, 10);
-                if (year !== currentYear) {
-                  var hdr = document.createElement('div');
-                  hdr.className = 'container year-marker';
-                  hdr.innerHTML = '<div class="year-marker-inner">' + year + '</div>';
-                  c.parentNode.insertBefore(hdr, c);
-                  insertedYearMarkers.push(hdr);
-                  currentYear = year;
-                }
+              yearCards.forEach(function(c, i) {
                 c.style.display = '';
                 var delay = Math.min(i, 6) * 40;
                 c.style.animationDelay = delay + 'ms';
                 c.classList.add('reveal-anim');
-                var n = c.nextElementSibling;
-                while (n && n.tagName === 'BR') {
-                  n.style.display = '';
-                  n = n.nextElementSibling;
-                }
               });
               btn.classList.add('expanded');
-              btn.innerHTML = '<i class="fas fa-chevron-down"></i>Hide earlier accomplishments';
-              setTimeout(function() {
-                var firstRevealed = hiddenCards[0];
-                if (firstRevealed) {
-                  var top = firstRevealed.getBoundingClientRect().top + window.pageYOffset - 80;
-                  window.scrollTo({ top: top, behavior: 'smooth' });
-                }
-              }, 50);
             } else {
-              // Hide cards + remove year markers
-              hiddenCards.forEach(function(c) {
+              yearCards.forEach(function(c) {
                 c.style.display = 'none';
                 c.classList.remove('reveal-anim');
                 c.style.animationDelay = '';
-                var n = c.nextElementSibling;
-                while (n && n.tagName === 'BR') {
-                  n.style.display = 'none';
-                  n = n.nextElementSibling;
-                }
               });
-              insertedYearMarkers.forEach(function(m) { m.remove(); });
-              insertedYearMarkers = [];
               btn.classList.remove('expanded');
-              btn.innerHTML = '<i class="fas fa-chevron-down"></i>Show earlier accomplishments';
+              // Scroll back to this toggle so the user keeps their place
               setTimeout(function() {
-                var topEl = document.getElementById('archive-wrap');
-                if (topEl) {
-                  var top = topEl.getBoundingClientRect().top + window.pageYOffset - 80;
-                  window.scrollTo({ top: top, behavior: 'smooth' });
-                }
-              }, 50);
+                var top = btn.getBoundingClientRect().top + window.pageYOffset - 100;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+              }, 30);
             }
           });
-        }
+        });
 
-        // 4. Floating back-to-top button
+        // 6. Floating back-to-top button
         var topBtn = document.createElement('button');
         topBtn.id = 'back-to-top';
         topBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
