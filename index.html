@@ -33,6 +33,197 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.2.0/css/all.css"
     />
 
+    <!-- ====================================================
+         Recent Accomplishments — polished card styling
+         ==================================================== -->
+    <style>
+      /* === Card polish (subtle shadows, hover lift, consistent spacing) === */
+      #recent-accomplishments .card {
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: box-shadow 0.22s ease, transform 0.22s ease;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        background: #fff;
+      }
+      #recent-accomplishments .card:hover {
+        box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+        transform: translateY(-2px);
+      }
+      #recent-accomplishments .card-header {
+        background: transparent;
+        border: 0;
+        padding: 18px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /* Standardize all card images to a consistent visual height */
+      #recent-accomplishments .card-header img,
+      #recent-accomplishments .card-img-bottom,
+      #recent-accomplishments .card-img-top {
+        max-height: 200px;
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
+        margin: 0 auto;
+        display: block;
+      }
+      /* SWAP video thumbnail is wider/cinematic — let it fill */
+      #SWAPVideo2025 .card-header img {
+        max-height: none;
+        width: 100%;
+      }
+      #recent-accomplishments .card-body {
+        padding: 24px 28px;
+      }
+      #recent-accomplishments .card-title {
+        margin-bottom: 6px;
+        line-height: 1.4;
+      }
+      #recent-accomplishments .card-text {
+        line-height: 1.55;
+        color: #374151;
+      }
+      #recent-accomplishments h4 {
+        color: #1e3a5f;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      /* === Date badge (replaces the muted h6 with a pill) === */
+      #recent-accomplishments .card-subtitle {
+        display: inline-block;
+        background: #f3f4f6;
+        color: #4b5563;
+        padding: 5px 14px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        margin-bottom: 12px;
+      }
+      /* === Modernized red accent (replaces deprecated <font color="red">) === */
+      .card-accent {
+        color: #dc2626;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .card-accent-strong {
+        color: #dc2626;
+        font-weight: 700;
+        text-decoration: underline;
+      }
+      /* === Alternating mirror layout (every other card flipped) === */
+      #recent-accomplishments .mirror-card .card > .row {
+        flex-direction: row-reverse;
+      }
+      /* === Archive divider and toggle button (cutoff: cards before Jan 2025) === */
+      .archive-divider {
+        position: relative;
+        text-align: center;
+        margin: 48px auto 0;
+        max-width: 600px;
+      }
+      .archive-divider hr {
+        border: 0;
+        border-top: 1.5px solid #d1d5db;
+        margin: 0;
+      }
+      .archive-divider .archive-label {
+        position: absolute;
+        top: -11px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        padding: 0 18px;
+        color: #6b7280;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 600;
+      }
+      .archive-toggle-wrap {
+        text-align: center;
+        margin: 28px auto 56px;
+      }
+      .archive-toggle-wrap .toggle-meta {
+        display: block;
+        color: #6b7280;
+        font-size: 0.85rem;
+        margin-bottom: 14px;
+      }
+      #show-earlier-btn {
+        padding: 14px 36px;
+        font-size: 1.02rem;
+        font-weight: 500;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(30, 58, 95, 0.15);
+        transition: all 0.2s;
+      }
+      #show-earlier-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 14px rgba(30, 58, 95, 0.25);
+      }
+      #show-earlier-btn .fas {
+        margin-right: 8px;
+        transition: transform 0.25s;
+      }
+      #show-earlier-btn.expanded .fas {
+        transform: rotate(180deg);
+      }
+      /* === Fade-in animation on revealed cards === */
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .reveal-anim {
+        animation: fadeInUp 0.45s ease forwards;
+      }
+      /* === Year markers (inserted between groups of expanded cards) === */
+      .year-marker {
+        margin: 32px auto 14px;
+        text-align: center;
+      }
+      .year-marker-inner {
+        display: inline-block;
+        background: #1e3a5f;
+        color: #fff;
+        padding: 5px 22px;
+        border-radius: 4px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+      }
+      /* === Floating back-to-top button === */
+      #back-to-top {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #1e3a5f;
+        color: #fff;
+        border: 0;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s, transform 0.18s;
+        z-index: 9000;
+        font-size: 1.1rem;
+        cursor: pointer;
+      }
+      #back-to-top.visible {
+        opacity: 0.92;
+        pointer-events: auto;
+      }
+      #back-to-top:hover {
+        opacity: 1;
+        transform: translateY(-3px);
+      }
+    </style>
+
   </head>
   <title>Andrew C. Trapp</title>
 <!--   <link rel="shortcut icon" type="image/jpg" href="Favicon_Image_Location"/> -->
@@ -224,6 +415,46 @@
 
     <br>
 
+	<div id="SWAPVideo2025">
+	  <div class="container">
+		<div class="card">
+		  <div class="row">
+			<div class="col-lg-5 d-flex align-items-center">
+			  <div class="card-header" style="background:transparent;border:0;width:100%;">
+				<a href="https://www.youtube.com/watch?v=gGRO5mWwmH4" target="_blank" style="position:relative;display:block;text-decoration:none;">
+				  <img class="card-img-bottom" src="img/SWAP_promo_thumb.jpg" alt="SWAP - Share With A Purpose promotional video" />
+				  <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:4.5rem;color:rgba(255,255,255,0.95);text-shadow:0 2px 14px rgba(0,0,0,0.7);pointer-events:none;line-height:1;"><i class="fas fa-play-circle"></i></span>
+				</a>
+			  </div>
+			</div>
+			<div class="col-lg-7">
+			  <div class="card-body">
+				<h5 class="card-title">
+				  <span class="card-accent-strong">New Promotional Video for SWAP</span><br>
+				  <b>Share With A Purpose (SWAP) at INFORMS 2025</b>
+				</h5>
+
+				<h6 class="card-subtitle text-muted">
+				  October 2025
+				</h6>
+				<br />
+
+				<p class="card-text" align="justify">
+				  Premiered at INFORMS 2025, this short video introduces <strong>SWAP &mdash; Share With A Purpose</strong>, a research initiative on fast resource exchange and collaborative routing for nonprofits.
+				  SWAP brings analytics and optimization to mission-driven organizations coordinating under tight time horizons.
+				  This work is led by talented students <a href="https://www.linkedin.com/in/ozgekoc" target="_blank">&Ouml;zge Ayg&uuml;l</a> and <a href="https://arches.wpi.edu/people" target="_blank">Yasutora Ito</a>, in collaboration with <a href="https://faculty.rpi.edu/jennifer-pazour" target="_blank">Jennifer Pazour</a>.
+				</p>
+
+				<a href="https://www.youtube.com/watch?v=gGRO5mWwmH4" target="_blank" class="btn btn-primary">Watch the Video</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+	<br>
+
 	<div id="RPIChair2026A">
 	  <div class="container">
 		<div class="card">
@@ -236,7 +467,7 @@
 			<div class="col-lg-7">
 			  <div class="card-body">
 				<h5 class="card-title">
-				  <font color="red"><b><u>New Appointment at RPI</u></b></font><br>
+				  <span class="card-accent-strong">New Appointment at RPI</span><br>
 				  <b>Joining RPI as the Frank and Lillian Gilbreth Endowed Chair in Industrial and Systems Engineering</b>
 				</h5>
 
@@ -273,7 +504,7 @@
 			<div class="col-lg-7">
 			  <div class="card-body">
 				<h5 class="card-title">
-				  <font color="red"><b><u>Recent SWAP-and-Route Webinar at Analytics for a Better World</u></b></font><br>
+				  <span class="card-accent-strong">Recent SWAP-and-Route Webinar at Analytics for a Better World</span><br>
 				  <b>Fast Resource Exchange and Collaborative Routing for NPOs</b>
 				</h5>
 
@@ -311,7 +542,7 @@
 			<div class="col-lg-7">
 			  <div class="card-body">
 				<h5 class="card-title">
-				  <font color="red"><b><u>Return Visit to Pitt</u></b></font><br>
+				  <span class="card-accent-strong">Return Visit to Pitt</span><br>
 				  <b>Sustainability Capstone and Industrial Engineering Seminar</b>
 				</h5>
 
@@ -348,7 +579,7 @@
 			<div class="col-lg-7">
 			  <div class="card-body">
 				<h5 class="card-title">
-				  <font color="red"><b><u>Recent Talk at EAAMO Local | Oxford</u></b></font><br>
+				  <span class="card-accent-strong">Recent Talk at EAAMO Local | Oxford</span><br>
 				  <b>From Auction to Delivery: Fast Resource Exchange and Collaborative Routing with SWAP-and-Route</b>
 				</h5>
 
@@ -386,7 +617,7 @@
 			<div class="col-lg-7">
 			  <div class="card-body">
 				<h5 class="card-title">
-				  <font color="red"><b><u>INFORMS Annual Meeting in Atlanta, Georgia</u></b></font><br>
+				  <span class="card-accent-strong">INFORMS Annual Meeting in Atlanta, Georgia</span><br>
 				  <b>Always Great to See Colleagues</b>
 				</h5>
 
@@ -423,7 +654,7 @@
 			<div class="col-lg-7">
 			  <div class="card-body">
 				<h5 class="card-title">
-				  <font color="red"><b><u>Child Welfare Operations Symposium</u></b></font><br>
+				  <span class="card-accent-strong">Child Welfare Operations Symposium</span><br>
 				  <b>Hosted at Cornell University</b>
 				</h5>
 
@@ -461,7 +692,7 @@
             <div class="col-lg-7">
               <div class="card-body">
                 <h5 class="card-title">
-                  <font color="red"><b><u>New Paper Appearing at <i>Omega</i></u></b></font><br>
+                  <span class="card-accent-strong">New Paper Appearing at <i>Omega</i></span><br>
                   <b>A Predict-and-Prescribe Framework for Dynamic Course Scheduling Toward Strategic University Scaling</b>
                 </h5>
 
@@ -504,7 +735,7 @@
             <div class="col-lg-7">
               <div class="card-body">
                 <h5 class="card-title">
-                  <font color="red"><b><u>New Journal Paper at <i>Journal of Forensic Nursing</i></u></b></font><br>
+                  <span class="card-accent-strong">New Journal Paper at <i>Journal of Forensic Nursing</i></span><br>
                   <b>From Data to Action: Responsible Analytics for Tackling Human Trafficking in the Health Care Sector</b>
                 </h5>
 
@@ -548,7 +779,7 @@
             <div class="col-lg-7">
               <div class="card-body">
                 <h5 class="card-title">
-                  <font color="red"><b><u>New Book Chapter (Springer)</u></b></font><br>
+                  <span class="card-accent-strong">New Book Chapter (Springer)</span><br>
                   <b>Child Welfare Services in the United States: An Operations Research Perspective</b>
                 </h5>
 
@@ -590,7 +821,7 @@
             <div class="col-lg-7">
               <div class="card-body">
                 <h5 class="card-title">
-                  <font color="red"><b><u>Congratulations to Our Newest PhD:</u></b></font> <b>Dr. Weixiao Huang</b>
+                  <span class="card-accent-strong">Congratulations to Our Newest PhD:</span> <b>Dr. Weixiao Huang</b>
                 </h5>
 
                 <h6 class="card-subtitle text-muted">
@@ -631,7 +862,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Manuscript at <i>Socio-Economic Planning Sciences</i></u></b></font><br><b>Performance Evaluation of Child Welfare Departments Using Data Envelopment Analysis: A Comparative Study across US States</b>
+                <span class="card-accent-strong">New Manuscript at <i>Socio-Economic Planning Sciences</i></span><br><b>Performance Evaluation of Child Welfare Departments Using Data Envelopment Analysis: A Comparative Study across US States</b>
               </h5>
               <h6 class="card-subtitle text-muted">
                 November 7, 2024
@@ -676,7 +907,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Manuscript at <i>Journal of Global Optimization</i></u></b></font><br><b>Solving a Class of Two-Stage Stochastic Nonlinear Integer Programs Using Value Functions</b>
+                <span class="card-accent-strong">New Manuscript at <i>Journal of Global Optimization</i></span><br><b>Solving a Class of Two-Stage Stochastic Nonlinear Integer Programs Using Value Functions</b>
               </h5>
               <h6 class="card-subtitle text-muted">
                 September 24, 2024
@@ -717,7 +948,7 @@
                <div class="col-lg-7">
                    <div class="card-body">
                        <h5 class="card-title">
-                           <font color="red"><b>New NSF INTERN Award!</b></font>
+                           <span class="card-accent">New NSF INTERN Award!</span>
                        </h5>
                        <h6 class="card-subtitle text-muted">
                            August 31, 2024
@@ -755,7 +986,7 @@
                <div class="col-lg-7">
                    <div class="card-body">
                        <h5 class="card-title">
-                           <font color="red"><b>New NSF CIVIC Track B Award!</b></font>
+                           <span class="card-accent">New NSF CIVIC Track B Award!</span>
                        </h5>
                        <h6 class="card-subtitle text-muted">
                            August 29, 2024
@@ -790,7 +1021,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b>Sabbatical Has Arrived!</b></font>
+                <span class="card-accent">Sabbatical Has Arrived!</span>
               </h5>
               <h6 class="card-subtitle text-muted">
                 August 14, 2024
@@ -824,7 +1055,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b>Dynamic Placement in Refugee Resettlement</font>, appearing in</b><br><b><i>Research Highlights</i> of the <i>Communications of the ACM</i></b>
+                <span class="card-accent">Dynamic Placement in Refugee Resettlement</span><b>, appearing in</b><br><b><i>Research Highlights</i> of the <i>Communications of the ACM</i></b>
               </h5>
               <h6 class="card-subtitle text-muted">
                 March 24, 2024
@@ -870,7 +1101,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b>I Made Full Professor :)</b></font>
+                <span class="card-accent">I Made Full Professor :)</span>
               </h5>
               <h6 class="card-subtitle text-muted">
                 February 23, 2024
@@ -903,7 +1134,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b>Associate Editor at <i>Operations Research</i>: Societal Impact</b></font>
+                <span class="card-accent">Associate Editor at <i>Operations Research</i>: Societal Impact</span>
               </h5>
               <h6 class="card-subtitle text-muted">
                 January 1, 2024
@@ -936,7 +1167,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b>Child Welfare Operations Symposium at Cornell University</b></font>
+                <span class="card-accent">Child Welfare Operations Symposium at Cornell University</span>
               </h5>
               <h6 class="card-subtitle text-muted">
                 November 9, 2023
@@ -973,7 +1204,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b>New Manuscript at <i>ACM EAAMO 2023</i>!</b></font><br><b>SWAP for Optimizing Nonprofit Resource Sharing</b>
+                <span class="card-accent">New Manuscript at <i>ACM EAAMO 2023</i>!</span><br><b>SWAP for Optimizing Nonprofit Resource Sharing</b>
               </h5>
               <h6 class="card-subtitle text-muted">
                 October 30, 2023
@@ -1017,7 +1248,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b>New Manuscript at <i>ACM EAAMO 2023</i>!</b></font><br><b>Optimizing Sponsored Humanitarian Parole</b>
+                <span class="card-accent">New Manuscript at <i>ACM EAAMO 2023</i>!</span><br><b>Optimizing Sponsored Humanitarian Parole</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -1060,7 +1291,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Manuscript at <i>Operations Research</i></u></b></font><br><b>Dynamic Placement in Refugee Resettlement</b>
+                <span class="card-accent-strong">New Manuscript at <i>Operations Research</i></span><br><b>Dynamic Placement in Refugee Resettlement</b>
               </h5>
               <h6 class="card-subtitle text-muted">
                 September 28, 2023
@@ -1107,7 +1338,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>Recent Conference</u></b></font> <b>Innovations in Immigration Analytics</b>
+                <span class="card-accent-strong">Recent Conference</span> <b>Innovations in Immigration Analytics</b>
               </h5>
               <h6 class="card-subtitle text-muted">
                 July 2, 2023
@@ -1148,7 +1379,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Manuscript at INFORMS Journal on Computing</u></b></font><br><b>On Efficiently Computing Diverse Sets of Near-Optimal Solutions to Mixed-Integer Optimization Problems</b>
+                <span class="card-accent-strong">New Manuscript at INFORMS Journal on Computing</span><br><b>On Efficiently Computing Diverse Sets of Near-Optimal Solutions to Mixed-Integer Optimization Problems</b>
               </h5>
               <h6 class="card-subtitle text-muted">
                 June 29, 2023
@@ -1191,7 +1422,7 @@
             <div class="col-lg-7">
               <div class="card-body">
                 <h5 class="card-title">
-                    <font color="red"><b><u>Congratulations to Our Newest PhD:</u></b></font><b> Dr. Geri Louise Dimas</b>
+                    <span class="card-accent-strong">Congratulations to Our Newest PhD:</span><b> Dr. Geri Louise Dimas</b>
                 </h5>
 
                 <h6 class="card-subtitle text-muted">
@@ -1230,7 +1461,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Podcast!</u></b></font> <b>IISE OR for Social Good</b>
+                <span class="card-accent-strong">New Podcast!</span> <b>IISE OR for Social Good</b>
               </h5>
               <h6 class="card-subtitle text-muted">
                 March 30, 2023
@@ -1271,7 +1502,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>CNN</u></b></font>: <b>Irish immigrant Annie Moore first to arrive on Ellis Island</b>
+                <span class="card-accent-strong">CNN</span>: <b>Irish immigrant Annie Moore first to arrive on Ellis Island</b>
               </h5>
               <h6 class="card-subtitle text-muted">
                 March 17, 2023
@@ -1304,7 +1535,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>INFORMS Interview</u></b></font><br><b>Outgoing President of PSOR</b>
+                <span class="card-accent-strong">INFORMS Interview</span><br><b>Outgoing President of PSOR</b>
               </h5>
               <h6 class="card-subtitle text-muted">
                 February 16, 2023
@@ -1338,7 +1569,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Manuscript at Optimization Letters</u></b></font><br><b>A Reformulation Technique to Linearize A Class of Polynomial Functions of Bounded Integer Variables</b>
+                <span class="card-accent-strong">New Manuscript at Optimization Letters</span><br><b>A Reformulation Technique to Linearize A Class of Polynomial Functions of Bounded Integer Variables</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -1377,7 +1608,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Manuscript at INFORMS Journal on Applied Analytics</u></b></font><br><b>Estimating Effectiveness of Identifying Human Trafficking via Data Envelopment Analysis</b>
+                <span class="card-accent-strong">New Manuscript at INFORMS Journal on Applied Analytics</span><br><b>Estimating Effectiveness of Identifying Human Trafficking via Data Envelopment Analysis</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -1435,7 +1666,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Manuscript at European Journal of Operational Research</u></b></font><br><b>Perspectives on How to Conduct Responsible Anti-Human Trafficking Research in Operations and Analytics</b>
+                <span class="card-accent-strong">New Manuscript at European Journal of Operational Research</span><br><b>Perspectives on How to Conduct Responsible Anti-Human Trafficking Research in Operations and Analytics</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -1522,7 +1753,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Manuscript on arXiv:</u></b></font><br><b>On the Optimization of Benefit to Cost Ratios for Public Sector Decision Making</b>
+                <span class="card-accent-strong">New Manuscript on arXiv:</span><br><b>On the Optimization of Benefit to Cost Ratios for Public Sector Decision Making</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -1567,7 +1798,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Manuscript at Encyclopedia of Optimization</u></b></font><br><b>Optimization for Secure and Humane Border Operations</b>
+                <span class="card-accent-strong">New Manuscript at Encyclopedia of Optimization</span><br><b>Optimization for Secure and Humane Border Operations</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -1608,7 +1839,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Manuscript at IJOC!</u></b></font><br><b>Stability Representations of Many-to-One Matching Problems: An Integer Optimization Approach</b>
+                <span class="card-accent-strong">New Manuscript at IJOC!</span><br><b>Stability Representations of Many-to-One Matching Problems: An Integer Optimization Approach</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -1651,7 +1882,7 @@
                <div class="col-lg-7">
                    <div class="card-body">
                        <h5 class="card-title">
-                           <font color="red"><b><u>New Manuscript! IISE Transactions</u></b></font> <br><i>Improving Access to Services for Runaway Youth in New York City</i>
+                           <span class="card-accent-strong">New Manuscript! IISE Transactions</span> <br><i>Improving Access to Services for Runaway Youth in New York City</i>
                        </h5>
 
                        <h6 class="card-subtitle text-muted">
@@ -1701,7 +1932,7 @@
                <div class="col-lg-7">
                    <div class="card-body">
                        <h5 class="card-title">
-                           <font color="red"><b>New NSF RAPID Award!</b></font>
+                           <span class="card-accent">New NSF RAPID Award!</span>
                        </h5>
                        <h6 class="card-subtitle text-muted">
                            August 31, 2022
@@ -1735,7 +1966,7 @@
                <div class="col-lg-7">
                    <div class="card-body">
                        <h5 class="card-title">
-                           <font color="red"><b><u>New Manuscript! PLOS One</u></b></font> <br><i>OR and Analytics to Combat Trafficking: Extensive Lit Review</i>
+                           <span class="card-accent-strong">New Manuscript! PLOS One</span> <br><i>OR and Analytics to Combat Trafficking: Extensive Lit Review</i>
                        </h5>
 
                        <h6 class="card-subtitle text-muted">
@@ -1778,7 +2009,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b>New NSF Award!</b></font> <i>Nonprofit Resource Sharing</i>
+                <span class="card-accent">New NSF Award!</span> <i>Nonprofit Resource Sharing</i>
               </h5>
               <h6 class="card-subtitle text-muted">
                 August 11, 2022
@@ -1817,7 +2048,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>Newly Minted PhD:</u></b></font><br><b>Introducing Dr. Shima Azizi</b>
+                <span class="card-accent-strong">Newly Minted PhD:</span><br><b>Introducing Dr. Shima Azizi</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -1859,7 +2090,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>Newly Minted PhD:</u></b></font><br><b>Introducing Dr. Narges Ahani</b>
+                <span class="card-accent-strong">Newly Minted PhD:</span><br><b>Introducing Dr. Narges Ahani</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -1905,7 +2136,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New INFORMS Audio Interview on YouTube</u></b></font><br><b>My Thoughts on the Ukrainian Refugee Crisis</b>
+                <span class="card-accent-strong">New INFORMS Audio Interview on YouTube</span><br><b>My Thoughts on the Ukrainian Refugee Crisis</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -1941,7 +2172,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Manuscript!</u></b></font><br><b>Simulation to Analyze NYC Shelter Capacity</b>
+                <span class="card-accent-strong">New Manuscript!</span><br><b>Simulation to Analyze NYC Shelter Capacity</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -1990,7 +2221,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Manuscript!</u></b></font><br><b>DiversiTREE for finding diverse near-optima</b>
+                <span class="card-accent-strong">New Manuscript!</span><br><b>DiversiTREE for finding diverse near-optima</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -2032,7 +2263,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b>Recent Talk</b></font><br><b>Penn State University, IME Department Seminar</b>
+                <span class="card-accent">Recent Talk</span><br><b>Penn State University, IME Department Seminar</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -2079,7 +2310,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Manuscript!</u></b></font><br><b>Optimization for Secure and Humane Border Operations</b>
+                <span class="card-accent-strong">New Manuscript!</span><br><b>Optimization for Secure and Humane Border Operations</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -2119,7 +2350,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Manuscript!</u></b></font><br><b>Human-Centric Decision Support Tools: Insights from Real-World Design and Implementation</b>
+                <span class="card-accent-strong">New Manuscript!</span><br><b>Human-Centric Decision Support Tools: Insights from Real-World Design and Implementation</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -2160,7 +2391,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b>Panel Session at NetHope Global Summit 2021</b></font>
+                <span class="card-accent">Panel Session at NetHope Global Summit 2021</span>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -2211,7 +2442,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b>President, INFORMS Public Sector Operations Research (PSOR)</b></font>
+                <span class="card-accent">President, INFORMS Public Sector Operations Research (PSOR)</span>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -2249,7 +2480,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Manuscript!</u></b></font><br><b>A Reformulation Technique to Solve Polynomial Optimization Problems with Separable Objective Functions of Bounded Integer Variables</b>
+                <span class="card-accent-strong">New Manuscript!</span><br><b>A Reformulation Technique to Solve Polynomial Optimization Problems with Separable Objective Functions of Bounded Integer Variables</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -2283,7 +2514,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>Accepted: Production and Operations Management</u></b></font> <br><i>Aid Allocation for Camp-Based and Urban Refugees with Uncertain Demand and Replenishments</i>
+                <span class="card-accent-strong">Accepted: Production and Operations Management</span> <br><i>Aid Allocation for Camp-Based and Urban Refugees with Uncertain Demand and Replenishments</i>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -2361,7 +2592,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b>Recent Talk</b></font> | Talk at DOTs Series Now Available
+                <span class="card-accent">Recent Talk</span> | Talk at DOTs Series Now Available
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -2397,7 +2628,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b>President-Elect of the INFORMS Section on Public Sector Operations Research (PSOR)</b></font>
+                <span class="card-accent">President-Elect of the INFORMS Section on Public Sector Operations Research (PSOR)</span>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -2432,7 +2663,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b>Available at Operations Research, Articles in Advance:</b></font> <i>Placement Optimization in Refugee Resettlement</i> Paper
+                <span class="card-accent">Available at Operations Research, Articles in Advance:</span> <i>Placement Optimization in Refugee Resettlement</i> Paper
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -2507,7 +2738,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b>On Optimization Online:</b></font> Optimizing Community Paramedicine Service Delivery with Mandatory Visits and Patient Prioritization
+                <span class="card-accent">On Optimization Online:</span> Optimizing Community Paramedicine Service Delivery with Mandatory Visits and Patient Prioritization
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -2541,7 +2772,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Manuscript</u></b></font><br><b>Maritime Container Shipping: Does Coopetition Improve Cost and Environmental Efficiencies?</b>
+                <span class="card-accent-strong">New Manuscript</span><br><b>Maritime Container Shipping: Does Coopetition Improve Cost and Environmental Efficiencies?</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -2573,7 +2804,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New Manuscript</u></b></font><br><b> Responsible Anti-Human Trafficking Research in Operations And Analytics</b>
+                <span class="card-accent-strong">New Manuscript</span><br><b> Responsible Anti-Human Trafficking Research in Operations And Analytics</b>
               </h5>
 
               <h6 class="card-subtitle text-muted">
@@ -2639,7 +2870,7 @@
           <div class="col-lg-7">
             <div class="card-body">
               <h5 class="card-title">
-                <font color="red"><b><u>New!</u></b></font> Outlier-Aware, Density-Based Gaze Fixation Identification
+                <span class="card-accent-strong">New!</span> Outlier-Aware, Density-Based Gaze Fixation Identification
               </h5>
     
               <h6 class="card-subtitle text-muted">
@@ -3609,5 +3840,146 @@ alt="Web Analytics Made Easy - Statcounter"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
 
+    <!-- Recent Accomplishments enhancements: mirror, cutoff w/ toggle, year markers, lazy-load, back-to-top -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var CUTOFF_YEAR = 2025;
+        var cards = document.querySelectorAll('#recent-accomplishments > div[id]');
+
+        // 1. Mirror alternating cards
+        cards.forEach(function(card, i) {
+          if (i % 2 === 1) card.classList.add('mirror-card');
+        });
+
+        // 2. Annotate each card with parsed year; hide older ones; lazy-load their images
+        var hiddenCards = [];
+        var hiddenYears = [];
+        cards.forEach(function(card) {
+          var sub = card.querySelector('.card-subtitle');
+          if (!sub) return;
+          var m = sub.textContent.match(/\b(20\d{2})\b/);
+          var year = m ? parseInt(m[1], 10) : 9999;
+          card.dataset.year = year;
+          if (year < CUTOFF_YEAR) {
+            card.style.display = 'none';
+            var n = card.nextElementSibling;
+            while (n && n.tagName === 'BR') {
+              n.style.display = 'none';
+              n = n.nextElementSibling;
+            }
+            // Lazy-load images inside hidden cards (no download until expanded)
+            card.querySelectorAll('img').forEach(function(img) {
+              if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+            });
+            hiddenCards.push(card);
+            hiddenYears.push(year);
+          }
+        });
+
+        // 3. Build archive divider + prominent toggle button
+        if (hiddenCards.length > 0) {
+          var earliestYear = Math.min.apply(null, hiddenYears);
+          var latestHiddenYear = Math.max.apply(null, hiddenYears);
+          var rangeLabel = (earliestYear === latestHiddenYear)
+            ? earliestYear
+            : earliestYear + ' – ' + latestHiddenYear;
+
+          var wrap = document.createElement('div');
+          wrap.className = 'container';
+          wrap.id = 'archive-wrap';
+          wrap.innerHTML =
+            '<div class="archive-divider"><hr><span class="archive-label">Archive</span></div>' +
+            '<div class="archive-toggle-wrap">' +
+              '<span class="toggle-meta">' + hiddenCards.length + ' earlier accomplishments from ' + rangeLabel + '</span>' +
+              '<button id="show-earlier-btn" class="btn btn-primary" type="button">' +
+                '<i class="fas fa-chevron-down"></i>Show earlier accomplishments' +
+              '</button>' +
+            '</div>';
+          document.getElementById('recent-accomplishments').appendChild(wrap);
+
+          var expanded = false;
+          var btn = document.getElementById('show-earlier-btn');
+          var insertedYearMarkers = [];
+
+          btn.addEventListener('click', function() {
+            expanded = !expanded;
+            if (expanded) {
+              // Reveal cards + insert year-group headers between year boundaries
+              var currentYear = null;
+              hiddenCards.forEach(function(c, i) {
+                var year = parseInt(c.dataset.year, 10);
+                if (year !== currentYear) {
+                  var hdr = document.createElement('div');
+                  hdr.className = 'container year-marker';
+                  hdr.innerHTML = '<div class="year-marker-inner">' + year + '</div>';
+                  c.parentNode.insertBefore(hdr, c);
+                  insertedYearMarkers.push(hdr);
+                  currentYear = year;
+                }
+                c.style.display = '';
+                var delay = Math.min(i, 6) * 40;
+                c.style.animationDelay = delay + 'ms';
+                c.classList.add('reveal-anim');
+                var n = c.nextElementSibling;
+                while (n && n.tagName === 'BR') {
+                  n.style.display = '';
+                  n = n.nextElementSibling;
+                }
+              });
+              btn.classList.add('expanded');
+              btn.innerHTML = '<i class="fas fa-chevron-down"></i>Hide earlier accomplishments';
+              setTimeout(function() {
+                var firstRevealed = hiddenCards[0];
+                if (firstRevealed) {
+                  var top = firstRevealed.getBoundingClientRect().top + window.pageYOffset - 80;
+                  window.scrollTo({ top: top, behavior: 'smooth' });
+                }
+              }, 50);
+            } else {
+              // Hide cards + remove year markers
+              hiddenCards.forEach(function(c) {
+                c.style.display = 'none';
+                c.classList.remove('reveal-anim');
+                c.style.animationDelay = '';
+                var n = c.nextElementSibling;
+                while (n && n.tagName === 'BR') {
+                  n.style.display = 'none';
+                  n = n.nextElementSibling;
+                }
+              });
+              insertedYearMarkers.forEach(function(m) { m.remove(); });
+              insertedYearMarkers = [];
+              btn.classList.remove('expanded');
+              btn.innerHTML = '<i class="fas fa-chevron-down"></i>Show earlier accomplishments';
+              setTimeout(function() {
+                var topEl = document.getElementById('archive-wrap');
+                if (topEl) {
+                  var top = topEl.getBoundingClientRect().top + window.pageYOffset - 80;
+                  window.scrollTo({ top: top, behavior: 'smooth' });
+                }
+              }, 50);
+            }
+          });
+        }
+
+        // 4. Floating back-to-top button
+        var topBtn = document.createElement('button');
+        topBtn.id = 'back-to-top';
+        topBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        topBtn.setAttribute('aria-label', 'Back to top');
+        topBtn.setAttribute('title', 'Back to top');
+        topBtn.addEventListener('click', function() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        document.body.appendChild(topBtn);
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 600) {
+            topBtn.classList.add('visible');
+          } else {
+            topBtn.classList.remove('visible');
+          }
+        });
+      });
+    </script>
   </body>
 </html>
