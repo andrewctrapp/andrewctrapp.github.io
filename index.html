@@ -143,53 +143,64 @@
         letter-spacing: 0.08em;
         font-weight: 600;
       }
-      /* === Per-year toggle (one per year of archived cards) === */
+      /* === Per-year toggle (slim pill style) === */
       .year-toggle-wrap {
         text-align: center;
-        margin: 18px auto;
+        margin: 0 auto 8px;
       }
       .year-toggle {
-        padding: 12px 28px;
-        font-size: 1rem;
-        font-weight: 500;
-        border-radius: 8px;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-        transition: all 0.2s;
-        min-width: 280px;
+        border: 1px solid #d1d5db;
+        background: #fff;
+        color: #374151;
+        padding: 7px 18px;
+        font-size: 0.88rem;
+        border-radius: 999px;
+        cursor: pointer;
         display: inline-flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        min-width: 200px;
+        transition: all 0.18s;
+        font-family: inherit;
       }
       .year-toggle:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 3px 10px rgba(30, 58, 95, 0.15);
-      }
-      .year-toggle .fas {
-        margin-right: 10px;
-        transition: transform 0.25s;
-        font-size: 0.85rem;
-      }
-      .year-toggle.expanded .fas {
-        transform: rotate(180deg);
-      }
-      .year-toggle .year-num {
-        font-weight: 700;
-        font-size: 1.05rem;
-        letter-spacing: 0.02em;
-      }
-      .year-toggle .year-count {
-        color: #6b7280;
-        font-weight: 400;
-        margin-left: 6px;
-      }
-      .year-toggle.expanded .year-count {
-        color: #fff;
-        opacity: 0.85;
+        border-color: #1e3a5f;
+        color: #1e3a5f;
       }
       .year-toggle.expanded {
         background: #1e3a5f;
         border-color: #1e3a5f;
         color: #fff;
+      }
+      .year-toggle .year-label {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 10px;
+      }
+      .year-toggle .year-num {
+        font-weight: 700;
+        font-size: 0.92rem;
+      }
+      .year-toggle .year-count {
+        font-size: 0.76rem;
+        opacity: 0.65;
+      }
+      .year-toggle.expanded .year-count {
+        opacity: 0.9;
+      }
+      .year-toggle .year-chev {
+        font-size: 0.72rem;
+        margin-left: 14px;
+        transition: transform 0.2s;
+      }
+      .year-toggle.expanded .year-chev {
+        transform: rotate(180deg);
+      }
+      .year-panel {
+        margin: 18px 0 30px;
+      }
+      .archived-card-wrap {
+        margin-bottom: 16px;
       }
       /* === Fade-in animation on revealed cards === */
       @keyframes fadeInUp {
@@ -281,7 +292,7 @@
               <div class="card-header">
                 <h5><strong>Professor &vert; Founder &amp; Director, ARCHES</strong></h5>
               </div>
-                <div class="card-body">
+                <div class="card-body" style="position:relative;">
                 <p>
                   <i>Frank and Lillian Gilbreth Endowed Chair</i>
                   <br>
@@ -339,6 +350,11 @@
                   >CV</a
                 >
               </div>
+              <a href="https://www.rpi.edu" target="_blank" title="Rensselaer Polytechnic Institute"
+                 style="position:absolute;bottom:14px;right:14px;display:block;line-height:0;">
+                <img src="img/RPI_logo.png" alt="Rensselaer Polytechnic Institute"
+                     style="max-height:55px;max-width:120px;width:auto;height:auto;opacity:0.95;" />
+              </a>
             </div>
             </div>
           </div>
@@ -3844,10 +3860,10 @@ alt="Web Analytics Made Easy - Statcounter"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
 
-    <!-- Recent Accomplishments enhancements: mirror, per-year toggles, lazy-load, back-to-top -->
+    <!-- Recent Accomplishments enhancements: mirror, per-year archive (cards MOVED into clean section), lazy-load, back-to-top -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        var CUTOFF_YEAR = 2024;   // cards with year >= CUTOFF_YEAR are always visible
+        var CUTOFF_YEAR = 2024;   // cards with year >= CUTOFF_YEAR stay in place; older ones move to Archive
         var section = document.getElementById('recent-accomplishments');
         if (!section) return;
 
@@ -3864,90 +3880,98 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
           cards.push(card);
         });
 
-        // 2. Group archive cards (year < CUTOFF_YEAR) by year
-        var groups = {};   // year -> [cards]
+        // 2. Group archived cards (year < CUTOFF_YEAR) by year, newest first
+        var groups = {};
         cards.forEach(function(card) {
           var year = parseInt(card.dataset.year, 10);
           if (year > 0 && year < CUTOFF_YEAR) {
             (groups[year] = groups[year] || []).push(card);
           }
         });
-
-        var years = Object.keys(groups).map(Number).sort(function(a, b) { return b - a; }); // newest first
+        var years = Object.keys(groups).map(Number).sort(function(a, b) { return b - a; });
         if (years.length === 0) return;
 
-        // 3. Hide all archive cards + lazy-load their images
+        // 3. Build the Archive section at the very end of #recent-accomplishments
+        var archive = document.createElement('div');
+        archive.id = 'archive-section';
+        archive.innerHTML = '<div class="container"><div class="archive-divider"><hr><span class="archive-label">Archive</span></div></div>';
+        section.appendChild(archive);
+
+        // 4. For each year, build toggle + collapsible panel; physically MOVE each card into the panel
         years.forEach(function(year) {
-          groups[year].forEach(function(card) {
-            card.style.display = 'none';
+          var yearCards = groups[year];
+
+          var ySection = document.createElement('div');
+          ySection.className = 'year-section';
+          ySection.innerHTML =
+            '<div class="container year-toggle-wrap">' +
+              '<button class="year-toggle" type="button">' +
+                '<span class="year-label">' +
+                  '<span class="year-num">' + year + '</span>' +
+                  '<span class="year-count">' + yearCards.length + ' item' + (yearCards.length !== 1 ? 's' : '') + '</span>' +
+                '</span>' +
+                '<i class="fas fa-chevron-down year-chev"></i>' +
+              '</button>' +
+            '</div>' +
+            '<div class="year-panel"></div>';
+          archive.appendChild(ySection);
+
+          var panel = ySection.querySelector('.year-panel');
+          panel.style.display = 'none';
+
+          // Move each card: wrap in fresh .container, append to panel (detaches from old parent)
+          yearCards.forEach(function(card) {
             card.querySelectorAll('img').forEach(function(img) {
               if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
             });
+            var wrap = document.createElement('div');
+            wrap.className = 'container archived-card-wrap';
+            wrap.appendChild(card);  // moves card out of its original parent
+            panel.appendChild(wrap);
           });
-        });
 
-        // Helper: find the topmost ancestor of `card` that is a direct child of `section`
-        function topAncestorIn(card, section) {
-          var n = card;
-          while (n.parentNode && n.parentNode !== section) {
-            n = n.parentNode;
-          }
-          return n.parentNode === section ? n : null;
-        }
-
-        // 4. Insert the Archive divider above the first year-toggle
-        var firstYearFirstCard = groups[years[0]][0];
-        var anchorForDivider = topAncestorIn(firstYearFirstCard, section);
-        if (anchorForDivider) {
-          var divider = document.createElement('div');
-          divider.className = 'container';
-          divider.innerHTML = '<div class="archive-divider"><hr><span class="archive-label">Archive</span></div>';
-          section.insertBefore(divider, anchorForDivider);
-        }
-
-        // 5. For each year, build a toggle button inserted before that year's first wrapper
-        years.forEach(function(year) {
-          var yearCards = groups[year];
-          var firstCard = yearCards[0];
-          var anchor = topAncestorIn(firstCard, section);
-
-          var wrap = document.createElement('div');
-          wrap.className = 'container year-toggle-wrap';
-          wrap.innerHTML =
-            '<button class="btn btn-outline-secondary year-toggle" type="button">' +
-              '<i class="fas fa-chevron-down"></i>' +
-              '<span class="year-num">' + year + '</span>' +
-              '<span class="year-count">&nbsp;&middot;&nbsp;' + yearCards.length + ' accomplishment' + (yearCards.length !== 1 ? 's' : '') + '</span>' +
-            '</button>';
-
-          if (anchor) section.insertBefore(wrap, anchor);
-
-          var btn = wrap.querySelector('button');
+          // Wire toggle (expand / collapse)
+          var btn = ySection.querySelector('.year-toggle');
           var expanded = false;
           btn.addEventListener('click', function() {
             expanded = !expanded;
             if (expanded) {
-              yearCards.forEach(function(c, i) {
-                c.style.display = '';
+              panel.style.display = 'block';
+              btn.classList.add('expanded');
+              panel.querySelectorAll('.card').forEach(function(c, i) {
                 var delay = Math.min(i, 6) * 40;
                 c.style.animationDelay = delay + 'ms';
                 c.classList.add('reveal-anim');
               });
-              btn.classList.add('expanded');
             } else {
-              yearCards.forEach(function(c) {
-                c.style.display = 'none';
+              panel.style.display = 'none';
+              btn.classList.remove('expanded');
+              panel.querySelectorAll('.card').forEach(function(c) {
                 c.classList.remove('reveal-anim');
                 c.style.animationDelay = '';
               });
-              btn.classList.remove('expanded');
-              // Scroll back to this toggle so the user keeps their place
               setTimeout(function() {
                 var top = btn.getBoundingClientRect().top + window.pageYOffset - 100;
                 window.scrollTo({ top: top, behavior: 'smooth' });
               }, 30);
             }
           });
+        });
+
+        // 5. Hide any direct-child wrappers of #recent-accomplishments that are now empty
+        //    (because all their cards got moved to the archive), plus their adjacent <br>s.
+        Array.prototype.slice.call(section.children).forEach(function(child) {
+          if (child === archive) return;
+          if (child.tagName !== 'DIV') return;
+          var remaining = child.querySelectorAll('.card');
+          if (remaining.length === 0) {
+            child.style.display = 'none';
+            var n = child.nextElementSibling;
+            while (n && n.tagName === 'BR') {
+              n.style.display = 'none';
+              n = n.nextElementSibling;
+            }
+          }
         });
 
         // 6. Floating back-to-top button
