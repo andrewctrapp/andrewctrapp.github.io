@@ -3877,11 +3877,41 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
         var years = Object.keys(groups).map(Number).sort(function(a, b) { return b - a; });
         if (years.length === 0) return;
 
-        // 3. Build the Archive section at the very end of #recent-accomplishments
+        // 3. Build the Archive section and insert it immediately after the LAST VISIBLE card's
+        //    top-level ancestor — anchored to a known DOM position, not appended blindly.
+        //    This avoids any positional weirdness caused by malformed HTML further down the page.
         var archive = document.createElement('div');
         archive.id = 'archive-section';
         archive.innerHTML = '<div class="container"><div class="archive-divider"><hr><span class="archive-label">Archive</span></div></div>';
-        section.appendChild(archive);
+
+        function topLevelAncestor(node, ancestor) {
+          var n = node;
+          while (n.parentNode && n.parentNode !== ancestor) n = n.parentNode;
+          return n.parentNode === ancestor ? n : null;
+        }
+        var lastVisibleCard = null;
+        cards.forEach(function(card) {
+          var y = parseInt(card.dataset.year, 10);
+          if (y >= CUTOFF_YEAR) lastVisibleCard = card;
+        });
+        var insertHost = section;
+        var insertAfter = null;
+        if (lastVisibleCard) {
+          var anchor = topLevelAncestor(lastVisibleCard, section);
+          if (anchor) {
+            // Skip past any trailing <br>s that belong to the last visible wrapper
+            var afterBrs = anchor.nextSibling;
+            while (afterBrs && afterBrs.nodeType === 1 && afterBrs.tagName === 'BR') {
+              afterBrs = afterBrs.nextSibling;
+            }
+            insertAfter = afterBrs;
+          }
+        }
+        if (insertAfter) {
+          insertHost.insertBefore(archive, insertAfter);
+        } else {
+          insertHost.appendChild(archive);
+        }
 
         // 4. For each year, build toggle + collapsible panel; physically MOVE each card into the panel
         years.forEach(function(year) {
@@ -3944,19 +3974,28 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
           });
         });
 
-        // 5. Hide any direct-child wrappers of #recent-accomplishments that are now empty
-        //    (because all their cards got moved to the archive), plus their adjacent <br>s.
+        // 5a. Hide any direct-child wrapper of #recent-accomplishments that's now empty
+        //     (all its cards got moved out to the archive).
         Array.prototype.slice.call(section.children).forEach(function(child) {
           if (child === archive) return;
           if (child.tagName !== 'DIV') return;
           var remaining = child.querySelectorAll('.card');
           if (remaining.length === 0) {
             child.style.display = 'none';
-            var n = child.nextElementSibling;
-            while (n && n.tagName === 'BR') {
-              n.style.display = 'none';
-              n = n.nextElementSibling;
-            }
+          }
+        });
+
+        // 5b. Hide every <br> direct child of section that's adjacent to a hidden div
+        //     (or to the archive section). This collapses the leftover whitespace stack.
+        function isHidden(el) {
+          return el && el.nodeType === 1 && el.style.display === 'none';
+        }
+        Array.prototype.slice.call(section.children).forEach(function(child) {
+          if (child.tagName !== 'BR') return;
+          var prev = child.previousElementSibling;
+          var next = child.nextElementSibling;
+          if (isHidden(prev) || isHidden(next) || prev === archive || next === archive) {
+            child.style.display = 'none';
           }
         });
 
