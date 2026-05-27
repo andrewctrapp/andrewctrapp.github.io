@@ -3865,40 +3865,21 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
         var years = Object.keys(groups).map(Number).sort(function(a, b) { return b - a; });
         if (years.length === 0) return;
 
-        // 3. Build the Archive section and insert it immediately after the LAST VISIBLE card's
-        //    top-level ancestor — anchored to a known DOM position, not appended blindly.
-        //    This avoids any positional weirdness caused by malformed HTML further down the page.
+        // 3. Build the Archive section and insert it IMMEDIATELY BEFORE the footer-copyright block.
+        //    This uses the footer-copyright element as a stable anchor — wherever it actually lives
+        //    in the parsed DOM, archive lands right before it. Bulletproof against any HTML
+        //    nesting weirdness elsewhere on the page.
         var archive = document.createElement('div');
         archive.id = 'archive-section';
         archive.innerHTML = '<div class="container"><div class="archive-divider"><hr><span class="archive-label">Archive</span></div></div>';
 
-        function topLevelAncestor(node, ancestor) {
-          var n = node;
-          while (n.parentNode && n.parentNode !== ancestor) n = n.parentNode;
-          return n.parentNode === ancestor ? n : null;
-        }
-        var lastVisibleCard = null;
-        cards.forEach(function(card) {
-          var y = parseInt(card.dataset.year, 10);
-          if (y >= CUTOFF_YEAR) lastVisibleCard = card;
-        });
-        var insertHost = section;
-        var insertAfter = null;
-        if (lastVisibleCard) {
-          var anchor = topLevelAncestor(lastVisibleCard, section);
-          if (anchor) {
-            // Skip past any trailing <br>s that belong to the last visible wrapper
-            var afterBrs = anchor.nextSibling;
-            while (afterBrs && afterBrs.nodeType === 1 && afterBrs.tagName === 'BR') {
-              afterBrs = afterBrs.nextSibling;
-            }
-            insertAfter = afterBrs;
-          }
-        }
-        if (insertAfter) {
-          insertHost.insertBefore(archive, insertAfter);
+        var copyrightEl = document.querySelector('.footer-copyright');
+        var footerWrap = copyrightEl ? (copyrightEl.closest('.container') || copyrightEl) : null;
+        if (footerWrap && footerWrap.parentNode) {
+          footerWrap.parentNode.insertBefore(archive, footerWrap);
         } else {
-          insertHost.appendChild(archive);
+          // Last-ditch fallback only if the footer markup is completely missing
+          section.appendChild(archive);
         }
 
         // 4. For each year, build toggle + collapsible panel; physically MOVE each card into the panel
