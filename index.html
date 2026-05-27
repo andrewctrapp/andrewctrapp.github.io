@@ -3882,6 +3882,12 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
           section.appendChild(archive);
         }
 
+        // Track each archived card's ORIGINAL wrapper (the closest div with an id like CWOS, swap_eaamo, etc.)
+        // BEFORE we move the card. After all moves, we'll hide these wrappers + their adjacent <br>s.
+        // This works regardless of how deeply the wrappers happen to be nested due to source HTML quirks.
+        var wrappersToHide = [];
+        var seenWrappers = {};
+
         // 4. For each year, build toggle + collapsible panel; physically MOVE each card into the panel
         years.forEach(function(year) {
           var yearCards = groups[year];
@@ -3906,6 +3912,12 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 
           // Move each card: wrap in fresh .container, append to panel (detaches from old parent)
           yearCards.forEach(function(card) {
+            // Remember the card's outer ID'd wrapper BEFORE moving it
+            var ownWrapper = card.closest('div[id]');
+            if (ownWrapper && ownWrapper !== section && !seenWrappers[ownWrapper.id || '_anon_' + wrappersToHide.length]) {
+              wrappersToHide.push(ownWrapper);
+              seenWrappers[ownWrapper.id || '_anon_' + wrappersToHide.length] = true;
+            }
             card.querySelectorAll('img').forEach(function(img) {
               if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
             });
@@ -3943,28 +3955,18 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
           });
         });
 
-        // 5a. Hide any direct-child wrapper of #recent-accomplishments that's now empty
-        //     (all its cards got moved out to the archive).
-        Array.prototype.slice.call(section.children).forEach(function(child) {
-          if (child === archive) return;
-          if (child.tagName !== 'DIV') return;
-          var remaining = child.querySelectorAll('.card');
-          if (remaining.length === 0) {
-            child.style.display = 'none';
-          }
-        });
-
-        // 5b. Hide every <br> direct child of section that's adjacent to a hidden div
-        //     (or to the archive section). This collapses the leftover whitespace stack.
-        function isHidden(el) {
-          return el && el.nodeType === 1 && el.style.display === 'none';
-        }
-        Array.prototype.slice.call(section.children).forEach(function(child) {
-          if (child.tagName !== 'BR') return;
-          var prev = child.previousElementSibling;
-          var next = child.nextElementSibling;
-          if (isHidden(prev) || isHidden(next) || prev === archive || next === archive) {
-            child.style.display = 'none';
+        // 5. Hide every original wrapper that had its card moved out, plus its adjacent <br>s.
+        //    Works regardless of how deeply nested the wrapper is in the source HTML.
+        wrappersToHide.forEach(function(w) {
+          w.style.display = 'none';
+          // Hide the BR immediately before this wrapper, if any
+          var prev = w.previousElementSibling;
+          if (prev && prev.tagName === 'BR') prev.style.display = 'none';
+          // Hide one or more BRs immediately after this wrapper
+          var next = w.nextElementSibling;
+          while (next && next.tagName === 'BR') {
+            next.style.display = 'none';
+            next = next.nextElementSibling;
           }
         });
 
