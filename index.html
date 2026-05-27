@@ -3955,8 +3955,24 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
           });
         });
 
+        // 4.5. CRITICAL: Reparent the archive AND the footer container to be siblings of
+        //      #recent-accomplishments, directly under section.parentNode. The source HTML
+        //      has malformed nesting (ORAE wrapper never closes, so everything after is
+        //      nested inside it). Without this reparent, hiding the archived wrappers also
+        //      hides the archive and footer because they end up nested inside those wrappers.
+        var sectionParent = section.parentNode;
+        if (sectionParent) {
+          sectionParent.insertBefore(archive, section.nextSibling);
+          if (copyrightEl) {
+            var footerContainer = copyrightEl.closest('.container');
+            if (footerContainer && footerContainer !== archive) {
+              sectionParent.insertBefore(footerContainer, archive.nextSibling);
+            }
+          }
+        }
+
         // 5. Hide every original wrapper that had its card moved out, plus its adjacent <br>s.
-        //    Works regardless of how deeply nested the wrapper is in the source HTML.
+        //    Now safe to hide aggressively — archive and footer are no longer inside section's subtree.
         wrappersToHide.forEach(function(w) {
           w.style.display = 'none';
           // Hide the BR immediately before this wrapper, if any
