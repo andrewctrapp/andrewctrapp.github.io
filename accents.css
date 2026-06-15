@@ -1,0 +1,32 @@
+/* ============================================================
+   accents.css — gentle palette harmonization toward joining.htm
+   Palette ONLY: no font or layout changes. To revert a page,
+   delete its <link rel="stylesheet" href="accents.css"> line.
+   Loaded AFTER Bootstrap so these win.
+   ============================================================ */
+
+/* Cool off-white page background (matches joining.htm --paper) */
+body {
+  background-color: #f0f4f8;
+}
+
+/* Body links in the joining navy (matches joining.htm --teal) */
+a {
+  color: #1e3a8a;
+}
+a:hover,
+a:focus {
+  color: #15296b;
+}
+
+/* Primary buttons in the same navy */
+.btn-primary {
+  background-color: #1e3a8a;
+  border-color: #1e3a8a;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #15296b;
+  border-color: #15296b;
+}

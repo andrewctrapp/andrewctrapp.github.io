@@ -1,500 +1,799 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Joining - Andrew C. Trapp</title>
-
-  <!-- Important favicon (icon for tab on browser) -->
-  <link rel="icon" href="img/favicon.ico" />
-
-  <!-- Bootstrap 4 and FontAwesome -->
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.2.0/css/all.min.css"
-  />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joining — Andrew C. Trapp</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.2.0/css/all.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --paper: #f0f4f8;         /* warm parchment */
+      --paper-deep: #e3eaf2;
+      --ink: #1f2937;            /* warm near-black */
+      --ink-soft: #4b5563;
+      --ink-muted: #6b7280;
+      --teal: #1e3a8a;           /* deep teal accent */
+      --teal-soft: #dfe5ee;
+      --rust: #475569;           /* warm rust for the accent line */
+      --rule: #d0d8e1;
+    }
     body {
-      font-family: "Open Sans", sans-serif;
-      background-color: #f8f9fa;
-      margin: 0;
-      padding: 0;
+      font-family: 'Spectral', Georgia, 'Times New Roman', serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.65;
+      font-size: 17px;
     }
-    .navbar-brand {
-      font-weight: normal !important;
-    }
-
-    .carousel img {
-      width: 100%;
-      max-height: 460px;
-      object-fit: contain;
-      object-position: top;
+    .ui-font {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    /* Accordion styling with subtle shadow, rounding, hover effect */
-    .accordion .card {
-      border-radius: 5px;
+
+    nav.simple {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--rule);
+      background: var(--paper);
+      font-family: 'Inter', sans-serif;
+    }
+    nav.simple .brand {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    nav.simple .links a {
+      color: var(--ink-muted);
+      font-size: 0.88rem;
+      text-decoration: none;
+      margin-left: 24px;
+      transition: color 0.2s;
+    }
+    nav.simple .links a:hover { color: var(--teal); }
+
+    /* HERO — letter-like */
+    .hero {
+      padding: 110px 0 100px;
+    }
+    .hero .salutation {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rust);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .hero .lead-question {
+      font-size: 1.65rem;
+      line-height: 1.3;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 30px;
+      letter-spacing: -0.005em;
+    }
+    .hero .lead-question .lq-line2 {
+      display: inline-block;
+      padding-left: 3.25em;
+    }
+    .hero .lead-question em {
+      font-style: italic;
+      color: var(--teal);
+    }
+    .hero .lead-body {
+      font-size: 1.18rem;
+      color: var(--ink-soft);
+      max-width: 600px;
+      margin-bottom: 32px;
+    }
+    .hero .lead-signoff {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+      margin-top: 36px;
+    }
+    .hero .lead-signoff strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .hero .hero-cta {
+      background: var(--teal);
+      color: #fff;
+      border: 0;
+      padding: 14px 30px;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.98rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    .hero .hero-cta:hover {
+      background: #15363f;
+      transform: translateY(-1px);
+      color: #fff;
+      text-decoration: none;
+    }
+    .hero-image-frame {
+      background: var(--paper-deep);
+      border: 1px solid var(--rule);
+      aspect-ratio: 3/2;
+      padding: 8px;
+      box-shadow: 6px 8px 0 var(--paper-deep);
       overflow: hidden;
-      margin-bottom: 5px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
     }
-    .accordion .card-header {
+    .hero-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* SECTION HEADERS */
+    .section-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rust);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 18px;
+      letter-spacing: -0.005em;
+    }
+    .section-lede {
+      font-size: 1.12rem;
+      color: var(--ink-soft);
+      max-width: 720px;
+      margin-bottom: 56px;
+    }
+
+    /* FIT — editorial numbered list, not boxy cards */
+    .fit-section {
+      padding: 100px 0 80px;
+      background: var(--paper);
+      border-top: 1px solid var(--rule);
+    }
+    .fit-item {
+      padding: 36px 0;
+      border-bottom: 1px solid var(--rule);
       display: flex;
-      align-items: center;
-      background: #e9ecef;
-      cursor: pointer;
-      padding: 0.75rem 1rem;
-      transition: background 0.2s ease;
+      gap: 36px;
+      align-items: flex-start;
     }
-    .accordion .card-header:hover {
-      background: #dee2e6;
+    .fit-item:last-child { border-bottom: 0; }
+    .fit-item-num {
+      font-family: 'Spectral', Georgia, serif;
+      font-style: italic;
+      font-size: 1.35rem;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--rust);
+      letter-spacing: 0.04em;
+      min-width: 48px;
+      padding-top: 0;
+      text-align: right;
+      padding-right: 4px;
     }
-    .accordion .card-header::before {
-      content: "+";
-      font-size: 20px;
-      font-weight: bold;
-      color: #007bff;
-      margin-right: 0.5rem;
+    .fit-item-num::after {
+      content: ".";
+      color: var(--rust);
+      margin-left: 1px;
     }
-    .accordion .card-header h5 {
-      margin: 0;
+    .fit-item-body { flex: 1; }
+    .fit-item-body h4 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 12px;
+      letter-spacing: -0.005em;
+    }
+    .fit-item-body p {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      margin-bottom: 18px;
+    }
+    .fit-prompt {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      padding-left: 18px;
+      border-left: 2px solid var(--rust);
+    }
+    .fit-prompt strong { color: var(--ink); font-weight: 600; font-style: normal; }
+
+    /* THE WORK — quiet narrative */
+    .work-section {
+      padding: 100px 0;
+      background: var(--paper-deep);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .work-section p {
+      font-size: 1.12rem;
+      color: var(--ink);
+      margin-bottom: 22px;
+    }
+    .work-section .signature-domains {
+      font-size: 1rem;
+      color: var(--ink-soft);
+      margin-top: 40px;
+      font-style: italic;
+      padding-top: 28px;
+      border-top: 1px solid var(--rule);
+    }
+    .work-image-frame {
+      background: #fff;
+      border: 1px solid var(--rule);
+      padding: 8px;
+      box-shadow: 6px 8px 0 var(--rule);
+    }
+    .work-image-frame img {
+      width: 100%;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      display: block;
+    }
+    .work-image-frame .work-image-caption {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      text-align: center;
+      margin: 10px 4px 4px;
+    }
+
+    /* THE EXPERIENCE — narrative again, no card boxes */
+    .experience-section { padding: 100px 0 80px; }
+    .exp-item {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .exp-item:last-child { border-bottom: 0; }
+    .exp-item h4 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 12px;
+      letter-spacing: -0.005em;
+    }
+    .exp-item h4 .exp-icon {
+      color: var(--teal);
+      margin-right: 10px;
       font-size: 1.1rem;
     }
-    .accordion .card-body ul {
-      margin-left: 20px;
-      list-style-type: disc;
+    .exp-item p {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      margin-bottom: 0;
+    }
+    .exp-image-frame {
+      background: #fff;
+      border: 1px solid var(--rule);
+      padding: 8px;
+      box-shadow: 6px 8px 0 var(--rule);
+    }
+    .exp-image-frame img {
+      width: 100%;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      display: block;
+    }
+    .exp-image-frame .exp-image-caption {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      text-align: center;
+      margin: 10px 4px 4px;
+    }
+    @media (max-width: 991px) {
+      .exp-image-frame { margin-top: 24px; }
     }
 
-    /* Center icon & bullets horizontally & vertically */
-    .accordion .row {
-      display: flex;
-      justify-content: center;   /* center horizontally */
-      align-items: center;      /* center vertically */
-      margin: 0;
+    /* CLOSING CTA — structured form */
+    .cta-section {
+      padding: 110px 0;
+      background: var(--teal);
+      color: var(--paper);
     }
-    /* Icon smaller & centered in col-md-4 */
-    .accordion .col-md-4 {
+    .cta-section .section-eyebrow { color: rgba(245,239,226,0.7); }
+    .cta-section .cta-title {
+      font-size: 2.3rem;
+      font-weight: 600;
+      color: var(--paper);
+      margin-bottom: 18px;
+      letter-spacing: -0.01em;
+    }
+    .cta-section .cta-body {
+      font-size: 1.12rem;
+      color: rgba(245,239,226,0.85);
+      margin-bottom: 44px;
+      max-width: 600px;
+    }
+    .cta-form {
+      background: var(--paper);
+      color: var(--ink);
+      padding: 40px 36px;
+      border-radius: 6px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 8px 8px 0 rgba(43,39,34,0.25);
+    }
+    .cta-form label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.005em;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .cta-form .label-number {
+      color: var(--rust);
+      font-weight: 700;
+      margin-right: 6px;
+    }
+    .cta-form label .label-hint {
+      display: block;
+      font-weight: 400;
+      font-size: 0.84rem;
+      color: var(--ink-muted);
+      margin-top: 4px;
+      font-style: italic;
+    }
+    .cta-form textarea,
+    .cta-form input[type="text"],
+    .cta-form input[type="email"] {
+      width: 100%;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 12px 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--ink);
+      background: #fff;
+      margin-bottom: 24px;
+      resize: vertical;
+      transition: border-color 0.2s;
+    }
+    .cta-form textarea:focus,
+    .cta-form input:focus {
+      outline: 0;
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(31,79,74,0.1);
+    }
+    .cta-form textarea { min-height: 90px; }
+    .cta-form .submit-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .cta-form button.submit-btn {
+      background: var(--teal);
+      color: var(--paper);
+      border: 0;
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.98rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .cta-form button.submit-btn:hover {
+      background: #15363f;
+      transform: translateY(-1px);
+    }
+    .cta-form .form-note {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.84rem;
+      color: var(--ink-muted);
+    }
+
+    /* TRIPLE-DOOR CTA — three ways to start the conversation */
+    .cta-divider {
+      display: flex;
+      align-items: center;
+      max-width: 680px;
+      margin: 36px auto;
+      color: rgba(245,239,226,0.45);
+      font-family: 'Spectral', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+    }
+    .cta-divider::before,
+    .cta-divider::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid rgba(245,239,226,0.18);
+    }
+    .cta-divider span { padding: 0 22px; }
+
+    .cta-alt-action {
+      max-width: 680px;
+      margin: 0 auto;
       text-align: center;
     }
-    .accordion .col-md-4 img {
-      width: 70%;
+    .cta-alt-action .alt-button {
       display: inline-block;
+      background: transparent;
+      color: var(--paper);
+      border: 1.5px solid rgba(245,239,226,0.45);
+      padding: 12px 28px;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.96rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .cta-alt-action .alt-button:hover {
+      background: var(--paper);
+      color: var(--teal);
+      border-color: var(--paper);
+      text-decoration: none;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+    .cta-alt-action .alt-button i {
+      margin-right: 8px;
+      font-size: 0.92rem;
+    }
+    .cta-alt-action .alt-direct {
+      font-family: 'Spectral', serif;
+      font-size: 1.05rem;
+      color: rgba(245,239,226,0.7);
+      margin-top: 4px;
+    }
+    .cta-alt-action .alt-direct a {
+      color: var(--paper);
+      border-bottom: 1px solid rgba(245,239,226,0.45);
+      text-decoration: none;
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+    .cta-alt-action .alt-direct a:hover {
+      border-color: var(--paper);
     }
 
-    /* Testimonial styling */
-    .testimonial {
-      font-style: italic;
-      color: #555;
-      padding: 10px;
-      margin-top: 15px;
-      border-left: 4px solid #007bff;
+    /* PRACTICAL */
+    .practical-section {
+      padding: 80px 0;
+      background: var(--paper);
+      border-top: 1px solid var(--rule);
+    }
+    .practical-section h5 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rust);
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+    .practical-section dl {
+      max-width: 760px;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    .practical-section dt {
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 0.95rem;
+      margin-top: 22px;
+    }
+    .practical-section dd {
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+      margin-bottom: 6px;
+      margin-left: 0;
     }
 
-    /* Next steps box: steely-blue shades */
-    .next-steps {
-      background: #e2edf5;
-      padding: 20px;
-      border-radius: 8px;
-      border-left: 5px solid #5b9bbc;
-      margin-top: 30px;
-    }
-    .next-steps ul {
-      list-style-type: disc;
-      margin-left: 20px;
-    }
-
-    h3.text-center {
-      margin-top: 20px;
-    }
-    p.text-center {
-      max-width: 700px;
-      margin: 0 auto 20px auto;
+    footer.simple {
+      padding: 44px 0;
+      text-align: center;
+      color: var(--ink-muted);
+      font-size: 0.86rem;
+      font-family: 'Inter', sans-serif;
+      border-top: 1px solid var(--rule);
+      background: var(--paper-deep);
     }
   </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">Andrew C. Trapp</a>
-    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.html#recent-accomplishments">Recent Accomplishments</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="publications.htm">Publications</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="team.htm">Research Team</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="joining.htm">Joining</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="platforms-and-software.htm">Platforms & Software</a>
-        </li>
-      </ul>
+  <nav class="simple">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="brand">Andrew C. Trapp</a>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="index.html#recent-accomplishments">Recent Accomplishments</a>
+        <a href="publications.htm">Publications</a>
+        <a href="team.htm">Research Team</a>
+        <a href="joining.htm">Joining</a>
+        <a href="platforms-and-software.htm">Platforms &amp; Software</a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- MAIN CONTAINER -->
-<div class="container">
-  <!-- Page Title & Intro -->
-<!-- Introduction Box -->
-<div class="intro-box">
-  <h3 class="text-center">Joining Our Research Team</h3>
-  <p align="justify">
-    We are <a href="https://arches.wpi.edu" target="_blank">ARCHES</a>, the <i>Analytical Research Collaborative for a Humane and Equitable Society</i>,
-    dedicated to being a bridge between rigorous analytics and societal impact. Our work lives across integer and nonlinear optimization, stochastic programming, and machine learning, and is grounded in principles of responsibility and human dignity.
-    We welcome passionate students, scholars and professionals who strive to conduct high-quality research while tackling real-world challenges. If you share our commitment to rigorous research and meaningful impact, read on!
-  </p>
-</div>
-
-<style>
-  .intro-box {
-    background: #e2edf5;
-    border: 1px solid #c6d6e2;
-    border-left: 10px solid #5b9bbc;
-    border-radius: 10px;
-    padding: 28px 34px;
-    margin: 26px auto 26px auto;
-    max-width: 70%;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-  }
-
-  .intro-box h3 {
-    margin-top: 0;
-    margin-bottom: 14px;
-  }
-
-  /* Override the global p.text-center constraints inside the box */
-  .intro-box p.text-center {
-    max-width: none;
-    margin: 0;
-    text-align: left;
-  }
-</style>
-
-  <!-- CAROUSEL -->
-  <div id="myCarousel" class="carousel slide mb-4" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-
-    <!-- Slides -->
-    <div class="carousel-inner">
-      <!-- Slide 1 -->
-      <div class="carousel-item active">
-        <img src="img/Narges_Graduation5.png" alt="Narges Graduation">
-        <div class="carousel-caption">
-          <p>Dr. Narges Ahani on commencement day</p>
+  <!-- HERO — letter-style -->
+  <section class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <p class="salutation">For prospective researchers</p>
+          <h1 class="lead-question">
+            What would you build ...<br>
+            <span class="lq-line2">if your math could <em>change lives</em>?</span>
+          </h1>
+          <p class="lead-body">
+            Most of the systems holding up other people's lives still run on rules of thumb. The math and algorithms to do better exist, as do the researchers. They just haven't yet recognized themselves in the call. If you've been wondering where that kind of work happens, here is your opening.
+          </p>
+          <a href="#cta" class="hero-cta">What I'd like to hear from you</a>
         </div>
-      </div>
-      <!-- Slide 2 -->
-      <div class="carousel-item">
-        <img src="img/Slide2.png" alt="Conversation with President">
-        <div class="carousel-caption">
-          <p>Conversation between former WPI President Laurie Leshin and Prof. Trapp</p>
-        </div>
-      </div>
-      <!-- Slide 3 -->
-      <div class="carousel-item">
-        <img src="img/ARCHES_INFORMS_2022_3_v2.png" alt="ARCHES INFORMS">
-        <div class="carousel-caption">
-          <p>ARCHES research team at the INFORMS Annual Conference in Indianapolis</p>
-        </div>
-      </div>
-      <!-- Slide 4 -->
-      <div class="carousel-item">
-        <img src="img/Ozge_SWB.png" alt="SWAP Workshop">
-        <div class="carousel-caption">
-          <p>ARCHES member Özge Aygül collaborating with SWAP users</p>
+        <div class="col-lg-5">
+          <div class="hero-image-frame">
+            <img src="img/ARCHES-DS_43_2025-03-07_cropped.jpg"
+                 alt="Researchers working through mathematics at the whiteboard">
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Prev/Next Controls -->
-    <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </a>
-    <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </a>
-  </div>
+  <!-- THE FIT — editorial numbered, not boxy -->
+  <section class="fit-section">
+    <div class="container">
+      <p class="section-eyebrow">The fit</p>
+      <h2 class="section-title">The researcher who finds a home in this work</h2>
+      <p class="section-lede">
+        I'm deliberate about the researchers I take on. What follows is a portrait, not a checklist. If most of it sounds like you, please reach out.
+      </p>
 
-  <!-- ACCORDION -->
-  <div class="accordion" id="accordionExample">
-    <!-- Q1 -->
-    <div class="card">
-      <div class="card-header" data-toggle="collapse" data-target="#q1">
-        <h5 class="mb-0">What Type of Research Does ARCHES Do?</h5>
+      <div class="fit-item">
+        <div class="fit-item-num">I</div>
+        <div class="fit-item-body">
+          <h4>The mathematics you love</h4>
+          <p>
+            You're at ease with discrete math, linear algebra, and probability. Integer programming, nonlinear optimization, and stochastic programming are familiar territory, or you're ready to build that depth.
+          </p>
+          <div class="fit-prompt">
+            <strong>Ask yourself:</strong> when a mathematical idea is expressed, are you more inclined to lean in or to look away?
+          </div>
+        </div>
       </div>
-      <div id="q1" class="collapse show" data-parent="#accordionExample">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-4">
-              <img src="img/Research.png" alt="Research Icon"/>
-            </div>
-            <div class="col-md-8">
-              <ul>
-                <li>Formulating mathematical models to capture human-centered and societal complexities</li>
-                <li>Developing computational optimization tools that are rigorously tested and refined</li>
-                <li>Merging machine learning and optimization into predictive and prescriptive frameworks</li>
-                <li>Advancing integer programming value-function methodologies</li>
-                <li>Engaging stakeholders to ensure solutions are practical, adaptable, and high-impact</li>
-                <li>Deploying decision-support tools that drive real-world practice and policy</li>
-                <li>Measuring adoption and outcomes to ensure tangible, scalable improvements</li>
-                <li>Publishing research in top academic outlets that advances academia and practice</li>
-              </ul>
+
+      <div class="fit-item">
+        <div class="fit-item-num">II</div>
+        <div class="fit-item-body">
+          <h4>The ambiguity you welcome</h4>
+          <p>
+            The problems we work on don't come well-posed. They arrive as messy human realities &ndash; a refugee placement, a foster care routing, a nonprofit resource exchange &ndash; and you translate them into mathematical models that hold their own.
+          </p>
+          <div class="fit-prompt">
+            <strong>Ask yourself:</strong> when no one has defined the problem yet, are you the one who moves toward a first formulation?
+          </div>
+        </div>
+      </div>
+
+      <div class="fit-item">
+        <div class="fit-item-num">III</div>
+        <div class="fit-item-body">
+          <h4>The agency you earn</h4>
+          <p>
+            I don't assign problem sets, but rather problem spaces and trust you to explore them thoroughly. You're the kind of researcher who, given a piece of territory, takes ownership, working through your own questions before bringing back ones that need a second voice.
+          </p>
+          <div class="fit-prompt">
+            <strong>Ask yourself:</strong> when did you last lead a project that nobody handed you?
+          </div>
+        </div>
+      </div>
+
+      <div class="fit-item">
+        <div class="fit-item-num">IV</div>
+        <div class="fit-item-body">
+          <h4>The reason it matters to you</h4>
+          <p>
+            Industry uses optimization to maximize quarterly returns. The same math, answering questions that restore dignity and agency, can change the lives of people no one stops to ask. If that distinction resonates, you may be closer to home than you know.
+          </p>
+          <div class="fit-prompt">
+            <strong>Ask yourself:</strong> when you read about a system failure that landed on people with little power to push back, is your first move to know why, or to step back?
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE WORK — quiet narrative -->
+  <section class="work-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <p class="section-eyebrow">The work</p>
+          <h2 class="section-title">Where the math actually goes</h2>
+          <p>
+            Most of the math I do lives in places where allocation decisions are dignity
+            decisions. Refugee resettlement. Child welfare operations. The operational backbone
+            of organizations responding to human trafficking and to homelessness. These aren't
+            side projects with academic curiosity attached: they're public-sector systems
+            where the math, done right, changes outcomes for people who otherwise wouldn't
+            have been counted.
+          </p>
+          <p>
+            Methodologically: integer and stochastic optimization, matching and mechanism design,
+            hybrid predictive-plus-prescriptive methods. Practically: every model has a partner
+            organization on the other end. Many papers become systems others use.
+          </p>
+          <p class="signature-domains">
+            We work in human service systems, in areas where people have less voice and choice.
+          </p>
+        </div>
+        <div class="col-lg-5">
+          <div class="work-image-frame">
+            <img src="img/joining_work.jpg"
+                 alt="Researchers reviewing a refugee-to-employment matching dashboard">
+            <p class="work-image-caption">Refugee-to-employment matching, in practice.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE EXPERIENCE -->
+  <section class="experience-section">
+    <div class="container">
+      <p class="section-eyebrow">The experience</p>
+      <h2 class="section-title">What working together looks like</h2>
+      <p class="section-lede">
+        Depth over throughput: I'm selective, and the lab is growing.<br>Here's what working together looks like.
+      </p>
+
+      <div class="exp-item">
+        <h4><i class="fas fa-compass exp-icon"></i>How we'd work together</h4>
+        <p>
+          Small groups and regular one-on-ones. I aim to know what each researcher needs and to make expectations and feedback clear. We celebrate the wins as a team: defenses, conference talks, the first time an organization puts into action something we built.
+        </p>
+      </div>
+
+      <div class="exp-item">
+        <h4><i class="fas fa-map-marked-alt exp-icon"></i>Bounded autonomy</h4>
+        <p>
+          You'll have ownership over a research direction, not a problem set. The boundaries are something we construct together, in conversation, and their definition is earned as trust builds. What you do inside the boundaries is up to you.
+        </p>
+      </div>
+
+      <div class="exp-item">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <h4><i class="fas fa-route exp-icon"></i>Where this leads</h4>
+            <p>
+              Academia for some members: postdoc and faculty roles. Industry for others: places like Meta, Bank of America, Dell, and MariaDB. Other students graduate to new academic positions at places like Cornell, Georgia Tech, and Southern California. Some take their own routes. What stays consistent is the depth of training: years later, the work it enabled continues.
+            </p>
+          </div>
+          <div class="col-lg-5">
+            <div class="exp-image-frame">
+              <img src="img/joining_narges.jpg"
+                   alt="A lab member at her doctoral graduation">
+              <p class="exp-image-caption">A member, at the other side of the journey.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Q2 -->
-    <div class="card">
-      <div class="card-header" data-toggle="collapse" data-target="#q2">
-        <h5 class="mb-0">Am I A Good Fit To Join ARCHES?</h5>
+  <!-- CLOSING CTA — TRIPLE-DOOR pattern: form + button + direct email -->
+  <section class="cta-section" id="cta">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9 text-center">
+          <p class="section-eyebrow">If you've read this far</p>
+          <h2 class="cta-title">If this sounds like you, let's talk.</h2>
+          <p class="cta-body" style="margin-left:auto;margin-right:auto;">
+            Three thoughtful paragraphs from you can tell me more than a polished CV (those are also helpful).
+            Either way reaches me directly.
+          </p>
+        </div>
       </div>
-      <div id="q2" class="collapse" data-parent="#accordionExample">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-4">
-              <img src="img/Supervise.png" alt="Supervise Icon"/>
+
+      <!-- Door I: The structured form -->
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <form class="cta-form ui-font"
+                action="mailto:trappa@rpi.edu"
+                method="POST"
+                enctype="text/plain">
+
+            <label for="q1">
+              <span class="label-number">i.</span>
+              What societal issue(s) do you find yourself thinking about more than expected?
+              <span class="label-hint">Tell me concretely: not "fairness" in general but "the moment a foster placement gets revisited at 2am."</span>
+            </label>
+            <textarea id="q1" name="domain"></textarea>
+
+            <label for="q2">
+              <span class="label-number">ii.</span>
+              What math or algorithm have you wrestled with more than expected?
+              <span class="label-hint">Any technique, paper, problem class. What made it hard, what you learned.</span>
+            </label>
+            <textarea id="q2" name="math"></textarea>
+
+            <label for="q3">
+              <span class="label-number">iii.</span>
+              What would you want to be working on, if you joined our initiative?
+              <span class="label-hint">Whether you're thinking PhD, summer research, or just exploring, be specific.</span>
+            </label>
+            <textarea id="q3" name="firstYear"></textarea>
+
+            <label for="email">Your email (so I can reply)</label>
+            <input type="email" id="email" name="email">
+
+            <div class="submit-row">
+              <button type="submit" class="submit-btn">Send to me</button>
             </div>
-            <div class="col-md-8">
-            <ul>
-              <li>Strong foundation in mathematics: linear algebra, probability, discrete math</li>
-              <li>Proficient in programming, algorithms, and data structures (e.g., python, solvers)</li>
-              <li>Comfort with using and advancing integer, nonlinear, and stochastic programming</li>
-              <li>Experience with, and interests in, machine learning and its integration with optimization</li>
-              <li>Independent thinker with a collaborative spirit: can take initiative, can contribute to team</li>
-              <li>Strong sense of responsibility, maturity, and motivation to drive impactful research</li>
-              <li>Demonstrated leadership experience, ability to work well in interdisciplinary teams</li>
-              <li>Genuine commitment to using analytical methods for societal good</li>
-              <!-- Additional fit criteria -->
-              <li>Desire to translate theory into practical tools and engage with stakeholders</li>
-            </ul>
-            </div>
-          </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Or: write directly (button + raw email together, one option) -->
+      <div class="cta-divider"><span>or</span></div>
+
+      <div class="cta-alt-action">
+        <a class="alt-button"
+           href="mailto:trappa@rpi.edu?subject=A problem I can't stop thinking about">
+          <i class="fas fa-envelope"></i>Write to me
+        </a>
+        <p class="alt-direct">
+          or simply email <a href="mailto:trappa@rpi.edu">trappa@rpi.edu</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICAL -->
+  <section class="practical-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10">
+          <h5>Practical items of note</h5>
+          <dl>
+            <dt>Funding</dt>
+            <dd>I support graduate students through NSF, federal, and foundation grants. Most join with funding in place.</dd>
+
+            <dt>Visiting scholars</dt>
+            <dd>Yes, case-by-case. Reach out with the same kind of specificity you would as a prospective student.</dd>
+
+            <dt>Timing</dt>
+            <dd>Most placements happen in fall cycles. Off-cycle inquiries welcome but slower.</dd>
+
+            <dt>Application materials</dt>
+            <dd>For doctoral inquiries: a copy of your CV, transcripts, GRE, and TOEFL scores (if applicable).</dd>
+          </dl>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Q3: Mentoring philosophy -->
-    <div class="card">
-      <div class="card-header" data-toggle="collapse" data-target="#q3">
-        <h5 class="mb-0">What Is Our Mentoring Philosophy?</h5>
-      </div>
-      <div id="q3" class="collapse" data-parent="#accordionExample">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-4">
-              <img src="img/Collaboration.png" alt="Collaboration Icon"/>
-            </div>
-            <div class="col-md-8">
-              <ul>
-                <li>Small‐group and one‐on‐one settings for stronger rapport</li>
-                <li>Regular check‐ins and peer collaboration</li>
-                <li>Guidance that focuses on both technical excellence and personal growth</li>
-                <li>Encourage reflection: annual review, goal‐setting to shape career trajectories</li>
-                <li>Research experiences in critical areas of need (refugee resettlement, foster care)</li>
-                <li>We celebrate together: papers, conference presentations, birthdays</li>
-              </ul>
-              <blockquote class="testimonial">
-                "Professor Trapp guided me professionally and personally, helping me navigate my research and career with confidence." ~ Dr. Narges Ahani (VP, Operations Research Analyst III, Bank of America)
-              </blockquote>
-            </div>
-          </div>
-        </div>
-      </div>
+  <footer class="simple">
+    <div class="container">
+      &copy; 2026 Andrew C. Trapp
     </div>
+  </footer>
 
-    <!-- Q4: Training -->
-    <div class="card">
-      <div class="card-header" data-toggle="collapse" data-target="#q4">
-        <h5 class="mb-0">What Kind of Mentorship Will I Receive in ARCHES?</h5>
-      </div>
-      <div id="q4" class="collapse" data-parent="#accordionExample">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-4">
-              <img src="img/Graduate.png" alt="Training Icon"/>
-            </div>
-            <div class="col-md-8">
-              <ul>
-                <li>Mentorship in applying mathematical optimization and data science theory and methods to pressing real‐world challenges</li>
-                <li>Hands‐on work with advanced analytical tools (Gurobi, python, machine learning)</li>
-                <li>Interdisciplinary collaboration and leadership opportunities</li>
-                <li>In-depth experience in writing manuscripts and grant proposals</li>
-                <li>Opportunities to publish in top operations research and data science outlets</li>
-                <!-- Additional mentorship details -->
-                <li>Development of open-source software and reproducible research practices</li>
-                <li>Guidance on integrating fairness and ethical considerations into analytical models</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Q5: Visiting Scholars -->
-    <div class="card">
-      <div class="card-header" data-toggle="collapse" data-target="#q5">
-        <h5 class="mb-0">Are Visiting Scholars Welcome?</h5>
-      </div>
-      <div id="q5" class="collapse" data-parent="#accordionExample">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-4">
-              <img src="img/Postdoc.png" alt="Visiting Icon"/>
-            </div>
-            <div class="col-md-8">
-              <ul>
-                <li>Yes, particularly if your interests align with optimization and social impact</li>
-                <li>Integration into ongoing projects or new collaborative efforts</li>
-                <li>Self-funding can be beneficial; even so, let me know your situation</li>
-                <li>Access to lab resources and participation in ARCHES activities</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Q6: Funding -->
-    <div class="card">
-      <div class="card-header" data-toggle="collapse" data-target="#q6">
-        <h5 class="mb-0">Are There Funding or Scholarship Opportunities Available?</h5>
-      </div>
-      <div id="q6" class="collapse" data-parent="#accordionExample">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-4">
-              <img src="img/Tassel.png" alt="Funding Icon"/>
-            </div>
-            <div class="col-md-8">
-              <ul>
-                <li>Competitive research and teaching assistantships available as funding allows</li>
-                <li>Support for external fellowship opportunities like NSF GRFP (US nationals), Fulbright</li>
-                <li>Potential to collaborate on writing externally focused proposals (including NSF)</li>
-                <li>For undergrads: research experiences through NSF REU or project-based stipends</li>
-                <li>Funding and advising capacity are limited; priority to those whose skills and goals align closely with our research</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Q7: Career Paths -->
-    <div class="card">
-      <div class="card-header" data-toggle="collapse" data-target="#q7">
-        <h5 class="mb-0">What Career Paths Do Members Typically Follow After ARCHES?</h5>
-      </div>
-      <div id="q7" class="collapse" data-parent="#accordionExample">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-4">
-              <img src="img/Overcome.png" alt="Career Icon"/>
-            </div>
-            <div class="col-md-8">
-              <ul>
-                <li>Academic roles (tenure‐track faculty, postdoc)</li>
-                <li>Long‐term collaborations with ARCHES on interdisciplinary projects</li>
-                <li>High‐impact industry, NGO, and consulting positions in optimization and data science</li>
-                <li>Entrepreneurial pursuits leveraging advanced analytics</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- end accordion -->
-
-  <!-- NEXT STEPS -->
-  <div class="next-steps">
-    <h5>Next Steps for Those Ready to Engage</h5>
-    <p>
-      We maintain high standards and seek candidates who align well with <a href="https://arches.wpi.edu" target="_blank">our mission</a>. If you are a strong fit, here's how to get started:
-    </p>
-    <ul>
-      <li><strong>Send an email</strong> to <a href="mailto:atrapp@wpi.edu">me</a> and introduce yourself! Tell me who you are, why you do what you do, and which ARCHES areas excite you.</li>
-      <li><strong>Attach your CV</strong>, along with transcripts, GRE, and TOEFL scores (as applicable)</li>
-      <li><strong>Write a brief, meaningful statement</strong>; I'm most likely to follow up with inquiries that are sincere and insightful. Include any examples of your work (code repositories, writing samples) that show your preparation for rigorous research.</li>
-    </ul>
-    <p>
-      I value candidates with strong mathematical and programming foundations, maturity in their work ethic, and a sincere drive to address real-world challenges. If that's you and there appears to be a strong and genuine fit, I look forward to discussing next steps.
-	</p>
-
-<!--     <p> -->
-<!--       We hold ourselves to high standards and seek genuinely strong alignments with our mission.  -->
-<!--       If you believe your background, experiences, and aspirations set you apart, here's how to start the conversation: -->
-<!--     </p> -->
-<!--     <ul> -->
-<!--       <li><strong>Send an email</strong> to <a href="mailto:atrapp@wpi.edu">atrapp@wpi.edu</a></li> -->
-<!--       <li><strong>Attach your CV</strong> with relevant academic or project experience</li> -->
-<!--       <li><strong>Provide a thoughtful, specific statement</strong> on how your interests and skills  -->
-<!--       connect with ARCHES' work -- and why you stand out</li> -->
-<!--     </ul> -->
-<!--     <p> -->
-<!--       We look for candidates with robust math/programming abilities, a passion for rigorous research, and  -->
-<!--       a drive to tackle real‐world challenges -- always aiming for a purposeful match on both sides. -->
-<!--     </p> -->
-  </div>
-</div><!-- .container -->
-
-<!-- FOOTER -->
-<div class="container">
-  <hr/>
-  <div class="text-center">
-    © 2026 Copyright:
-    <a href="index.html">Andrew C. Trapp</a>
-  </div>
-</div>
-
-<!-- SCRIPTS: jQuery -> Popper -> Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script
-  src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-></script>
-<script
-  src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-></script>
-
-<!-- OPTIONAL: StatCounter -->
-<script type="text/javascript">
-  var sc_project=7139907;
-  var sc_invisible=1;
-  var sc_security="48ef0ec4";
-</script>
-<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
-<noscript><div class="statcounter">
-  <a title="Web Analytics" href="https://statcounter.com/" target="_blank">
-    <img class="statcounter"
-         src="https://c.statcounter.com/7139907/0/48ef0ec4/1/"
-         alt="Web Analytics">
-  </a>
-</div></noscript>
 </body>
 </html>
