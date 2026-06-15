@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Joining — Andrew C. Trapp</title>
+  <title>Join Us &middot; ACT</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.2.0/css/all.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -33,28 +33,34 @@
 
 
     nav.simple {
-      padding: 28px 0;
+      padding: 0;
       border-bottom: 1px solid var(--rule);
       background: var(--paper);
       font-family: 'Inter', sans-serif;
     }
+    nav.simple > .container {
+      min-height: 56px;
+    }
     nav.simple .brand {
+      font-family: 'Spectral', Georgia, serif;
       font-weight: 600;
-      font-size: 1.2rem;
+      font-size: 1.6rem;
+      line-height: 1.2;
       color: var(--ink);
       text-decoration: none;
       letter-spacing: 0.01em;
     }
     nav.simple .links a {
+      font-family: 'Spectral', Georgia, serif;
       color: var(--ink-muted);
-      font-size: 0.88rem;
+      font-size: 1rem;
       text-decoration: none;
       margin-left: 24px;
       transition: color 0.2s;
     }
     nav.simple .links a:hover { color: var(--teal); }
 
-    /* HERO — letter-like */
+    /* HERO - letter-like */
     .hero {
       padding: 110px 0 100px;
     }
@@ -157,7 +163,7 @@
       margin-bottom: 56px;
     }
 
-    /* FIT — editorial numbered list, not boxy cards */
+    /* FIT - editorial numbered list, not boxy cards */
     .fit-section {
       padding: 100px 0 80px;
       background: var(--paper);
@@ -213,7 +219,7 @@
     }
     .fit-prompt strong { color: var(--ink); font-weight: 600; font-style: normal; }
 
-    /* THE WORK — quiet narrative */
+    /* THE WORK - quiet narrative */
     .work-section {
       padding: 100px 0;
       background: var(--paper-deep);
@@ -254,7 +260,7 @@
       margin: 10px 4px 4px;
     }
 
-    /* THE EXPERIENCE — narrative again, no card boxes */
+    /* THE EXPERIENCE - narrative again, no card boxes */
     .experience-section { padding: 100px 0 80px; }
     .exp-item {
       padding: 32px 0;
@@ -302,7 +308,7 @@
       .exp-image-frame { margin-top: 24px; }
     }
 
-    /* CLOSING CTA — structured form */
+    /* CLOSING CTA - structured form */
     .cta-section {
       padding: 110px 0;
       background: var(--teal);
@@ -404,7 +410,7 @@
       color: var(--ink-muted);
     }
 
-    /* TRIPLE-DOOR CTA — three ways to start the conversation */
+    /* TRIPLE-DOOR CTA - three ways to start the conversation */
     .cta-divider {
       display: flex;
       align-items: center;
@@ -531,7 +537,7 @@
     </div>
   </nav>
 
-  <!-- HERO — letter-style -->
+  <!-- HERO - letter-style -->
   <section class="hero">
     <div class="container">
       <div class="row align-items-center">
@@ -542,7 +548,7 @@
             <span class="lq-line2">if your math could <em>change lives</em>?</span>
           </h1>
           <p class="lead-body">
-            Most of the systems holding up other people's lives still run on rules of thumb. The math and algorithms to do better exist, as do the researchers. They just haven't yet recognized themselves in the call. If you've been wondering where that kind of work happens, here is your opening.
+            Most of the systems holding up other people's lives still run on rules of thumb. The math and algorithms to do better exist, and the researchers do, too. They just haven't yet recognized themselves in the call. If you've been wondering where this kind of work happens, here is your opening.
           </p>
           <a href="#cta" class="hero-cta">What I'd like to hear from you</a>
         </div>
@@ -556,13 +562,13 @@
     </div>
   </section>
 
-  <!-- THE FIT — editorial numbered, not boxy -->
+  <!-- THE FIT - editorial numbered, not boxy -->
   <section class="fit-section">
     <div class="container">
       <p class="section-eyebrow">The fit</p>
       <h2 class="section-title">The researcher who finds a home in this work</h2>
       <p class="section-lede">
-        I'm deliberate about the researchers I take on. What follows is a portrait, not a checklist. If most of it sounds like you, please reach out.
+        I'm deliberate about the researchers I take on. What follows is a portrait, not a checklist. If it mostly sounds like you, please reach out.
       </p>
 
       <div class="fit-item">
@@ -573,7 +579,7 @@
             You're at ease with discrete math, linear algebra, and probability. Integer programming, nonlinear optimization, and stochastic programming are familiar territory, or you're ready to build that depth.
           </p>
           <div class="fit-prompt">
-            <strong>Ask yourself:</strong> when a mathematical idea is expressed, are you more inclined to lean in or to look away?
+            <strong>Ask yourself:</strong> when an idea is expressed mathematically, are you more inclined to lean in or to look the other way?
           </div>
         </div>
       </div>
@@ -583,7 +589,7 @@
         <div class="fit-item-body">
           <h4>The ambiguity you welcome</h4>
           <p>
-            The problems we work on don't come well-posed. They arrive as messy human realities &ndash; a refugee placement, a foster care routing, a nonprofit resource exchange &ndash; and you translate them into mathematical models that hold their own.
+            The problems we work on rarely come well-posed. They arrive as messy human realities &ndash; a refugee placement, a foster care routing, a nonprofit resource exchange &ndash; and you translate them into mathematical models that hold their own.
           </p>
           <div class="fit-prompt">
             <strong>Ask yourself:</strong> when no one has defined the problem yet, are you the one who moves toward a first formulation?
@@ -612,14 +618,14 @@
             Industry uses optimization to maximize quarterly returns. The same math, answering questions that restore dignity and agency, can change the lives of people no one stops to ask. If that distinction resonates, you may be closer to home than you know.
           </p>
           <div class="fit-prompt">
-            <strong>Ask yourself:</strong> when you read about a system failure that landed on people with little power to push back, is your first move to know why, or to step back?
+            <strong>Ask yourself:</strong> when you read about a system failure that landed on people with little power to resist, is your first move to retreat, or ask why?
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- THE WORK — quiet narrative -->
+  <!-- THE WORK - quiet narrative -->
   <section class="work-section">
     <div class="container">
       <div class="row align-items-center">
@@ -627,12 +633,10 @@
           <p class="section-eyebrow">The work</p>
           <h2 class="section-title">Where the math actually goes</h2>
           <p>
-            Most of the math I do lives in places where allocation decisions are dignity
-            decisions. Refugee resettlement. Child welfare operations. The operational backbone
+            Most of the math I do lives in places where allocation decisions are matters of dignity. Refugee resettlement. Child welfare operations. The operational backbone
             of organizations responding to human trafficking and to homelessness. These aren't
             side projects with academic curiosity attached: they're public-sector systems
-            where the math, done right, changes outcomes for people who otherwise wouldn't
-            have been counted.
+            where the math, done right, changes outcomes for people who would remain unregarded.
           </p>
           <p>
             Methodologically: integer and stochastic optimization, matching and mechanism design,
@@ -666,7 +670,7 @@
       <div class="exp-item">
         <h4><i class="fas fa-compass exp-icon"></i>How we'd work together</h4>
         <p>
-          Small groups and regular one-on-ones. I aim to know what each researcher needs and to make expectations and feedback clear. We celebrate the wins as a team: defenses, conference talks, the first time an organization puts into action something we built.
+          Small groups and regular one-on-ones. I aim to know what each researcher needs and to make expectations and feedback clear. We celebrate wins as a team: defenses, conference talks, the first time an organization puts into action something we built.
         </p>
       </div>
 
@@ -697,7 +701,7 @@
     </div>
   </section>
 
-  <!-- CLOSING CTA — TRIPLE-DOOR pattern: form + button + direct email -->
+  <!-- CLOSING CTA - TRIPLE-DOOR pattern: form + button + direct email -->
   <section class="cta-section" id="cta">
     <div class="container">
       <div class="row justify-content-center">
@@ -705,7 +709,7 @@
           <p class="section-eyebrow">If you've read this far</p>
           <h2 class="cta-title">If this sounds like you, let's talk.</h2>
           <p class="cta-body" style="margin-left:auto;margin-right:auto;">
-            Three thoughtful paragraphs from you can tell me more than a polished CV (those are also helpful).
+            Three thoughtful paragraphs from you can tell me more than a polished CV (those are also helpful!).
             Either way reaches me directly.
           </p>
         </div>
@@ -776,10 +780,10 @@
             <dd>I support graduate students through NSF, federal, and foundation grants. Most join with funding in place.</dd>
 
             <dt>Visiting scholars</dt>
-            <dd>Yes, case-by-case. Reach out with the same kind of specificity you would as a prospective student.</dd>
+            <dd>Yes, case-by-case. Reach out with the same kind of details you would as a prospective student.</dd>
 
             <dt>Timing</dt>
-            <dd>Most placements happen in fall cycles. Off-cycle inquiries welcome but slower.</dd>
+            <dd>Most arrivals happen in fall cycles. Off-cycle inquiries welcome but slower.</dd>
 
             <dt>Application materials</dt>
             <dd>For doctoral inquiries: a copy of your CV, transcripts, GRE, and TOEFL scores (if applicable).</dd>
