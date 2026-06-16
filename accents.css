@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,400;1,500&display=swap');
 
 /* ============================================================
    accents.css — gentle palette + banner harmonization toward joining.htm
@@ -51,6 +51,11 @@ h1, h2, h3, h4 {
 }
 .border-primary .card-header h5 {
   font-size: 1.3rem;
+}
+
+/* Profile-card affiliation block (chair / department / institute) in Spectral */
+.affiliation {
+  font-family: 'Spectral', Georgia, serif;
 }
 
 /* Cool off-white page background (matches joining.htm --paper) */
