@@ -449,7 +449,47 @@
 
     <br>
 
-	<div id="SWAPVideo2025">
+	<div id="RARRPaper2026">
+      <div class="container">
+        <div class="card">
+          <div class="row">
+            <div class="col-lg-5 d-flex align-items-center">
+              <div class="card-header">
+                <img class="card-img-bottom" src="img/RARR_family_risk.png" alt="Family-level risk versus the risk-neutral curve across refugee families" />
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <span class="card-accent-strong">New Paper in <i>Socio-Economic Planning Sciences</i></span><br>
+                  <b>Risk-Averse Placement Optimization in Refugee Resettlement</b>
+                </h5>
+
+                <h6 class="card-subtitle text-muted">
+                  June 28, 2026
+                </h6>
+                <br />
+
+                <p class="card-text" align="justify">
+                  Our paper <i><a href="https://www.sciencedirect.com/science/article/abs/pii/S0038012126001308" target="_blank">Risk-Averse Placement Optimization in Refugee Resettlement</a></i> now appears in <i>Socio-Economic Planning Sciences</i>, with
+                  <a href="https://www.linkedin.com/in/fatemehfrj" target="_blank">Fatemeh Farajzadeh</a>,
+                  <a href="https://www.linkedin.com/in/narges-ahani/" target="_blank">Narges Ahani</a>, and
+                  <a href="https://ise.ncsu.edu/people/oyozalti/" target="_blank">Osman Özaltın</a>.
+                  Fatemeh led the work through the publication process, building on Narges' early insight that point estimates (means) of employment likelihood can hide the downside risk individual families face across placement communities.
+                  Classical Markowitz risk controls the variance of the aggregate outcome, which can stay stable even while leaving specific families exposed; our family-level formulation instead hedges the risk each family bears, so protecting the whole does not concentrate harm on the most vulnerable.
+                </p>
+
+                <a href="https://www.sciencedirect.com/science/article/abs/pii/S0038012126001308" target="_blank" class="btn btn-primary">Read the Paper</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="SWAPVideo2025">
 	  <div class="container">
 		<div class="card">
 		  <div class="row">
@@ -3874,7 +3914,9 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
           var m = sub.textContent.match(/\b(20\d{2})\b/);
           var year = m ? parseInt(m[1], 10) : 0;
           card.dataset.year = year;
-          if (i % 2 === 1) card.classList.add('card-mirror');
+          // Newest (top) card is intentionally figure-right, so alternation starts mirrored.
+          // Revert to (i % 2 === 1) when a new figure-left card is later added above it.
+          if (i % 2 === 0) card.classList.add('card-mirror');
           cards.push(card);
         });
 
