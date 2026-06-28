@@ -453,7 +453,44 @@
 
     <br>
 
-	<div id="RARRPaper2026">
+	<div id="EUROHOpe2026" style="display:none">
+      <div class="container">
+        <div class="card">
+          <div class="row">
+            <div class="col-lg-5 d-flex align-items-center">
+              <div class="card-header">
+                <img class="card-img-bottom" src="img/eurohope_summer_school_2026.png" alt="EURO HOpe Summer School 2026, University of Edinburgh and Tilburg University" />
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <span class="card-accent-strong">Invited Talk at the EURO HOpe Summer School</span><br>
+                  <b>From Model-Optimal to Human-Optimal: Human-Centered Optimization for Humanitarian Operations</b>
+                </h5>
+
+                <h6 class="card-subtitle text-muted">
+                  June 29, 2026
+                </h6>
+                <br />
+
+                <p class="card-text" align="justify">
+                  I am deeply grateful to <a href="https://www.business-school.ed.ac.uk/staff/douglas-alem" target="_blank">Douglas Alem</a> (University of Edinburgh) and <a href="https://www.tilburguniversity.edu/staff/t-breugem" target="_blank">Thomas Breugem</a> (Tilburg University) for the invitation to speak at the EURO HOpe Summer School, held online across Edinburgh and Tilburg.
+                  I very much enjoyed speaking with the up-and-coming generation of researchers in humanitarian operations.
+                  The future is up to them! There is so much one can do with powerful methods of operations research and a heart toward changing the world for the better.
+                </p>
+
+                <a href="https://www.euro-online.org/web/ewg/39/euro-working-group-on-humanitarian-operations-hope" target="_blank" class="btn btn-primary">About EURO HOpe</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br class="eurohope-br" style="display:none">
+
+    <div id="RARRPaper2026">
       <div class="container">
         <div class="card">
           <div class="row">
@@ -3909,6 +3946,22 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
         var section = document.getElementById('recent-accomplishments');
         if (!section) return;
 
+        // Scheduled reveal: the EURO HOpe Summer School card stays hidden for visitors until
+        // GO_LIVE, and shows immediately when previewing with ?preview=eurohope in the URL.
+        // To change when it appears, edit GO_LIVE. To unschedule, just delete this block.
+        (function () {
+          var GO_LIVE = new Date('2026-06-29T18:00:00+02:00'); // Amsterdam time, after Day 1 of the school
+          var ehCard = document.getElementById('EUROHOpe2026');
+          if (ehCard) {
+            var ehBr = ehCard.nextElementSibling;
+            var previewing = /[?&]preview=eurohope(?:&|$)/.test(window.location.search);
+            if (previewing || new Date() >= GO_LIVE) {
+              ehCard.style.display = '';
+              if (ehBr && ehBr.tagName === 'BR') ehBr.style.display = '';
+            }
+          }
+        })();
+
         // 1. Find every card via its card-subtitle (one per card, regardless of wrapper depth)
         var subtitles = section.querySelectorAll('.card-subtitle');
         var cards = [];
@@ -3918,9 +3971,8 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
           var m = sub.textContent.match(/\b(20\d{2})\b/);
           var year = m ? parseInt(m[1], 10) : 0;
           card.dataset.year = year;
-          // Newest (top) card is intentionally figure-right, so alternation starts mirrored.
-          // Revert to (i % 2 === 1) when a new figure-left card is later added above it.
-          if (i % 2 === 0) card.classList.add('card-mirror');
+          // Alternate the figure side down the list: first (newest) card figure-left, then flip each one.
+          if (i % 2 === 1) card.classList.add('card-mirror');
           cards.push(card);
         });
 
