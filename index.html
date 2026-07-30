@@ -122,8 +122,9 @@
       /* Shift the column split and slim the paddings so the bold title holds one line
          while the figure keeps its size */
       @media (min-width: 992px) {
-        #SWAPOper2026 .col-lg-5 { flex: 0 0 41%; max-width: 41%; }
-        #SWAPOper2026 .col-lg-7 { flex: 0 0 59%; max-width: 59%; }
+        /* Move 30px of the central-divider buffer over to the card's left edge */
+        #SWAPOper2026 .col-lg-5 { flex: 0 0 41%; max-width: 41%; padding-left: 45px; padding-right: 0; }
+        #SWAPOper2026 .col-lg-7 { flex: 0 0 59%; max-width: 59%; padding-left: 0; }
       }
       #SWAPOper2026 .card-title b {
         font-size: 1.1rem;
