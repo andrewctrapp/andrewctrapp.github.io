@@ -119,6 +119,14 @@
         max-height: none;
         width: 100%;
       }
+      /* Shift the column split toward the figure and keep the bold title to one line */
+      @media (min-width: 992px) {
+        #SWAPOper2026 .col-lg-5 { flex: 0 0 45%; max-width: 45%; }
+        #SWAPOper2026 .col-lg-7 { flex: 0 0 55%; max-width: 55%; }
+      }
+      #SWAPOper2026 .card-title b {
+        font-size: 1rem;
+      }
       #recent-accomplishments .card-body {
         padding: 24px 28px;
       }
@@ -493,8 +501,8 @@
 
                 <p class="card-text" align="justify">
                   Our paper <i><a href="docs/Preprint_Community-Oriented_Market_Design_for_Nonprofit_Resource_Exchange.pdf" target="_blank">Community-Oriented Market Design for Nonprofit Resource Exchange</a></i> has been accepted at <i>Operations Research</i>.
-                  SWAP (Sharing With A Purpose) lets nonprofit resource haves and needs accumulate until the market becomes visible, then clears multilateral chains of exchange at once: sealed bids, an internal SWAPcredit currency, and integer optimization maximizing collective surplus, deployed with real nonprofits in Maryland.
-                  This work was led from start to finish by the remarkable <a href="https://www.linkedin.com/in/weixiao-olivia-huang-66a878128/" target="_blank">Weixiao Huang</a>, who began it as my PhD student and carried it through acceptance as a postdoc.
+                  SWAP (Sharing With A Purpose) lets nonprofit haves and needs accumulate until the market becomes visible, then clears multilateral chains of exchange at once via sealed bids, SWAPcredits, and integer optimization, deployed with real nonprofits in Maryland.
+                  The remarkable <a href="https://www.linkedin.com/in/weixiao-olivia-huang-66a878128/" target="_blank">Weixiao Huang</a> led this work from start to finish, from PhD student through postdoc.
                   Excellent coauthors <a href="https://ise.rpi.edu/people/carlos-morel-figueroa" target="_blank">Carlos Morel Figueroa</a>,
                   <a href="https://www.linkedin.com/in/arjun-venat/" target="_blank">Arjun Venat</a>,
                   <a href="https://www.wpi.edu/people/faculty/sstanlick" target="_blank">Sarah Stanlick</a>,
