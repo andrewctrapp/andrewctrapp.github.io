@@ -748,13 +748,12 @@
       <!-- Door I: The structured form -->
       <div class="row justify-content-center">
         <div class="col-lg-10">
-          <!-- Contact form posts to Web3Forms (https://web3forms.com).
-               PASTE the access key from your Web3Forms verification email in place of YOUR_WEB3FORMS_ACCESS_KEY below. -->
+          <!-- Contact form posts to Web3Forms (https://web3forms.com). The access_key below is the public form key: it identifies the form, and the destination address stays private on the Web3Forms side. -->
           <form class="cta-form ui-font" id="joining-form"
                 action="https://api.web3forms.com/submit"
                 method="POST">
 
-            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="access_key" value="cb0c9e08-b48f-4091-8951-83006f33f08f">
             <input type="hidden" name="subject" id="form-subject" value="Joining page response">
             <input type="hidden" name="from_name" value="Joining page, andrewctrapp.github.io">
             <!-- Honeypot (Web3Forms botcheck): invisible to people, filled only by bots -->
