@@ -415,6 +415,19 @@
       background: #15363f;
       transform: translateY(-1px);
     }
+    .cta-form .botcheck { display: none !important; }
+    .cta-form .form-status {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      margin: 0;
+      color: var(--ink-soft);
+    }
+    .cta-form .form-status.is-ok { color: #1e6f5c; font-weight: 600; }
+    .cta-form .form-status.is-error { color: #9b2c2c; }
+    .cta-form.is-sent label,
+    .cta-form.is-sent textarea,
+    .cta-form.is-sent input[type="email"],
+    .cta-form.is-sent .submit-btn { display: none; }
     .cta-form .form-note {
       font-family: 'Inter', sans-serif;
       font-size: 0.84rem;
@@ -735,10 +748,17 @@
       <!-- Door I: The structured form -->
       <div class="row justify-content-center">
         <div class="col-lg-10">
-          <form class="cta-form ui-font"
-                action="mailto:trappa@rpi.edu"
-                method="POST"
-                enctype="text/plain">
+          <!-- Contact form posts to Web3Forms (https://web3forms.com).
+               PASTE the access key from your Web3Forms verification email in place of YOUR_WEB3FORMS_ACCESS_KEY below. -->
+          <form class="cta-form ui-font" id="joining-form"
+                action="https://api.web3forms.com/submit"
+                method="POST">
+
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="subject" id="form-subject" value="Joining page response">
+            <input type="hidden" name="from_name" value="Joining page, andrewctrapp.github.io">
+            <!-- Honeypot (Web3Forms botcheck): invisible to people, filled only by bots -->
+            <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
 
             <label for="q1">
               <span class="label-number">i.</span>
@@ -766,6 +786,7 @@
 
             <div class="submit-row">
               <button type="submit" class="submit-btn">Send to me</button>
+              <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
             </div>
           </form>
         </div>
@@ -815,6 +836,41 @@
       &copy; 2026 Andrew C. Trapp
     </div>
   </footer>
+
+  <!-- Contact form: submit in place via fetch, show inline confirmation; without JS the form posts normally and Web3Forms shows its own confirmation page -->
+  <script>
+  (function () {
+    var form = document.getElementById('joining-form');
+    if (!form || !window.fetch || !window.FormData) return;
+    var status = document.getElementById('form-status');
+    var button = form.querySelector('.submit-btn');
+    var subject = document.getElementById('form-subject');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = (form.querySelector('#email').value || '').trim();
+      subject.value = 'Joining page response' + (email ? ' from ' + email : '');
+      button.disabled = true;
+      button.textContent = 'Sending...';
+      status.className = 'form-status';
+      status.textContent = '';
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function (r) { return r.json().then(function (j) { return { ok: r.ok && j && j.success, j: j }; }); })
+        .then(function (res) {
+          if (!res.ok) { throw new Error(res.j && res.j.message ? res.j.message : 'Submission failed'); }
+          form.classList.add('is-sent');
+          status.className = 'form-status is-ok';
+          status.textContent = 'Thank you, your note is on its way.';
+          form.reset();
+        })
+        .catch(function () {
+          status.className = 'form-status is-error';
+          status.textContent = 'Something went wrong sending this. Please email trappa@rpi.edu directly.';
+          button.disabled = false;
+          button.textContent = 'Send to me';
+        });
+    });
+  })();
+  </script>
 
   <!-- Statcounter -->
   <script type="text/javascript">
