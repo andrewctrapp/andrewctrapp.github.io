@@ -6,19 +6,21 @@
   <title>Join Us &middot; ACT</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.2.0/css/all.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --paper: #f0f4f8;         /* warm parchment */
-      --paper-deep: #e3eaf2;
-      --ink: #1f2937;            /* warm near-black */
-      --ink-soft: #4b5563;
-      --ink-muted: #6b7280;
-      --teal: #1e3a8a;           /* deep teal accent */
-      --teal-soft: #dfe5ee;
-      --rust: #475569;           /* warm rust for the accent line */
-      --rule: #d0d8e1;
+      /* Four families: page tints, ink greys, one navy accent, one hairline.
+         Each name below describes the value it actually holds. */
+      --paper: #f0f4f8;          /* page background, cool blue-grey */
+      --paper-deep: #e3eaf2;     /* image mats and insets */
+      --ink: #1f2937;            /* body text, near-black slate */
+      --ink-soft: #4b5563;       /* secondary text, eyebrows, small rules */
+      --ink-muted: #6b7280;      /* captions and hints */
+      --navy: #1e3a8a;           /* the single accent */
+      --navy-deep: #162c66;      /* navy on hover */
+      --rule: #d0d8e1;           /* hairline borders */
+      --font-ui: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
     body {
       font-family: 'Spectral', Georgia, 'Times New Roman', serif;
@@ -28,7 +30,7 @@
       font-size: 17px;
     }
     .ui-font {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: var(--font-ui);
     }
 
 
@@ -36,7 +38,7 @@
       padding: 0;
       border-bottom: 1px solid var(--rule);
       background: var(--paper);
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
     }
     nav.simple > .container {
       min-height: 56px;
@@ -58,36 +60,31 @@
       margin-left: 24px;
       transition: color 0.2s;
     }
-    nav.simple .links a:hover { color: var(--teal); }
+    nav.simple .links a:hover { color: var(--navy); }
 
     /* HERO - letter-like */
     .hero {
-      padding: 110px 0 100px;
+      padding: 74px 0 66px;
     }
     .hero .salutation {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.78rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--rust);
+      color: var(--ink-soft);
       font-weight: 600;
       margin-bottom: 24px;
     }
     .hero .lead-question {
-      font-size: 1.65rem;
+      font-size: 1.5rem;
       line-height: 1.3;
       font-weight: 600;
       color: var(--ink);
       margin-bottom: 30px;
       letter-spacing: -0.005em;
     }
-    .hero .lead-question .lq-line2 {
-      display: inline-block;
-      padding-left: 3.25em;
-    }
     .hero .lead-question em {
       font-style: italic;
-      color: var(--teal);
     }
     .hero .lead-body {
       font-size: 1.18rem;
@@ -96,7 +93,7 @@
       margin-bottom: 32px;
     }
     .hero .lead-signoff {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.92rem;
       color: var(--ink-muted);
       margin-top: 36px;
@@ -106,12 +103,12 @@
       font-weight: 600;
     }
     .hero .hero-cta {
-      background: var(--teal);
+      background: var(--navy);
       color: #fff;
       border: 0;
       padding: 14px 30px;
       border-radius: 4px;
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 500;
       font-size: 0.98rem;
       text-decoration: none;
@@ -119,7 +116,7 @@
       transition: all 0.2s;
     }
     .hero .hero-cta:hover {
-      background: #15363f;
+      background: var(--navy-deep);
       transform: translateY(-1px);
       color: #fff;
       text-decoration: none;
@@ -137,7 +134,7 @@
       display: block;
     }
     .hero-image-frame .hero-image-caption {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.78rem;
       color: var(--ink-muted);
       font-style: italic;
@@ -147,11 +144,11 @@
 
     /* SECTION HEADERS */
     .section-eyebrow {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.76rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--rust);
+      color: var(--ink-soft);
       font-weight: 600;
       margin-bottom: 14px;
     }
@@ -178,30 +175,8 @@
     .fit-item {
       padding: 36px 0;
       border-bottom: 1px solid var(--rule);
-      display: flex;
-      gap: 36px;
-      align-items: flex-start;
     }
     .fit-item:last-child { border-bottom: 0; }
-    .fit-item-num {
-      font-family: 'Spectral', Georgia, serif;
-      font-style: italic;
-      font-size: 1.35rem;
-      font-weight: 400;
-      line-height: 1.3;
-      color: var(--rust);
-      letter-spacing: 0.04em;
-      min-width: 48px;
-      padding-top: 0;
-      text-align: right;
-      padding-right: 4px;
-    }
-    .fit-item-num::after {
-      content: ".";
-      color: var(--rust);
-      margin-left: 1px;
-    }
-    .fit-item-body { flex: 1; }
     .fit-item-body h4 {
       font-size: 1.35rem;
       font-weight: 600;
@@ -216,12 +191,12 @@
       margin-bottom: 18px;
     }
     .fit-prompt {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.88rem;
       color: var(--ink-muted);
       font-style: italic;
       padding-left: 18px;
-      border-left: 2px solid var(--rust);
+      border-left: 2px solid var(--ink-soft);
     }
     .fit-prompt strong { color: var(--ink); font-weight: 600; font-style: normal; }
 
@@ -258,7 +233,7 @@
       display: block;
     }
     .work-image-frame .work-image-caption {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.78rem;
       color: var(--ink-muted);
       font-style: italic;
@@ -283,7 +258,7 @@
       letter-spacing: -0.005em;
     }
     .exp-item h4 .exp-icon {
-      color: var(--teal);
+      color: var(--navy);
       margin-right: 10px;
       font-size: 1.1rem;
     }
@@ -308,7 +283,7 @@
       display: block;
     }
     .exp-image-frame .exp-image-caption {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.78rem;
       color: var(--ink-muted);
       font-style: italic;
@@ -322,7 +297,7 @@
     /* CLOSING CTA - structured form */
     .cta-section {
       padding: 110px 0;
-      background: var(--teal);
+      background: var(--navy);
       color: var(--paper);
     }
     .cta-section .section-eyebrow { color: rgba(245,239,226,0.7); }
@@ -347,10 +322,10 @@
       max-width: 680px;
       margin-left: auto;
       margin-right: auto;
-      box-shadow: 8px 8px 0 rgba(43,39,34,0.25);
+      box-shadow: 8px 8px 0 rgba(31,41,55,0.18);
     }
     .cta-form label {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.92rem;
       font-weight: 600;
       color: var(--ink);
@@ -359,7 +334,7 @@
       display: block;
     }
     .cta-form .label-number {
-      color: var(--rust);
+      color: var(--ink-soft);
       font-weight: 700;
       margin-right: 6px;
     }
@@ -372,13 +347,14 @@
       font-style: italic;
     }
     .cta-form textarea,
+    .cta-form select,
     .cta-form input[type="text"],
     .cta-form input[type="email"] {
       width: 100%;
       border: 1px solid var(--rule);
       border-radius: 4px;
       padding: 12px 14px;
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.95rem;
       color: var(--ink);
       background: #fff;
@@ -389,10 +365,23 @@
     .cta-form textarea:focus,
     .cta-form input:focus {
       outline: 0;
-      border-color: var(--teal);
-      box-shadow: 0 0 0 3px rgba(31,79,74,0.1);
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(30,58,138,0.12);
     }
     .cta-form textarea { min-height: 90px; }
+    .cta-form select {
+      appearance: none;
+      -webkit-appearance: none;
+      padding-right: 38px;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 15px;
+    }
+    .cta-form label .label-optional {
+      font-weight: 400;
+      color: var(--ink-muted);
+    }
     .cta-form .submit-row {
       display: flex;
       align-items: center;
@@ -400,24 +389,24 @@
       flex-wrap: wrap;
     }
     .cta-form button.submit-btn {
-      background: var(--teal);
+      background: var(--navy);
       color: var(--paper);
       border: 0;
       padding: 14px 32px;
       border-radius: 4px;
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 500;
       font-size: 0.98rem;
       cursor: pointer;
       transition: all 0.2s;
     }
     .cta-form button.submit-btn:hover {
-      background: #15363f;
+      background: var(--navy-deep);
       transform: translateY(-1px);
     }
     .cta-form .botcheck { display: none !important; }
     .cta-form .form-status {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.92rem;
       margin: 0;
       color: var(--ink-soft);
@@ -426,10 +415,12 @@
     .cta-form .form-status.is-error { color: #9b2c2c; }
     .cta-form.is-sent label,
     .cta-form.is-sent textarea,
+    .cta-form.is-sent select,
+    .cta-form.is-sent input[type="text"],
     .cta-form.is-sent input[type="email"],
     .cta-form.is-sent .submit-btn { display: none; }
     .cta-form .form-note {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.84rem;
       color: var(--ink-muted);
     }
@@ -466,7 +457,7 @@
       border: 1.5px solid rgba(245,239,226,0.45);
       padding: 12px 28px;
       border-radius: 4px;
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
       font-weight: 500;
       font-size: 0.96rem;
       text-decoration: none;
@@ -474,7 +465,7 @@
     }
     .cta-alt-action .alt-button:hover {
       background: var(--paper);
-      color: var(--teal);
+      color: var(--navy);
       border-color: var(--paper);
       text-decoration: none;
       transform: translateY(-1px);
@@ -508,18 +499,18 @@
       border-top: 1px solid var(--rule);
     }
     .practical-section h5 {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
       font-size: 0.76rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--rust);
+      color: var(--ink-soft);
       font-weight: 600;
       margin-bottom: 28px;
     }
     .practical-section dl {
       max-width: 760px;
       margin: 0;
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
     }
     .practical-section dt {
       font-weight: 600;
@@ -539,7 +530,7 @@
       text-align: center;
       color: var(--ink-muted);
       font-size: 0.86rem;
-      font-family: 'Inter', sans-serif;
+      font-family: var(--font-ui);
       border-top: 1px solid var(--rule);
       background: var(--paper-deep);
     }
@@ -569,7 +560,7 @@
           <p class="salutation">For prospective researchers</p>
           <h1 class="lead-question">
             What would you build ...<br>
-            <span class="lq-line2">if your math could <em>change lives</em>?</span>
+            if your math could <em>change lives</em>?
           </h1>
           <p class="lead-body">
             Most of the systems holding up other people's lives still run on rules of thumb. The math and algorithms to do better already exist, and so do the researchers who could build out these methods. If you've been looking for where that work happens, you've found the place.
@@ -597,7 +588,6 @@
       </p>
 
       <div class="fit-item">
-        <div class="fit-item-num">I</div>
         <div class="fit-item-body">
           <h4>The mathematics you love</h4>
           <p>
@@ -610,7 +600,6 @@
       </div>
 
       <div class="fit-item">
-        <div class="fit-item-num">II</div>
         <div class="fit-item-body">
           <h4>The ambiguity you welcome</h4>
           <p>
@@ -620,7 +609,6 @@
       </div>
 
       <div class="fit-item">
-        <div class="fit-item-num">III</div>
         <div class="fit-item-body">
           <h4>The agency you earn</h4>
           <p>
@@ -633,7 +621,6 @@
       </div>
 
       <div class="fit-item">
-        <div class="fit-item-num">IV</div>
         <div class="fit-item-body">
           <h4>The reason it matters to you</h4>
           <p>
@@ -649,7 +636,6 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-7">
-          <p class="section-eyebrow">The work</p>
           <h2 class="section-title">Where the math actually goes</h2>
           <p>
             Most of the math I do lives in places where allocation decisions can really affect those downstream. Refugee resettlement. Child welfare operations. The operational backbone
@@ -759,29 +745,55 @@
             <!-- Honeypot (Web3Forms botcheck): invisible to people, filled only by bots -->
             <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
 
+            <label for="fullname">
+              Your name
+              <span class="label-hint">So I know who I am writing back to.</span>
+            </label>
+            <input type="text" id="fullname" name="Name" required>
+
+            <label for="stage">
+              Where you are right now
+              <span class="label-hint">Roughly is fine.</span>
+            </label>
+            <select id="stage" name="Stage">
+              <option value="">Select one</option>
+              <option>Undergraduate</option>
+              <option>Master's student</option>
+              <option>Prospective PhD applicant</option>
+              <option>Current PhD student</option>
+              <option>Postdoc or visiting scholar</option>
+              <option>Other</option>
+            </select>
+
             <label for="q1">
               <span class="label-number">i.</span>
               What societal issue(s) do you find yourself thinking about more than expected?
               <span class="label-hint">Tell me concretely: not "fairness" in general but "the moment a foster placement gets revisited at 2am."</span>
             </label>
-            <textarea id="q1" name="domain"></textarea>
+            <textarea id="q1" name="Societal issue"></textarea>
 
             <label for="q2">
               <span class="label-number">ii.</span>
               What math or algorithm have you wrestled with more than expected?
               <span class="label-hint">Any technique, paper, problem class. What made it hard, what you learned.</span>
             </label>
-            <textarea id="q2" name="math"></textarea>
+            <textarea id="q2" name="Math or algorithm"></textarea>
 
             <label for="q3">
               <span class="label-number">iii.</span>
               What would you want to be working on, if you joined our initiative?
               <span class="label-hint">Whether you're thinking PhD, summer research, or just exploring, be specific.</span>
             </label>
-            <textarea id="q3" name="firstYear"></textarea>
+            <textarea id="q3" name="Hoped-for direction"></textarea>
+
+            <label for="cvlink">
+              Link to your CV or a writing sample <span class="label-optional">(optional)</span>
+              <span class="label-hint">A Drive or Dropbox link, a personal page, anything I can open.</span>
+            </label>
+            <input type="text" id="cvlink" name="CV or writing sample" placeholder="https://">
 
             <label for="email">Your email (so I can reply)</label>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" required>
 
             <div class="submit-row">
               <button type="submit" class="submit-btn">Send to me</button>
@@ -846,8 +858,10 @@
     var subject = document.getElementById('form-subject');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      var who = (form.querySelector('#fullname').value || '').trim();
       var email = (form.querySelector('#email').value || '').trim();
-      subject.value = 'Joining page response' + (email ? ' from ' + email : '');
+      var from = who && email ? who + ' (' + email + ')' : (who || email);
+      subject.value = 'Joining page response' + (from ? ' from ' + from : '');
       button.disabled = true;
       button.textContent = 'Sending...';
       status.className = 'form-status';
