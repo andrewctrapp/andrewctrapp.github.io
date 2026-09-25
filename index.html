@@ -4001,9 +4001,20 @@ var sc_project=7139907;
 var sc_invisible=1; 
 var sc_security="48ef0ec4"; 
 </script>
-<script type="text/javascript"
-src="https://www.statcounter.com/counter/counter.js"
-async></script>
+<script type="text/javascript">
+/* Load the counter on the live site only. Local previews (localhost, 127.0.0.1,
+   a file:// page) are skipped so development traffic stays out of the stats. */
+(function () {
+  var h = location.hostname;
+  if (h === '' || h === 'localhost' || h === '127.0.0.1' || h === '[::1]'
+      || /\.(localhost|test)$/.test(h)) return;
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = 'https://www.statcounter.com/counter/counter.js';
+  document.body.appendChild(s);
+})();
+</script>
 <noscript><div class="statcounter"><a title="Web Analytics
 Made Easy - Statcounter" href="https://statcounter.com/"
 target="_blank"><img class="statcounter"
