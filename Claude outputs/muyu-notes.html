@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muyu Candidate Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#f1f3f4;
+    --card:#ffffff;
+    --line:#e0e2e4;
+    --ink:#202124;
+    --ink-2:#3c4043;
+    --ink-3:#5f6368;
+    --shadow:0 1px 2px rgba(60,64,67,.25), 0 1px 3px 1px rgba(60,64,67,.10);
+    --shadow-hi:0 1px 3px rgba(60,64,67,.30), 0 4px 8px 3px rgba(60,64,67,.15);
+    --yel:#fff8c4; --grn:#e6f4ea; --blu:#e3f0fb; --pnk:#fce8e6; --pur:#f0e8fa; --gry:#f1f3f4;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    font-size:14px; line-height:1.55;
+    padding-inline:16px; padding-block:28px 56px;
+  }
+  .wrap{max-width:1180px;margin:0 auto}
+  header.page{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 16px;margin-bottom:6px}
+  header.page h1{font-size:22px;font-weight:500;margin:0;letter-spacing:.2px}
+  header.page .sub{color:var(--ink-3);font-size:13px}
+  .meta-row{color:var(--ink-3);font-size:12.5px;margin:0 0 22px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+  .grid{column-count:3;column-gap:16px}
+  @media (max-width:980px){.grid{column-count:2}}
+  @media (max-width:640px){.grid{column-count:1}}
+  .note{
+    background:var(--card); border:1px solid var(--line); border-radius:8px;
+    padding:15px 16px 13px; margin:0 0 16px; break-inside:avoid; page-break-inside:avoid;
+    box-shadow:var(--shadow); transition:box-shadow .15s ease;
+  }
+  .note:hover{box-shadow:var(--shadow-hi)}
+  .note.y{background:var(--yel)} .note.g{background:var(--grn)}
+  .note.b{background:var(--blu)} .note.p{background:var(--pnk)} .note.v{background:var(--pur)}
+  .note h2{font-size:15px;font-weight:500;margin:0 0 9px;line-height:1.35}
+  .note p{margin:0 0 9px;color:var(--ink-2)}
+  .note p:last-child{margin-bottom:0}
+  ul.b{margin:0 0 9px;padding-left:18px;color:var(--ink-2)}
+  ul.b li{margin-bottom:5px}
+  .hers{font-size:10.5px;letter-spacing:.9px;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin:0 0 5px}
+  .resp{margin-top:11px;padding-top:10px;border-top:1px solid rgba(60,64,67,.14)}
+  .resp .hers{color:var(--ink-3)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11px;color:var(--ink-3);background:rgba(60,64,67,.08);border-radius:11px;padding:2px 9px;white-space:nowrap}
+  ul.ck{list-style:none;margin:0;padding:0}
+  ul.ck li{position:relative;padding-left:26px;margin-bottom:9px;color:var(--ink-2)}
+  ul.ck li::before{
+    content:""; position:absolute; left:0; top:3px; width:14px; height:14px;
+    border:2px solid var(--ink-3); border-radius:2px;
+  }
+  .quote{font-style:italic;color:var(--ink-2)}
+  .fig{font-weight:500;color:var(--ink)}
+  footer.page{margin-top:10px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink-3);font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="page">
+  <h1>Muyu &middot; scenarios and responses</h1>
+  <span class="sub">PhD candidate, Fall 2027 application</span>
+</header>
+<p class="meta-row">Compiled 29 September 2026 &middot; M.S. Operations Research, Columbia 2024 &middot; B.A. Mathematics, Mount Holyoke 2022 &middot; has confirmed she will apply and list me</p>
+
+<div class="grid">
+
+  <div class="note b">
+    <p class="hers">Her scenario &middot; first message</p>
+    <h2>Hospital pharmacy under supply uncertainty</h2>
+    <p>A pharmacy manager learns a critical drug may miss its promised date, with a few days of stock left. Act now and pay for a substitute, change treatment plans, or reserve doses for the highest-risk patients. Wait and keep the cost down, but lose options if the date slips again.</p>
+    <p>The system shows inventory, recent use, supplier estimate. It does not show which patients can safely switch, whether the supplier has been reliable, or how hard the substitution is for clinical staff. The record keeps the order, not why one signal was trusted over another.</p>
+    <div class="resp">
+      <p class="hers">My response</p>
+      <p>This is a problem statement, not a method looking for an application. She arrived at inverse optimization from here, not the other way round. Worth remembering when the mathematics starts to dominate the conversation again.</p>
+    </div>
+    <div class="chips"><span class="chip">healthcare</span><span class="chip">latent judgment</span></div>
+  </div>
+
+  <div class="note">
+    <p class="hers">Her scenario &middot; first message</p>
+    <h2>Identification with incomplete observations</h2>
+    <p>Recovering the tradeoffs behind institutional procurement decisions. Positive rescaling was the obvious ambiguity. The deeper difficulty is that unobserved demand and operational constraints let substantively different tradeoffs explain the same orders. Where observations cover a narrow part of the feasible set, some components are only partially identified.</p>
+    <p>She volunteered that the estimation procedure has not converged reliably and that she cannot yet tell whether the cause is implementation, conditioning, or non-identifiability.</p>
+    <div class="resp">
+      <p class="hers">My response</p>
+      <p>Said this plainly: I do not lead a program whose center is advancing that theory. Inverse optimization sits inside my work as a means. Reporting an unresolved failure rather than the tidy version is uncommon and I told her so.</p>
+      <p>This is the piece that would need a co-advisor or committee member if it stays central.</p>
+    </div>
+    <div class="chips"><span class="chip">theory</span><span class="chip">needs backup</span></div>
+  </div>
+
+  <div class="note g">
+    <p class="hers">Her scenario &middot; first message</p>
+    <h2>Eliciting what a posted bid does not capture</h2>
+    <p>In SWAP an organization posts an offer or places a bid, but the entry may not carry how urgently a resource is needed, whether staff have time to prepare or receive it, or whether the exchange is practical once transport and storage are counted.</p>
+    <p>Her proposal: find ways for organizations to supply that information without much extra work, then examine which signals actually predict whether a recommended exchange is accepted and completed. That evidence informs future clearing and routing while leaving organizations free to reject or revise.</p>
+    <div class="resp">
+      <p class="hers">My response</p>
+      <p>The strongest thing she wrote, and squarely in the interactive optimization space. Note she has <em>not</em> returned to it since. Her live project is the canteen study. Ask on the call whether this was aspirational or something she means to pursue.</p>
+      <p>If it becomes the direction, she needs to understand from day one that SWAP is a multi-institution collaboration with partner organizations, not a system my group owns.</p>
+    </div>
+    <div class="chips"><span class="chip">SWAP</span><span class="chip">elicitation</span><span class="chip">not revisited</span></div>
+  </div>
+
+  <div class="note">
+    <p class="hers">Her scenario &middot; latest message</p>
+    <h2>Canteen company: who actually decides</h2>
+    <p>A company operating canteens across multiple sites. Three years of procurement records.</p>
+    <ul class="b">
+      <li>Head chefs set menus and request ingredient types and quantities</li>
+      <li>A company manager coordinates purchasing and allocation but rarely changes those requests</li>
+      <li>Therefore quantities and ingredient selection encode chef preferences; supplier and delivery are central</li>
+    </ul>
+    <div class="resp">
+      <p class="hers">My response</p>
+      <p>She mapped decision rights before modeling. Most students model first and find the org chart afterwards, usually too late. This is the single clearest signal of applied maturity in the whole exchange.</p>
+    </div>
+    <div class="chips"><span class="chip">decision rights</span><span class="chip">strong signal</span></div>
+  </div>
+
+  <div class="note y">
+    <p class="hers">Her scenario &middot; latest message</p>
+    <h2>What she asked on site</h2>
+    <ul class="b">
+      <li>How orders, meal counts and inventory are recorded</li>
+      <li>Why purchasing is centralized</li>
+      <li class="quote">Why the company accepts prices above market levels</li>
+      <li>Which service requirements are non-negotiable</li>
+      <li>How chefs are evaluated</li>
+    </ul>
+    <div class="resp">
+      <p class="hers">My response</p>
+      <p>The third question is asking what the firm values that appears in nobody's stated objective. The fourth asks for the hard constraints. The fifth asks for the agents' real objective function. That is a mature interview, not a data request.</p>
+    </div>
+    <div class="chips"><span class="chip">fieldwork</span></div>
+  </div>
+
+  <div class="note">
+    <p class="hers">Her scenario &middot; latest message</p>
+    <h2>The operational texture</h2>
+    <ul class="b">
+      <li>Vegetables ordered every two days and fully used</li>
+      <li>Meat ordered roughly every fifteen days and accumulates in storage</li>
+      <li>Canteens serving about 300 people: some chefs persistently carry <span class="fig">RMB 10,000</span> of stock, others <span class="fig">RMB 1,000 to 2,000</span></li>
+      <li>The manager judges persistent patterns over time and regards overstocking as tying up working capital</li>
+    </ul>
+    <div class="resp">
+      <p class="hers">My response</p>
+      <p>This is the detail that settles the authorship question the earlier technical note raised. Figures, cadences, and a manager's specific complaint are the residue of having been in the room.</p>
+    </div>
+    <div class="chips"><span class="chip">authenticity</span></div>
+  </div>
+
+  <div class="note p">
+    <p class="hers">Her scenario &middot; latest message</p>
+    <h2>The data wall, named unprompted</h2>
+    <ul class="b">
+      <li>No explicit penalty for overstocking, so managerial dissatisfaction is not an observed monetary cost</li>
+      <li>No independent measure of ingredient demand</li>
+      <li>Inventory records are month-end snapshots, so no stock on hand at the moment of each ordering decision, and no direct consumption or waste</li>
+      <li>Many records handwritten, ingredient names inconsistent, transcription unreliable, three years cleaned largely by hand</li>
+    </ul>
+    <div class="resp">
+      <p class="hers">My response</p>
+      <p>She found the fatal problem herself and did not dress it up. The missing state variable at decision time is the one that sinks most projects of this shape.</p>
+      <p>It is also the first warning sign on scope. Three years of handwritten records cleaned by hand is a year of work that yields no paper on its own.</p>
+    </div>
+    <div class="chips"><span class="chip">data limits</span><span class="chip">scope risk</span></div>
+  </div>
+
+  <div class="note">
+    <p class="hers">Her scenario &middot; latest message</p>
+    <h2>Her proposed next step</h2>
+    <p>Use additional operational information to construct alternative demand specifications, then examine how the compatible preference sets and the resulting recommendations change.</p>
+    <div class="resp">
+      <p class="hers">My response</p>
+      <p>Methodologically correct, and the honest treatment of partial identification. Rather than tune until something converges, she moves the assumptions and watches what survives.</p>
+    </div>
+    <div class="chips"><span class="chip">partial identification</span></div>
+  </div>
+
+  <div class="note g">
+    <p class="hers">Her scenario &middot; latest message</p>
+    <h2>Her validation plan</h2>
+    <p>Ask chefs and the manager to review recommendations for a small number of actual situations and explain whether they could implement them, what they would change, and why.</p>
+    <p>More generally, to understand the whole path from recommendation to implementation: who decides at each step, what practical constraints they face, what might prevent it being carried out, and to let that guide both the data collected and the model chosen.</p>
+    <div class="resp">
+      <p class="hers">My response</p>
+      <p>A face-validity protocol with the people who would have to act on it. This is my territory and the reason she identified me correctly. She has the instinct but has not yet lived the adoption problem.</p>
+    </div>
+    <div class="chips"><span class="chip">human in the loop</span><span class="chip">good fit</span></div>
+  </div>
+
+  <div class="note v">
+    <p class="hers">Assessment</p>
+    <h2>Where she genuinely needs mentoring</h2>
+    <ul class="b">
+      <li><strong>Scoping and stopping.</strong> What she describes could absorb five years. A dissertation needs three papers, not one heroic study.</li>
+      <li><strong>Making a claim.</strong> Everything so far is descriptive and diagnostic. She has never said what the contribution is in a form someone could disagree with.</li>
+      <li><strong>Whose preferences the model serves.</strong> Chefs want slack, the manager wants working capital freed. She describes the tension without seeing it as a modeling choice with stakes.</li>
+      <li><strong>One site to a general result.</strong> N equals one company. Avoiding the consulting-report trap is a taught skill.</li>
+      <li><strong>Deployment and adoption.</strong> She gestures at it correctly but has not done it.</li>
+    </ul>
+    <div class="resp">
+      <p class="hers">On my own fit</p>
+      <p>Those five are my profile almost line for line. The one gap is the identification theory itself, which is what a committee member or co-advisor is for. A student fully covered by one advisor usually means the project is too small.</p>
+    </div>
+    <div class="chips"><span class="chip">mentoring plan</span></div>
+  </div>
+
+  <div class="note y">
+    <p class="hers">For the call</p>
+    <h2>Probe these live</h2>
+    <ul class="ck">
+      <li>State the contribution as a claim someone could reasonably disagree with</li>
+      <li>If you had to finish this in twelve months, what would you cut?</li>
+      <li>Whose preferences should the model serve, the chefs' or the manager's, and how would you decide?</li>
+      <li>Does the canteen project travel with you? Data access, collaborators, your ongoing role</li>
+      <li>What have you been doing since February 2024?</li>
+    </ul>
+    <div class="chips"><span class="chip">call prep</span></div>
+  </div>
+
+  <div class="note">
+    <p class="hers">Before I dial</p>
+    <h2>Settle in my own head</h2>
+    <ul class="ck">
+      <li>Would I support her application? On this evidence, yes</li>
+      <li>What I would say if she asks about co-advising on the identification side</li>
+      <li>Mid-December is the departmental date for full consideration &mdash; confirm before quoting it</li>
+    </ul>
+    <div class="chips"><span class="chip">decisions</span></div>
+  </div>
+
+</div>
+
+<footer class="page">
+  <p>Direct quotations are hers; everything under "my response" is my own assessment. Nothing here has been shared with her.</p>
+</footer>
+
+</div>
+</body>
+</html>
