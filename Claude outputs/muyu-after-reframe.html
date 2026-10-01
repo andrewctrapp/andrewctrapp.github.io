@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muyu After the Reframe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#f1f3f4; --card:#ffffff; --line:#e0e2e4;
+    --ink:#202124; --ink-2:#3c4043; --ink-3:#5f6368;
+    --shadow:0 1px 2px rgba(60,64,67,.25), 0 1px 3px 1px rgba(60,64,67,.10);
+    --shadow-hi:0 1px 3px rgba(60,64,67,.30), 0 4px 8px 3px rgba(60,64,67,.15);
+    --yel:#fff8c4; --grn:#e6f4ea; --blu:#e3f0fb; --pnk:#fce8e6; --pur:#f0e8fa;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    font-size:14px; line-height:1.55;
+    padding-inline:16px; padding-block:28px 56px;
+  }
+  .wrap{max-width:1180px;margin:0 auto}
+  header.page{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 16px;margin-bottom:6px}
+  header.page h1{font-size:22px;font-weight:500;margin:0;letter-spacing:.2px}
+  header.page .sub{color:var(--ink-3);font-size:13px}
+  .meta-row{color:var(--ink-3);font-size:12.5px;margin:0 0 22px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+  .grid{column-count:3;column-gap:16px}
+  @media (max-width:980px){.grid{column-count:2}}
+  @media (max-width:640px){.grid{column-count:1}}
+  .note{
+    background:var(--card); border:1px solid var(--line); border-radius:8px;
+    padding:15px 16px 13px; margin:0 0 16px; break-inside:avoid; page-break-inside:avoid;
+    box-shadow:var(--shadow); transition:box-shadow .15s ease;
+  }
+  .note:hover{box-shadow:var(--shadow-hi)}
+  .note.y{background:var(--yel)} .note.g{background:var(--grn)}
+  .note.b{background:var(--blu)} .note.p{background:var(--pnk)} .note.v{background:var(--pur)}
+  .note h2{font-size:15px;font-weight:500;margin:0 0 9px;line-height:1.35}
+  .note p{margin:0 0 9px;color:var(--ink-2)}
+  .note p:last-child{margin-bottom:0}
+  ul.b{margin:0 0 9px;padding-left:18px;color:var(--ink-2)}
+  ul.b li{margin-bottom:5px}
+  .lbl{font-size:10.5px;letter-spacing:.9px;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin:0 0 5px}
+  .resp{margin-top:11px;padding-top:10px;border-top:1px solid rgba(60,64,67,.14)}
+  .q{font-style:italic}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{font-size:11px;color:var(--ink-3);background:rgba(60,64,67,.08);border-radius:11px;padding:2px 9px;white-space:nowrap}
+  ul.ck{list-style:none;margin:0;padding:0}
+  ul.ck li{position:relative;padding-left:26px;margin-bottom:9px;color:var(--ink-2)}
+  ul.ck li::before{content:"";position:absolute;left:0;top:3px;width:14px;height:14px;border:2px solid var(--ink-3);border-radius:2px}
+  footer.page{margin-top:10px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink-3);font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="page">
+  <h1>Muyu &middot; after the reframe</h1>
+  <span class="sub">Fourth exchange &middot; she replied in five hours</span>
+</header>
+<p class="meta-row">You wrote 7:30am ET after holding three days. She answered 1:45pm ET the same day. She has now asked to talk three separate times.</p>
+
+<div class="grid">
+
+  <div class="note g">
+    <p class="lbl">The headline</p>
+    <h2>She conceded the structural point in writing</h2>
+    <p class="q">"I am not looking to continue the canteen project as a fixed dissertation topic."</p>
+    <p>Unambiguous, unprompted, and in her own words. The thing you were most worried about is now on the record.</p>
+    <p>She also restated your operating model back accurately: problems come from partner organizations, students bring method and judgment. She used the plural, <em>different settings</em>, which is the word that matters.</p>
+    <div class="chips"><span class="chip">resolved</span></div>
+  </div>
+
+  <div class="note b">
+    <p class="lbl">New evidence &middot; most important item here</p>
+    <h2>The emergency care study</h2>
+    <p class="q">"My interest began with a study that incorporated patients' perceptions of their conditions into a model of emergency care... reducing crowding and making limited medical resources more available to critically ill patients."</p>
+    <p>She has never mentioned this before. It predates the canteen work, she had no obligation to volunteer it, and it is specific enough to check.</p>
+    <p><strong>This is what separates genuine alignment from a well-executed echo.</strong> Someone inventing agreement on the spot does not usually arrive with a verifiable backstory that explains the agreement.</p>
+    <div class="chips"><span class="chip">new information</span><span class="chip">healthcare</span></div>
+  </div>
+
+  <div class="note">
+    <p class="lbl">Pattern</p>
+    <h2>The canteen was the outlier, not the centre</h2>
+    <ul class="b">
+      <li>Emergency care, patient perceptions in the model, scarce medical resources</li>
+      <li>First message: the pharmacy manager facing a shipment that may slip</li>
+      <li>Third answer: eliciting what a posted offer or bid does not capture</li>
+      <li>Canteen: a commercial procurement study she is doing now</li>
+    </ul>
+    <p>Three of the four are societal resource allocation with human judgment as the difficult input. You have been reading the canteen as her centre of gravity because it was the most vivid thing in the file. On this evidence it is the detour.</p>
+    <div class="chips"><span class="chip">reread</span></div>
+  </div>
+
+  <div class="note">
+    <p class="lbl">Quality of her response</p>
+    <h2>She added something rather than echoing</h2>
+    <p>You framed overrides as giving people voice and letting revisions carry weight. She wrote that she would want responses to help see <span class="q">"what a recommendation may have missed about their needs."</span></p>
+    <p>That is not the same sentence back. It treats the override as diagnostic of an omission in the model, not only as preference data. Arguably a sharper framing than the one you handed her, and it is the version that actually generates research questions.</p>
+    <div class="chips"><span class="chip">good sign</span></div>
+  </div>
+
+  <div class="note y">
+    <p class="lbl">Her two questions</p>
+    <h2>She asked about apprenticeship, not about topics</h2>
+    <ul class="b">
+      <li class="q">"How do new students first get involved in partner projects?"</li>
+      <li class="q">"What do you typically expect students to contribute at the outset, and how do you guide their learning as the research develops?"</li>
+    </ul>
+    <p>Worth noticing what she did not ask. Someone shopping for a dissertation topic asks what projects are available. She asked how she would be brought in and taught. Different question, different orientation.</p>
+    <div class="chips"><span class="chip">signal</span></div>
+  </div>
+
+  <div class="note p">
+    <p class="lbl">The honest counterweight</p>
+    <h2>She has now agreed with you four times running</h2>
+    <p>Canteen not the centre, agreed. Problems come from partners, agreed. Voice and choice rather than compliance, agreed. Publish the canteen work, agreed.</p>
+    <p><strong>You have never seen what she does when she disagrees with you.</strong> Across four exchanges she has accommodated every point you made, fluently and immediately.</p>
+    <p>That is the one untested thing, and it is not a small one. A student who only ever agrees is difficult to advise, because you lose the corrective signal exactly when you need it most.</p>
+    <div class="chips"><span class="chip">untested</span><span class="chip">watch</span></div>
+  </div>
+
+  <div class="note v">
+    <p class="lbl">How to test it</p>
+    <h2>Ask her what is wrong with your framing</h2>
+    <p>Not a manufactured disagreement. A fair question between colleagues: what would she push back on in the way you described voice and choice, and where does she think it breaks down?</p>
+    <p>The honest answers exist. Whose voice counts when stakeholders conflict. What happens when an override is simply wrong. Whether transparency and solution quality trade off. If she has thought about the idea at all, she has an objection. If she produces none, that is the answer.</p>
+    <p>Better asked live than in writing, where she can compose.</p>
+    <div class="chips"><span class="chip">call question</span></div>
+  </div>
+
+  <div class="note">
+    <p class="lbl">Answering her, honestly</p>
+    <h2>Include the unglamorous part</h2>
+    <p>She asked what you expect at the outset. The truthful answer includes partner meetings, data that does not arrive clean, months before anything resembling a model, and very likely contributing to someone else's project before owning one.</p>
+    <p>Say that plainly. It is the second-best test you have, and unlike a clever question it costs you nothing to administer.</p>
+    <p><strong>One caution.</strong> When describing partner projects, be accurate about what is yours to offer. The nonprofit resource sharing work is a multi-institution collaboration with partner organizations, not something your group hands out.</p>
+    <div class="chips"><span class="chip">attribution</span></div>
+  </div>
+
+  <div class="note y">
+    <p class="lbl">Next steps</p>
+    <h2>Stop writing, start talking</h2>
+    <ul class="ck">
+      <li>Schedule the call. She has now asked three times and email has done all it can</li>
+      <li>Decide beforehand whether you would support her application</li>
+      <li>Decide what you would say about co-advising on the identification side</li>
+      <li>Confirm the mid-December departmental date before quoting it again</li>
+    </ul>
+    <p>Roughly ten weeks to the application deadline. Nothing further will be settled by another exchange of letters.</p>
+    <div class="chips"><span class="chip">action</span></div>
+  </div>
+
+  <div class="note">
+    <p class="lbl">On the call</p>
+    <h2>Five things to get</h2>
+    <ul class="ck">
+      <li>What she would push back on in the voice and choice framing</li>
+      <li>The emergency care study: her role, what came of it, why it stayed with her</li>
+      <li>If a partner's priority and an interesting research question pull apart, which wins and why</li>
+      <li>Does the canteen project travel with her, and does she keep data access</li>
+      <li>What she has been doing since February 2024</li>
+    </ul>
+    <div class="chips"><span class="chip">call prep</span></div>
+  </div>
+
+  <div class="note">
+    <p class="lbl">Where I land</p>
+    <h2>Stronger than three days ago</h2>
+    <p>You asked her to move and she moved, conceding the point that mattered and supplying new evidence that the alignment predates the conversation. That is the best outcome that message could have produced.</p>
+    <p>What remains is not about her fit. It is about whether the agreement is conviction or accommodation, and that question does not get answered in writing by someone who writes this well.</p>
+    <div class="chips"><span class="chip">assessment</span></div>
+  </div>
+
+</div>
+
+<footer class="page">
+  <p>Quoted phrases are hers. Assessments are mine. Nothing here has been shared with her.</p>
+</footer>
+
+</div>
+</body>
+</html>
