@@ -482,6 +482,43 @@
 
     <br>
 
+	<div id="OSUSeminar2026">
+      <div class="container">
+        <div class="card">
+          <div class="row">
+            <div class="col-lg-5 d-flex align-items-center">
+              <div class="card-header">
+                <img class="card-img-bottom" src="img/SWAP_Route_Decision_Support.png" alt="Interactive decision support for SWAP-and-Route: Baltimore nonprofit routes on a map beside surplus, time and exchange totals" />
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <span class="card-accent-strong">Seminar at <i>Oklahoma State University</i></span><br>
+                  <b>Sharing With A Purpose: Optimization for Nonprofit Resource Exchange, from SWAP to SWAP-and-Route</b>
+                </h5>
+
+                <h6 class="card-subtitle text-muted">
+                  September 30, 2026
+                </h6>
+                <br />
+
+                <p class="card-text" align="justify">
+                  Many thanks to the School of Industrial Engineering and Management at Oklahoma State University for the invitation to speak.
+                  The talk traced one line of work across three stages. SWAP lets the haves and needs of nonprofits accumulate until enough of the market is visible, then clears multilateral chains of exchange at once through sealed bids and SWAPcredits.
+                  SWAP-and-Route plans the deliveries that carry those exchanges out, so an agreed exchange becomes a route somebody can actually drive.
+                  The interactive decision support platform then puts a coordinator in the loop: setting aside a partner, a leg, or a vehicle immediately shows what that choice costs, so judgment stays with the people who know their own communities.
+                  SWAP-and-Route is joint work with <a href="https://www.linkedin.com/in/ozgekoc" target="_blank">&Ouml;zge Ayg&uuml;l</a>, <a href="https://oasisimpact.org/people" target="_blank">Yasutora Ito</a>, and <a href="https://faculty.rpi.edu/jennifer-pazour" target="_blank">Jennifer Pazour</a>; the decision support platform is joint work with <a href="https://www.linkedin.com/in/ozgekoc" target="_blank">&Ouml;zge Ayg&uuml;l</a> and Petek Karagedik.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
 	<div id="SWAPOper2026">
       <div class="container">
         <div class="card">
@@ -4055,8 +4092,9 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
           var m = sub.textContent.match(/\b(20\d{2})\b/);
           var year = m ? parseInt(m[1], 10) : 0;
           card.dataset.year = year;
-          // Alternate the figure side down the list: first (newest) card figure-left, then flip each one.
-          if (i % 2 === 1) card.classList.add('card-mirror');
+          // Alternate the figure side down the list. The parity flips whenever a card is added at
+          // the top, so that every card already published keeps the side it is on.
+          if (i % 2 === 0) card.classList.add('card-mirror');
           cards.push(card);
         });
 
