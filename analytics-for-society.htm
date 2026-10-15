@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="Analytics for Society, ISYE 4961 and 6961 at Rensselaer Polytechnic Institute, Spring 2027. Mathematical modeling and algorithms for allocating scarce resources in public and nonprofit systems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Andrew C. Trapp" />
+  <meta property="og:title" content="Analytics for Society | ISYE 4961 and 6961, Spring 2027" />
+  <meta property="og:description" content="A new Rensselaer elective on the mathematics of allocating scarce resources in systems that serve people." />
+  <title>Analytics for Society | Andrew C. Trapp</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.2.0/css/all.css" />
+  <link rel="stylesheet" href="accents.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap" />
+  <style>
+  :root{--rpi:#9E1B32}
+  .afs{max-width:760px}
+  .afs-title{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:600;
+    font-size:2.6rem;line-height:1.05;margin:0 0 .25rem;letter-spacing:-.01em;text-align:center}
+  .afs-meta{color:#5b6269;font-size:.95rem;margin:0;text-align:center}
+  .afs-reg{color:#5b6269;font-size:.95rem;margin:.1rem 0 0;text-align:center}
+  .afs-reg b{color:#15181c}
+  .afs-rule{border-top:2px solid #15181c;margin:.8rem 0 1rem}
+
+  /* one line of links, spread edge to edge across the bar */
+  .afs-bar{background:#15181c;border-radius:5px;padding:.45rem .9rem;margin:0 0 1.3rem;
+    display:flex;flex-wrap:nowrap;justify-content:space-between;gap:.35rem 1rem}
+  .afs-bar a{color:#cfe0ff;text-decoration:none;font-size:.88rem;white-space:nowrap;
+    flex:0 0 auto}
+  .afs-bar a:hover{color:#fff;text-decoration:underline}
+  .stickybar{position:sticky;top:0;z-index:20}
+  /* Below this width six across stops fitting, so the bar becomes a deliberate
+     three by two rather than an accidental wrap. */
+  @media (max-width:767px){
+    .afs-bar{display:grid;grid-template-columns:repeat(3,1fr);justify-items:center;
+      gap:.4rem .5rem;padding:.5rem .55rem}
+    .afs-bar a{font-size:.8rem}
+  }
+  @media (max-width:360px){.afs-bar a{font-size:.74rem}}
+
+  .afs-head{font-family:"Archivo Black",Impact,sans-serif;font-size:1.85rem;line-height:1.1;
+    letter-spacing:-.02em;margin:0 0 1rem;text-align:center}
+  .afs-decs{list-style:none;margin:0 0 1rem;padding:0;text-align:center}
+  .afs-decs li{font-family:"Archivo Black",Impact,sans-serif;font-size:1.28rem;line-height:1.2;
+    letter-spacing:-.02em;margin:0 0 .55rem}
+  .afs-decs li span{color:var(--rpi)}
+  /* the figure tracks the column rather than sitting at a fixed cap */
+  .afs-bip{width:88%;max-width:none;display:block;margin:.5rem auto .2rem}
+  .afs-cap{font-family:"Playfair Display",Georgia,serif;font-style:italic;text-align:center;
+    color:#5b6269;margin:.35rem 0 1.1rem}
+  .afs-close{line-height:1.65;color:#2f353b;text-align:center;margin:0 0 2rem}
+  .afs-close b{color:var(--rpi)}
+  .afs section{display:block;margin:0 0 1.6rem;scroll-margin-top:3.2rem}
+  .afs section h2{font-size:1.25rem;margin:0 0 .4rem}
+  .afs section p{margin:0 0 .5rem}
+  .updated{color:#878e95;font-size:.85rem;border-top:1px solid #e3e5e7;padding-top:.7rem;
+    margin-top:2rem}
+  @media (max-width:575px){.afs-title{font-size:2rem}.afs-head{font-size:1.5rem}
+    .afs-decs li{font-size:1.08rem}}
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Andrew C. Trapp</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#recent-accomplishments">Recent Accomplishments</a></li>
+        <li class="nav-item"><a class="nav-link" href="publications.htm">Publications</a></li>
+        <li class="nav-item"><a class="nav-link" href="team.htm">Research Team</a></li>
+        <li class="nav-item"><a class="nav-link" href="joining.htm">Joining</a></li>
+        <li class="nav-item"><a class="nav-link" href="platforms-and-software.htm">Platforms &amp; Software</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container"><div class="afs mx-auto">
+
+  <h1 class="afs-title">Analytics for Society</h1>
+  <p class="afs-meta">Spr 2027 &middot; ISYE 4961 / 6961 &middot; Tues &amp; Fri 1230 to 150pm</p>
+  <p class="afs-reg"><b>CRN 43912</b> and <b>CRN 43913</b> &middot; registration opens
+  <b>28 Oct</b></p>
+  <div class="afs-rule"></div>
+
+  <div class="afs-bar stickybar"><a href="#description">Course description</a><a href="#who">Who should enroll</a><a href="#register">Registering</a><a href="#levels">4961 or 6961</a><a href="#project">The project</a><a href="#contact">Contact</a></div>
+
+  <h2 class="afs-head">SOMEONE HAS TO CHOOSE:</h2>
+  <ul class="afs-decs"><li>Where the mobile kitchen <span>visits first</span></li><li>Which immigrants go <span>to which city</span></li><li>Who gets the last <span>shelter bed</span></li><li>Who receives <span>the kidney</span></li></ul>
+  <svg viewBox="0 0 200 62" class="afs-bip" aria-hidden="true">
+<g stroke="#eed8dc" stroke-width="0.8" fill="none">
+<path d="M28 8 L172 8"/><path d="M28 31 L172 31"/><path d="M28 8 L172 54"/><path d="M28 54 L172 31"/></g>
+<g stroke="#9E1B32" stroke-width="1.7" fill="none" stroke-linecap="round">
+<path d="M28 8 L172 31"/><path d="M28 31 L172 54"/><path d="M28 54 L172 8"/></g>
+<g fill="#fff" stroke="#15181c" stroke-width="1.15">
+<circle cx="28" cy="8" r="5.4"/><circle cx="28" cy="31" r="5.4"/><circle cx="28" cy="54" r="5.4"/></g>
+<g fill="#fff" stroke="#15181c" stroke-width="1.15">
+<rect x="167.2" y="3.2" width="9.6" height="9.6"/><rect x="167.2" y="26.2" width="9.6" height="9.6"/>
+<rect x="167.2" y="49.2" width="9.6" height="9.6"/></g></svg>
+  <p class="afs-cap">Who will make these connections?</p>
+  <p class="afs-close">None of these allocations were based on money. Someone needed to decide
+  <b>how to choose among qualified possibilities</b>, and <i>these decisions are the mathematics
+  and the algorithms</i> of this course.</p>
+
+  <section id="description">
+    <h2>Course description</h2>
+    <p>Mathematical modeling and algorithms for decision problems in public and nonprofit systems
+    that serve people, including shelter, food security, refugee resettlement, child welfare, and
+    nonprofit operations. Topics include modeling and algorithms that allocate scarce resources for
+    humans without a price mechanism, problem scoping and co-design, representing tradeoffs among
+    those served, decisions that withstand sparse and uncertain data, explaining and defending
+    recommendations, decision support and interactivity, and responsible deployment.</p>
+  </section>
+
+  <section id="who">
+    <h2>Who should enroll</h2>
+    <p>Anyone comfortable with quantitative reasoning is welcome. Optimization, algorithms,
+    statistics, machine learning and microeconomics are all good entry points, and the opening
+    weeks will cover core concepts so that folks arriving from different perspectives can follow
+    the rest of the course. Some programming experience is useful. If you are unsure whether your
+    background fits, write me an email and we can discuss together.</p>
+  </section>
+
+  <section id="register">
+    <h2>Registering</h2>
+    <p>Registration opens <b>28 October 2026</b>. Enter the course reference number directly:</p>
+    <ul>
+      <li><b>CRN 43912</b> for ISYE 4961, the undergraduate section</li>
+      <li><b>CRN 43913</b> for ISYE 6961, the graduate section</li>
+    </ul>
+    <p>The live section listing, including any room assignment once it is posted, will be on
+    <a href="https://sis.rpi.edu/rss/bwckctlg.p_disp_listcrse?term_in=202701&amp;subj_in=ISYE&amp;crse_in=4961&amp;schd_in=">the Rensselaer Self-Service listing</a>.</p>
+  </section>
+
+  <section id="levels">
+    <h2>4961 or 6961</h2>
+    <p>Same room, same sessions, same evaluations; however graduate students registering for
+    ISYE 6961 will have additional individual deliverable content throughout the semester.</p>
+  </section>
+
+  <section id="project">
+    <h2>The project</h2>
+    <p>The course carries a semester-long project concerning real allocation, starting from
+    scoping and ending with recommendations that you can defend. More details will come with the
+    syllabus.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Andrew C. Trapp, Frank and Lillian Gilbreth Endowed Chair, Industrial and Systems
+    Engineering, Rensselaer Polytechnic Institute.
+    <a href="mailto:trappa@rpi.edu">trappa@rpi.edu</a></p>
+    <p>The research behind this course, and the initiative doing this work, can be found on the
+    other pages of this site.</p>
+  </section>
+
+  <p class="updated">Last updated 15 October 2026</p>
+
+</div></div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

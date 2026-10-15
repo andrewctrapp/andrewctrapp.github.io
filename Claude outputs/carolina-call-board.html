@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carolina Call Board</title>
+<style>
+:root{
+  --bg:#f1f3f4; --card:#fff; --line:#dfe1e3;
+  --ink:#1f2124; --ink2:#3c4043; --ink3:#5f6368;
+  --sh:0 1px 2px rgba(60,64,67,.22), 0 1px 3px 1px rgba(60,64,67,.08);
+  --shh:0 1px 3px rgba(60,64,67,.28), 0 4px 10px 3px rgba(60,64,67,.14);
+  --yel:#fff8c4; --grn:#e4f3e8; --blu:#e2effb; --pnk:#fce8e6; --pur:#efe7fa; --tan:#f5ece0;
+  --star:#d99400; --acc:#15625a;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);
+  font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  padding-inline:16px;padding-block:22px 60px}
+.wrap{max-width:1240px;margin:0 auto}
+
+header.top{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px}
+header.top h1{font-size:21px;font-weight:600;margin:0}
+header.top .when{color:var(--ink3);font-size:13px}
+.bar{position:sticky;top:0;z-index:20;background:var(--bg);
+  padding:12px 0 10px;margin:10px 0 18px;border-bottom:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.f{font:inherit;font-size:12.5px;border:1px solid var(--line);background:var(--card);
+  color:var(--ink2);border-radius:14px;padding:5px 12px;cursor:pointer;white-space:nowrap}
+.f:hover{border-color:#b9bdc0}
+.f[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+.f.star[aria-pressed="true"]{background:var(--star);border-color:var(--star)}
+.spacer{flex:1 1 auto}
+.count{font-size:12.5px;color:var(--ink3);white-space:nowrap}
+.btn{font:inherit;font-size:12.5px;border:1px solid var(--line);background:var(--card);
+  color:var(--ink2);border-radius:4px;padding:5px 11px;cursor:pointer}
+.btn:hover{border-color:#b9bdc0}
+
+h2.row{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);
+  font-weight:700;margin:26px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+h2.row:first-of-type{margin-top:4px}
+.grid{column-count:3;column-gap:14px}
+@media(max-width:1000px){.grid{column-count:2}}
+@media(max-width:660px){.grid{column-count:1}}
+
+.note{background:var(--card);border:1px solid var(--line);border-radius:8px;
+  padding:13px 15px 11px;margin:0 0 14px;break-inside:avoid;box-shadow:var(--sh);
+  position:relative;transition:box-shadow .15s,opacity .15s}
+.note:hover{box-shadow:var(--shh)}
+.note.y{background:var(--yel)}.note.g{background:var(--grn)}.note.b{background:var(--blu)}
+.note.p{background:var(--pnk)}.note.v{background:var(--pur)}.note.t{background:var(--tan)}
+.note.done{opacity:.44}
+.note.done h3{text-decoration:line-through}
+.note.flash{animation:fl 1.5s ease}
+@keyframes fl{0%,55%{box-shadow:0 0 0 3px var(--star),var(--shh)}100%{box-shadow:var(--sh)}}
+.note.starred{border-color:var(--star);border-width:2px;padding:12px 14px 10px}
+
+.hd{display:flex;align-items:flex-start;gap:9px;margin-bottom:7px}
+.hd h3{font-size:14.5px;font-weight:600;margin:0;flex:1;line-height:1.35}
+.chk{appearance:none;width:15px;height:15px;border:2px solid var(--ink3);border-radius:2px;
+  margin:2px 0 0;cursor:pointer;flex:none;background:transparent;position:relative}
+.chk:checked{background:var(--acc);border-color:var(--acc)}
+.chk:checked::after{content:"";position:absolute;left:3px;top:0px;width:4px;height:8px;
+  border:solid #fff;border-width:0 2px 2px 0;transform:rotate(43deg)}
+.st{flex:none;border:0;background:transparent;cursor:pointer;padding:0;margin-top:1px;
+  font-size:16px;line-height:1;color:#c3c7ca}
+.st[aria-pressed="true"]{color:var(--star)}
+.lbl{font-size:10px;letter-spacing:.85px;text-transform:uppercase;color:var(--ink3);
+  font-weight:600;margin:0 0 5px}
+.note p{margin:0 0 8px;color:var(--ink2)}
+.note p:last-child{margin-bottom:0}
+.note ul{margin:0 0 8px;padding-left:17px;color:var(--ink2)}
+.note ul li{margin-bottom:4px}
+ul.ck{list-style:none;padding:0}
+ul.ck li{position:relative;padding-left:22px}
+ul.ck li::before{content:"";position:absolute;left:0;top:4px;width:11px;height:11px;
+  border:1.5px solid var(--ink3);border-radius:2px}
+.q{font-style:italic}
+.say{background:rgba(255,255,255,.72);border-left:3px solid var(--acc);
+  padding:9px 11px;border-radius:2px;margin:8px 0}
+.note.b .say,.note.y .say,.note.g .say,.note.p .say,.note.v .say,.note.t .say{background:rgba(255,255,255,.66)}
+.jump{display:inline-block;font-size:11.5px;color:var(--acc);background:rgba(21,98,90,.09);
+  border:0;border-radius:3px;padding:2px 8px;cursor:pointer;font-family:inherit;margin:3px 4px 0 0}
+.jump:hover{background:rgba(21,98,90,.18)}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.chip{font-size:10.5px;color:var(--ink3);background:rgba(60,64,67,.09);border-radius:10px;padding:2px 8px}
+table{border-collapse:collapse;width:100%;font-size:12.5px;margin-bottom:8px}
+th,td{padding:5px 7px;text-align:left;border-bottom:1px solid rgba(60,64,67,.14);vertical-align:top}
+th{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3)}
+td.d{white-space:nowrap;font-variant-numeric:tabular-nums}
+.empty{color:var(--ink3);font-size:13px;padding:10px 2px;display:none}
+footer{margin-top:26px;padding-top:14px;border-top:1px solid var(--line);color:var(--ink3);font-size:12.5px}
+@media print{.bar,.st,.chk,.jump{display:none}.note{break-inside:avoid;box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Carolina &middot; call board</h1>
+  <span class="when">Today, noon ET &middot; 5pm Lisbon, 6pm Turin</span>
+</header>
+
+<div class="bar">
+  <button class="f" data-filter="all" aria-pressed="true">All</button>
+  <button class="f" data-filter="her">Her</button>
+  <button class="f" data-filter="flow">Flow</button>
+  <button class="f" data-filter="money">Funding</button>
+  <button class="f" data-filter="probe">Probes</button>
+  <button class="f" data-filter="risk">Risks</button>
+  <button class="f star" data-filter="starred" aria-pressed="false">★ Starred</button>
+  <button class="f" data-filter="unread" aria-pressed="false">Unread</button>
+  <span class="spacer"></span>
+  <span class="count" id="count"></span>
+  <button class="btn" id="reset">Reset</button>
+</div>
+
+<h2 class="row">At a glance</h2>
+<div class="grid" id="g1">
+
+  <div class="note b" data-tags="her" id="c-who">
+    <div class="hd"><input type="checkbox" class="chk"><h3>Who she is</h3><button class="st" aria-pressed="false">★</button></div>
+    <ul>
+      <li>Double-degree MSc, Industrial Engineering &amp; Management, Instituto Superior T&eacute;cnico and Politecnico di Torino</li>
+      <li>BSc Chemical Engineering. Defended August 2026, maximum grade</li>
+      <li>Thesis: two-stage stochastic MILP for Formula 1 pit stop strategy, Monte Carlo stress test, built in Python</li>
+      <li>Advisors Daniel Santos (IST) and Rosario Scatamacchia (Polito)</li>
+    </ul>
+    <button class="jump" data-go="e-thesis">evidence: thesis depth ↓</button>
+  </div>
+
+  <div class="note b" data-tags="her" id="c-wants">
+    <div class="hd"><input type="checkbox" class="chk"><h3>What she has said she wants</h3><button class="st" aria-pressed="false">★</button></div>
+    <p class="q">"A role where I'm working hands-on with data and building models from it, ideally continuing in operations research, but with the chance to pick up different methods and tools along the way."</p>
+    <p>Strip the word <em>role</em> and that is a description of doctoral training. Her language has drifted from "analytics/consulting" toward "continuing in operations research" across four messages.</p>
+    <button class="jump" data-go="e-drift">evidence: the drift ↓</button>
+  </div>
+
+  <div class="note g" data-tags="her" id="c-ask">
+    <div class="hd"><input type="checkbox" class="chk"><h3>She asked you first</h3><button class="st" aria-pressed="true">★</button></div>
+    <p class="q">"Do you have any opportunities, whether a PhD position or a role in industry, that you think could be a fit for my profile? And if so, what would they involve?"</p>
+    <p>That question arrived immediately after you told her US doctorates are funded positions. She was not declining a doctorate, she did not know one was affordable.</p>
+    <div class="chips"><span class="chip">she moved first</span></div>
+  </div>
+
+  <div class="note" data-tags="her" id="c-pull">
+    <div class="hd"><input type="checkbox" class="chk"><h3>The mission pull is documented, not asserted</h3><button class="st" aria-pressed="false">★</button></div>
+    <ul>
+      <li>Thirst Project Portugal, fundraising for water wells, IST team top three nationally</li>
+      <li>Volunteer on the wards at Hospital Dona Estef&acirc;nia, keeping hospitalised children company</li>
+      <li>Business operations for a student electric motorcycle team, MotoStudent</li>
+    </ul>
+    <p>She found the lab under its old name and led with what it does for people. She may still think of it as ARCHES.</p>
+    <button class="jump" data-go="e-oasis">say this about the name ↓</button>
+  </div>
+
+  <div class="note y" data-tags="her probe" id="c-gap">
+    <div class="hd"><input type="checkbox" class="chk"><h3>The gap she does not know she has</h3><button class="st" aria-pressed="true">★</button></div>
+    <p class="q">"My thesis is already available through both universities, and it appears if you search the title on Google."</p>
+    <p>She equates publication with public accessibility. Not a defect of intelligence, an absence of exposure. But a dissertation is made of papers, and papers are made of arguments, so this is the specific thing she would have to learn.</p>
+    <button class="jump" data-go="e-correct">how to correct it ↓</button>
+  </div>
+
+  <div class="note" data-tags="her risk" id="c-clock">
+    <div class="hd"><input type="checkbox" class="chk"><h3>Her clock</h3><button class="st" aria-pressed="false">★</button></div>
+    <p>Defended six weeks ago, actively job hunting, could accept an offer within weeks. September 2027 is eleven months of waiting from where she sits.</p>
+    <p>She has also not done the one-page contribution task you set. Pragmatic, or avoidant. Unresolved.</p>
+    <button class="jump" data-go="e-cal">the real calendar ↓</button>
+  </div>
+
+</div>
+
+<h2 class="row">Today &middot; the flow</h2>
+<div class="grid" id="g2">
+
+  <div class="note t" data-tags="flow" id="c-stance">
+    <div class="hd"><input type="checkbox" class="chk"><h3>Stance: warm, sober, unhurried</h3><button class="st" aria-pressed="false">★</button></div>
+    <p>You do not have a slot figured out and you do not need to pretend otherwise. The honest posture is that you are listening for where she resonates.</p>
+    <p><strong>Target roughly 60 percent her, 40 percent you.</strong> Resist filling silences. The information you need is in what she volunteers, not in what she confirms.</p>
+    <p>Say nothing today that you would not be willing to repeat in writing tomorrow.</p>
+  </div>
+
+  <div class="note t" data-tags="flow" id="c-open">
+    <div class="hd"><input type="checkbox" class="chk"><h3>1. Open and hand it over</h3><button class="st" aria-pressed="false">★</button></div>
+    <p>Two minutes of thanks, then give her the floor and leave it with her.</p>
+    <div class="say">"Before I say anything about how things work here, I would rather hear where you actually are. What are you weighing at the moment?"</div>
+    <p>Then stop talking. What she raises first, unprompted, is the most reliable signal you will get all call.</p>
+  </div>
+
+  <div class="note t" data-tags="flow probe" id="c-listen">
+    <div class="hd"><input type="checkbox" class="chk"><h3>2. Listen for resonance, do not assign</h3><button class="st" aria-pressed="false">★</button></div>
+    <p>You are not matching her to a project today. You are finding out which problems make her lean forward.</p>
+    <ul>
+      <li>Which of your areas does she ask a second question about?</li>
+      <li>Does she talk about people, or about methods?</li>
+      <li>When she describes the humanitarian allocation idea, is it hers or is it a reflection of yours?</li>
+    </ul>
+    <button class="jump" data-go="e-proposal">her own mini-proposal ↓</button>
+  </div>
+
+  <div class="note v" data-tags="flow probe" id="c-probe">
+    <div class="hd"><input type="checkbox" class="chk"><h3>3. Four probes, spaced out</h3><button class="st" aria-pressed="true">★</button></div>
+    <ul class="ck">
+      <li>Your thesis makes a claim someone could disagree with. What is it?</li>
+      <li>What broke when you took the model to a situation it was not built for?</li>
+      <li>If you had five years on one problem rather than variety, what would you want it to be?</li>
+      <li>What would you push back on in how I have described this work?</li>
+    </ul>
+    <p>The fourth is the one to protect. You have never seen her disagree with you, and a student who only agrees is hard to advise.</p>
+  </div>
+
+  <div class="note t" data-tags="flow" id="c-oasis-how">
+    <div class="hd"><input type="checkbox" class="chk"><h3>4. How work begins here</h3><button class="st" aria-pressed="false">★</button></div>
+    <p>Say it plainly, as you did with the other candidate. Students arrive with methods, judgment, and earned context. The problems come from partner organisations and from where the initiative is already pointed.</p>
+    <p>Include the unglamorous part: partner meetings, data that does not arrive clean, months before a model exists, likely contributing to someone else's project before owning one.</p>
+    <button class="jump" data-go="e-oasis">the name, and attribution care ↓</button>
+  </div>
+
+  <div class="note p" data-tags="flow money" id="c-money">
+    <div class="hd"><input type="checkbox" class="chk"><h3>5. The funding conversation</h3><button class="st" aria-pressed="true">★</button></div>
+    <p>You told her US doctorates are funded positions. That is true and you are not walking it back. What you are adding is the texture underneath it.</p>
+    <div class="say">"Admitted doctoral students here are supported, with tuition covered and a stipend. That part is real. What I can personally commit to is the first year. Beyond that we build the runway together, through grants and fellowships, and learning to write those is part of the training rather than a chore attached to it. Nobody has unlimited money, including me."</div>
+    <button class="jump" data-go="e-frame">why this is not a walk-back ↓</button>
+  </div>
+
+  <div class="note p" data-tags="flow money" id="c-joint">
+    <div class="hd"><input type="checkbox" class="chk"><h3>6. The offer, framed as joint</h3><button class="st" aria-pressed="true">★</button></div>
+    <p>What you can genuinely offer today, without committing the department or promising admission:</p>
+    <ul>
+      <li>To advise her fellowship applications, starting now</li>
+      <li>To support the first year if she is admitted</li>
+      <li>Continuation as a joint endeavour, not a probation</li>
+    </ul>
+    <p><strong>Avoid the word performance.</strong> To someone who has not yet applied it reads as a threat. "We build it together" carries the same expectation and does not.</p>
+  </div>
+
+  <div class="note y" data-tags="flow money" id="c-fellow">
+    <div class="hd"><input type="checkbox" class="chk"><h3>7. Fellowships: three live routes</h3><button class="st" aria-pressed="true">★</button></div>
+    <p>This is the most concrete value you can hand her today, and one of them opened yesterday.</p>
+    <table>
+      <tr><th>Route</th><th>Window</th></tr>
+      <tr><td><strong>Fulbright Portugal</strong> + FCT support</td><td class="d">opened 1 Oct, closes 15 Jan</td></tr>
+      <tr><td><strong>la Caixa</strong> postgraduate abroad</td><td class="d">closes mid-Jan</td></tr>
+      <tr><td><strong>FCT</strong> general line, held abroad</td><td class="d">opens March</td></tr>
+    </table>
+    <button class="jump" data-go="e-fellow">full detail and eligibility ↓</button>
+  </div>
+
+  <div class="note" data-tags="flow risk" id="c-timeline">
+    <div class="hd"><input type="checkbox" class="chk"><h3>8. Suss out her timeline</h3><button class="st" aria-pressed="false">★</button></div>
+    <ul class="ck">
+      <li>Is she interviewing now, and does she have anything live?</li>
+      <li>Could she wait until September 2027, and what would she do meanwhile?</li>
+      <li>Would she take a job and defer, or is it one or the other?</li>
+      <li>Has she thought about the visa timeline at all?</li>
+    </ul>
+    <p>Ask these as practical planning, not as pressure. Her answer determines whether the fellowship conversation is urgent or academic.</p>
+    <button class="jump" data-go="e-jan">on a January start ↓</button>
+  </div>
+
+  <div class="note t" data-tags="flow" id="c-close">
+    <div class="hd"><input type="checkbox" class="chk"><h3>9. Close with one concrete step</h3><button class="st" aria-pressed="false">★</button></div>
+    <p>Do not end on warmth alone. Leave her with something to do that costs her effort and tells you something.</p>
+    <ul>
+      <li>The one page: her thesis contribution as a claim someone could disagree with</li>
+      <li>Or the Fulbright, if she is eligible and interested, since that clock is running</li>
+    </ul>
+    <p>Whether she does it, and how fast, is your next real data point.</p>
+  </div>
+
+</div>
+
+<h2 class="row">Evidence, artifacts, and language</h2>
+<div class="grid" id="g3">
+
+  <div class="note" data-tags="her" id="e-thesis">
+    <div class="hd"><input type="checkbox" class="chk"><h3>The thesis, and what she said about it</h3><button class="st" aria-pressed="false">★</button></div>
+    <p>Roughly 80 to 90 pages of stochastic programming with good figures, maximum grade. Her account of the sensitivity analysis is the best thing in the whole exchange:</p>
+    <p class="q">"It actually started from a problem rather than curiosity for its own sake. The hard compound was rarely or never being chosen, which clearly wasn't right. I dug into why, fixed it... I kept going because I felt it genuinely strengthened the thesis."</p>
+    <p>She noticed a model output that contradicted reality, chased it, and continued past what the thesis required. That is the empirical loop, and she undersells it as debugging.</p>
+    <div class="chips"><span class="chip">temperament</span></div>
+  </div>
+
+  <div class="note g" data-tags="her" id="e-proposal">
+    <div class="hd"><input type="checkbox" class="chk"><h3>Her unprompted mini-proposal</h3><button class="st" aria-pressed="false">★</button></div>
+    <p>Asked where she would aim the toolkit, she chose humanitarian resource allocation and built it out herself:</p>
+    <ul>
+      <li>First stage: prepositioning supplies, allocating budget and vehicles before demand is known</li>
+      <li>Second stage: reallocating and dispatching once the situation unfolds</li>
+      <li>Objective balancing equity, urgency and cost, <span class="q">"often contested among stakeholders themselves"</span></li>
+      <li>The gap versus F1 is <strong>trust</strong>: <span class="q">"the model would need to be transparent enough to show why it's recommending something, not just what"</span></li>
+    </ul>
+    <p>She named transparency and contested objectives without being prompted. Those are your areas.</p>
+  </div>
+
+  <div class="note" data-tags="her" id="e-drift">
+    <div class="hd"><input type="checkbox" class="chk"><h3>The drift, message by message</h3><button class="st" aria-pressed="false">★</button></div>
+    <ul>
+      <li><strong>Msg 2:</strong> "leaning towards an analytics/consulting role in industry rather than a research path"</li>
+      <li><strong>Msg 4:</strong> "I wanted something that let me lean into mathematics properly"</li>
+      <li><strong>Msg 4:</strong> the work changed how she watches races, now thinking about what influences each team's decision-maker</li>
+      <li><strong>Msg 6:</strong> "ideally continuing in operations research... pick up different methods and tools"</li>
+      <li><strong>Msg 6:</strong> "do you have any opportunities, whether a PhD position or..."</li>
+    </ul>
+    <p>Nothing here was coerced. Each step followed information, not pressure.</p>
+  </div>
+
+  <div class="note y" data-tags="probe" id="e-correct">
+    <div class="hd"><input type="checkbox" class="chk"><h3>Correcting the publication idea, warmly</h3><button class="st" aria-pressed="false">★</button></div>
+    <div class="say">"A thesis being findable is not the same as being published. Publication means a community that works on your problem has looked at your argument and decided it holds. A thesis reports what you did. A paper has to argue why anyone should care. That difference is most of what a doctorate teaches."</div>
+    <p>Say it once, lightly, and move on. It is easier out loud than in writing, which is why it waited for today.</p>
+  </div>
+
+  <div class="note v" data-tags="flow" id="e-oasis">
+    <div class="hd"><input type="checkbox" class="chk"><h3>The name, and two attribution cautions</h3><button class="st" aria-pressed="false">★</button></div>
+    <p>She found you as ARCHES. A single clause fixes it without ceremony: the group is now OASIS, same work, new institution.</p>
+    <p><strong>Be accurate about what is yours to offer.</strong> The nonprofit resource sharing work is a multi-institution collaboration with partner organisations and its own 501(c)(3), not a project your group hands out. Better she learns the shape of that now than after she arrives.</p>
+  </div>
+
+  <div class="note p" data-tags="money" id="e-frame">
+    <div class="hd"><input type="checkbox" class="chk"><h3>Why the one-year frame is not a retreat</h3><button class="st" aria-pressed="false">★</button></div>
+    <p>"Fully funded" describes the norm and the department's intent. It does not mean a five-year endowment attached to each student. In practice support is assembled year to year from teaching lines, grant-funded research lines, and fellowships, and every advisor's reach is bounded by their awards.</p>
+    <p>So the accurate statement is not a smaller version of what you told her. It is the texture underneath the same claim, and saying it plainly is the thing that will make her trust the rest.</p>
+    <p><strong>Watch for:</strong> if she hears it as a downgrade, say so directly and explain the mechanics. Do not let it sit as a vague worry.</p>
+  </div>
+
+  <div class="note y" data-tags="money" id="e-fellow">
+    <div class="hd"><input type="checkbox" class="chk"><h3>Fellowship detail</h3><button class="st" aria-pressed="false">★</button></div>
+    <ul>
+      <li><strong>Fulbright Portugal, with FCT support.</strong> Portuguese nationals, up to $40,000 for the first year of US doctoral study, plus health insurance and J-1 documentation. Opened 1 October, closes 15 January, admission proof due 15 April. One honest caveat: J-1 can carry a two-year home residency expectation, which matters if she later wants to stay. Confirm current terms.</li>
+      <li><strong>la Caixa postgraduate fellowships abroad.</strong> 100 awards, Spanish and Portuguese nationals, explicitly covers doctoral study in the US. Up to 24 months, so a bridge rather than a full ride. She clears the eligibility window. Closes around 19 January.</li>
+      <li><strong>FCT doctoral studentships, general line.</strong> Roughly 1,600 awards, four years, and crucially can be held abroad or in mixed form if she stays resident in Portugal. Opens early March. Highest probability of the three.</li>
+    </ul>
+    <p><strong>Not eligible:</strong> NSF GRFP, Hertz, Ford, NDSEG. All require citizenship or permanent residency. Do not send her chasing those.</p>
+  </div>
+
+  <div class="note" data-tags="risk" id="e-cal">
+    <div class="hd"><input type="checkbox" class="chk"><h3>Calendar for a Fall 2027 start</h3><button class="st" aria-pressed="false">★</button></div>
+    <table>
+      <tr><th>Date</th><th>What</th></tr>
+      <tr><td class="d">1 Oct &ndash; 15 Jan</td><td>Fulbright Portugal window</td></tr>
+      <tr><td class="d">~15 Dec</td><td>RPI doctoral application, full consideration</td></tr>
+      <tr><td class="d">~19 Jan</td><td>la Caixa abroad</td></tr>
+      <tr><td class="d">~Mar</td><td>FCT general line</td></tr>
+      <tr><td class="d">15 Apr</td><td>Fulbright admission proof due</td></tr>
+    </table>
+    <p>Confirm the mid-December departmental date before quoting it. The ISE site language is from last cycle and has not been refreshed.</p>
+  </div>
+
+  <div class="note" data-tags="risk" id="e-jan">
+    <div class="hd"><input type="checkbox" class="chk"><h3>A January 2027 start</h3><button class="st" aria-pressed="false">★</button></div>
+    <p>The published Spring 2027 application deadline was 15 August 2026. It has passed. On top of that she would need an I-20 and an F-1 visa, which from Portugal on that timetable is tight and not assured.</p>
+    <p>So do not offer it. The honest line keeps the door open without promising anything:</p>
+    <div class="say">"September is not the only entry point here, though the spring route runs on its own calendar and I would need to look into what is still possible."</div>
+    <p>Then actually ask Jen Pazour, rather than leaving it hanging.</p>
+  </div>
+
+  <div class="note p" data-tags="risk probe" id="e-risks">
+    <div class="hd"><input type="checkbox" class="chk"><h3>What could still go wrong</h3><button class="st" aria-pressed="false">★</button></div>
+    <ul>
+      <li>She wants breadth, and a doctorate is five years of depth. She said so herself early on and it has not been retested.</li>
+      <li>She has never had to build an argument. Everything she has produced reports rather than claims.</li>
+      <li>Written exchanges are weak evidence now. Today is the first unmediated signal you will get.</li>
+      <li>She may take an offer in October regardless of how well this goes.</li>
+    </ul>
+    <p>None of these is disqualifying. All of them are better known than assumed.</p>
+  </div>
+
+  <div class="note" data-tags="flow" id="e-after">
+    <div class="hd"><input type="checkbox" class="chk"><h3>Within an hour of hanging up</h3><button class="st" aria-pressed="false">★</button></div>
+    <ul class="ck">
+      <li>Write down what she raised first, before you prompted her</li>
+      <li>Write down anything she disagreed with you about</li>
+      <li>Decide: would you support her application? Yes or no, in writing, to yourself</li>
+      <li>Send the one concrete next step while the call is still warm</li>
+      <li>Ask Jen Pazour about spring entry and confirm the December date</li>
+    </ul>
+  </div>
+
+</div>
+
+<p class="empty" id="empty">Nothing matches these filters.</p>
+
+<footer>
+  <p>Quoted phrases are Carolina's, from your correspondence. Everything else is working notes. Marks and stars are saved in this browser only.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var KEY='carolina-call-board-v1';
+  var state={read:{},star:{}};
+  try{var raw=localStorage.getItem(KEY); if(raw) state=JSON.parse(raw)||state;}catch(e){}
+  if(!state.read)state.read={}; if(!state.star)state.star={};
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+
+  var notes=[].slice.call(document.querySelectorAll('.note'));
+  var active={group:'all',starred:false,unread:false};
+
+  notes.forEach(function(n){
+    var id=n.id;
+    var chk=n.querySelector('.chk');
+    var st=n.querySelector('.st');
+    if(state.star[id]===undefined && st.getAttribute('aria-pressed')==='true'){state.star[id]=true;}
+    chk.checked=!!state.read[id];
+    n.classList.toggle('done',!!state.read[id]);
+    st.setAttribute('aria-pressed',state.star[id]?'true':'false');
+    n.classList.toggle('starred',!!state.star[id]);
+
+    chk.addEventListener('change',function(){
+      state.read[id]=chk.checked; n.classList.toggle('done',chk.checked); save(); apply();
+    });
+    st.addEventListener('click',function(){
+      state.star[id]=!state.star[id];
+      st.setAttribute('aria-pressed',state.star[id]?'true':'false');
+      n.classList.toggle('starred',!!state.star[id]);
+      save(); apply();
+    });
+  });
+
+  document.querySelectorAll('.jump').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=document.getElementById(b.dataset.go);
+      if(!t)return;
+      active.group='all'; active.starred=false; active.unread=false; syncBtns(); apply();
+      t.scrollIntoView({behavior:'smooth',block:'center'});
+      t.classList.remove('flash'); void t.offsetWidth; t.classList.add('flash');
+    });
+  });
+
+  var btns=[].slice.call(document.querySelectorAll('.f'));
+  function syncBtns(){
+    btns.forEach(function(b){
+      var f=b.dataset.filter;
+      if(f==='starred') b.setAttribute('aria-pressed',active.starred?'true':'false');
+      else if(f==='unread') b.setAttribute('aria-pressed',active.unread?'true':'false');
+      else b.setAttribute('aria-pressed',active.group===f?'true':'false');
+    });
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=b.dataset.filter;
+      if(f==='starred') active.starred=!active.starred;
+      else if(f==='unread') active.unread=!active.unread;
+      else active.group=(active.group===f&&f!=='all')?'all':f;
+      syncBtns(); apply();
+    });
+  });
+
+  document.getElementById('reset').addEventListener('click',function(){
+    state={read:{},star:{}}; save();
+    notes.forEach(function(n){
+      n.querySelector('.chk').checked=false; n.classList.remove('done','starred');
+      n.querySelector('.st').setAttribute('aria-pressed','false');
+    });
+    active={group:'all',starred:false,unread:false}; syncBtns(); apply();
+  });
+
+  function apply(){
+    var shown=0, read=0;
+    notes.forEach(function(n){
+      var tags=(n.dataset.tags||'').split(/\s+/);
+      var ok=true;
+      if(active.group!=='all' && tags.indexOf(active.group)<0) ok=false;
+      if(active.starred && !state.star[n.id]) ok=false;
+      if(active.unread && state.read[n.id]) ok=false;
+      n.style.display= ok?'':'none';
+      if(ok) shown++;
+      if(state.read[n.id]) read++;
+    });
+    // starred cards float to the top of their own row
+    ['g1','g2','g3'].forEach(function(gid){
+      var g=document.getElementById(gid); if(!g)return;
+      var kids=[].slice.call(g.children);
+      kids.sort(function(a,b){
+        var sa=state.star[a.id]?0:1, sb=state.star[b.id]?0:1;
+        if(sa!==sb) return sa-sb;
+        return kids.indexOf(a)-kids.indexOf(b);
+      }).forEach(function(k){g.appendChild(k);});
+    });
+    document.getElementById('empty').style.display= shown?'none':'block';
+    document.getElementById('count').textContent= read+' of '+notes.length+' marked · '+shown+' showing';
+  }
+  syncBtns(); apply();
+})();
+</script>
+</body>
+</html>
