@@ -60,6 +60,10 @@
     margin-top:2rem}
   @media (max-width:575px){.afs-title{font-size:2rem}.afs-head{font-size:1.5rem}
     .afs-decs li{font-size:1.08rem}}
+  /* On a phone the two masthead lines have to hold one line each, so the type steps
+     down rather than letting the course numbers or the time wrap. */
+  @media (max-width:430px){.afs-meta,.afs-reg{font-size:.80rem}}
+  @media (max-width:370px){.afs-meta,.afs-reg{font-size:.75rem}}
   </style>
 </head>
 <body>
@@ -85,7 +89,7 @@
 
   <h1 class="afs-title">Analytics for Society</h1>
   <p class="afs-meta">Spr 2027 &middot; ISYE 4961 / 6961 &middot; Tues &amp; Fri 1230 to 150pm</p>
-  <p class="afs-reg"><b>CRN 43912</b> and <b>CRN 43913</b> &middot; registration opens
+  <p class="afs-reg"><b>CRN 43912 / 43913</b> &middot; <b>3 credits</b> &middot; reg opens
   <b>28 Oct</b></p>
   <div class="afs-rule"></div>
 
@@ -146,7 +150,7 @@
 
   <section id="project">
     <h2>The project</h2>
-    <p>The course carries a semester-long project concerning real allocation, starting from
+    <p>The course has a semester-long project concerning real allocation, starting from
     scoping and ending with recommendations that you can defend. More details will come with the
     syllabus.</p>
   </section>
@@ -163,6 +167,33 @@
   <p class="updated">Last updated 15 October 2026</p>
 
 </div></div>
+<!-- Statcounter -->
+  <script type="text/javascript">
+  var sc_project=7139907;
+  var sc_invisible=1;
+  var sc_security="48ef0ec4";
+  </script>
+  <script type="text/javascript">
+  /* Load the counter on the live site only. Local previews (localhost, 127.0.0.1,
+     a file:// page) are skipped so development traffic stays out of the stats. */
+  (function () {
+    var h = location.hostname;
+    if (h === '' || h === 'localhost' || h === '127.0.0.1' || h === '[::1]'
+        || /\.(localhost|test)$/.test(h)) return;
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'https://www.statcounter.com/counter/counter.js';
+    document.body.appendChild(s);
+  })();
+  </script>
+  <noscript><div class="statcounter"><a title="Web Analytics
+  Made Easy - Statcounter" href="https://statcounter.com/"
+  target="_blank"><img class="statcounter"
+  src="https://c.statcounter.com/7139907/0/48ef0ec4/1/"
+  alt="Web Analytics Made Easy - Statcounter"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+  <!-- End of Statcounter Code -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
