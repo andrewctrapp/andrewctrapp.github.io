@@ -140,6 +140,14 @@
       }
       #OSUSeminar2026 .card-header { padding: 10px; }
       #OSUSeminar2026 .card-body { padding: 24px 18px; }
+
+      /* SWAP exchange screens are a wide three-panel capture: let it fill the column */
+      #SWAPOperPublished2026 .card-header img {
+        max-height: none;
+        width: 100%;
+      }
+      #SWAPOperPublished2026 .card-header { padding: 10px; }
+      #SWAPOperPublished2026 .card-body { padding: 24px 18px; }
       #recent-accomplishments .card-body {
         padding: 24px 28px;
       }
@@ -490,6 +498,45 @@
     </div>
 
     <br>
+
+	<div id="SWAPOperPublished2026">
+      <div class="container">
+        <div class="card">
+          <div class="row">
+            <div class="col-lg-6 d-flex align-items-center">
+              <div class="card-header">
+                <img class="card-img-bottom" src="img/SWAP_Exchange_Screens.png" alt="SWAP screens: what a nonprofit has, what it needs with sealed bids and credit balances, and the resulting exchange" />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <span class="card-accent-strong">Now Published in <i>Operations Research</i></span><br>
+                  <b>Community-Oriented Market Design for Nonprofit Resource Exchange</b>
+                </h5>
+
+                <h6 class="card-subtitle text-muted">
+                  October 13, 2026
+                </h6>
+                <br />
+
+                <p class="card-text" align="justify">
+                  Our SWAP paper is now available at <i><a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.2024.1415" target="_blank">Operations Research</a></i>.
+                  It gives the full account of SWAP (Sharing With A Purpose): nonprofit haves and needs accumulate until enough of the market is visible, then clear as multilateral chains of exchange at once through sealed bids and SWAPcredits, deployed alongside real nonprofits in Maryland.
+                  <a href="https://www.linkedin.com/in/weixiao-olivia-huang-66a878128/" target="_blank">Weixiao Huang</a> led this work from start to finish, from PhD student through postdoc.
+                  A free <a href="docs/Preprint_Community-Oriented_Market_Design_for_Nonprofit_Resource_Exchange.pdf" target="_blank">preprint</a> remains available.
+                </p>
+
+                <a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.2024.1415" target="_blank" class="btn btn-primary">Read the Paper</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
 
 	<div id="OSUSeminar2026">
       <div class="container">
@@ -4104,7 +4151,7 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
           card.dataset.year = year;
           // Alternate the figure side down the list. The parity flips whenever a card is added at
           // the top, so that every card already published keeps the side it is on.
-          if (i % 2 === 0) card.classList.add('card-mirror');
+          if (i % 2 === 1) card.classList.add('card-mirror');
           cards.push(card);
         });
 
