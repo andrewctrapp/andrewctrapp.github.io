@@ -24,10 +24,80 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Andrew C. Trapp",
-      "alternateName": "Optimization for Societal Impact",
-      "url": "https://andrewctrapp.github.io/"
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://andrewctrapp.github.io/#website",
+          "url": "https://andrewctrapp.github.io/",
+          "name": "Andrew C. Trapp",
+          "alternateName": "Optimization for Societal Impact",
+          "publisher": {
+            "@id": "https://andrewctrapp.github.io/#person"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://andrewctrapp.github.io/#person",
+          "name": "Andrew C. Trapp",
+          "givenName": "Andrew",
+          "familyName": "Trapp",
+          "alternateName": [
+            "Andrew Trapp",
+            "Andrew Christopher Trapp"
+          ],
+          "honorificSuffix": "PhD",
+          "jobTitle": "Frank and Lillian Gilbreth Endowed Chair in Industrial and Systems Engineering",
+          "description": "Professor of industrial and systems engineering at Rensselaer Polytechnic Institute, applying optimization and machine learning to systems that serve vulnerable populations: refugee resettlement, nonprofit resource exchange, child welfare, and humanitarian operations.",
+          "url": "https://andrewctrapp.github.io/",
+          "mainEntityOfPage": "https://andrewctrapp.github.io/",
+          "image": "https://andrewctrapp.github.io/img/ACT_2024.jpg",
+          "email": "mailto:trappa@rpi.edu",
+          "worksFor": {
+            "@type": "CollegeOrUniversity",
+            "name": "Rensselaer Polytechnic Institute",
+            "url": "https://www.rpi.edu",
+            "sameAs": "https://www.wikidata.org/wiki/Q49211"
+          },
+          "affiliation": [
+            {
+              "@type": "Organization",
+              "name": "Department of Industrial and Systems Engineering, Rensselaer Polytechnic Institute",
+              "url": "https://ise.rpi.edu"
+            },
+            {
+              "@type": "Organization",
+              "name": "OASIS, Optimization and Analytics for Systemic Impact in Society",
+              "url": "https://oasisimpact.org"
+            }
+          ],
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Pittsburgh",
+            "sameAs": "https://www.wikidata.org/wiki/Q235034"
+          },
+          "knowsAbout": [
+            "operations research",
+            "integer optimization",
+            "stochastic programming",
+            "matching markets",
+            "refugee resettlement",
+            "nonprofit resource exchange",
+            "humanitarian operations",
+            "decision support systems"
+          ],
+          "sameAs": [
+            "https://orcid.org/0000-0003-0143-9093",
+            "https://scholar.google.com/citations?user=ZASbboYAAAAJ",
+            "https://www.linkedin.com/in/andytrapp",
+            "https://faculty.rpi.edu/andrew-trapp",
+            "https://www.wikidata.org/wiki/Q102377545",
+            "https://openalex.org/A5084343004",
+            "https://www.semanticscholar.org/author/1750822",
+            "https://www.mathgenealogy.org/id.php?id=153137",
+            "https://github.com/andrewctrapp"
+          ]
+        }
+      ]
     }
     </script>
 
@@ -315,6 +385,7 @@
     <link rel="stylesheet" href="accents.css" />
   </head>
   <title>Optimization for Societal Impact &middot; Andrew C. Trapp</title>
+  <link rel="canonical" href="https://andrewctrapp.github.io/" />
 <!--   <link rel="shortcut icon" type="image/jpg" href="Favicon_Image_Location"/> -->
   <body>
     <!--Navbar-->
@@ -357,9 +428,9 @@
         <div class="col-lg-5 ">
           <div class="text-center">
             <img
-              src="img/ACT_2024.png"
+              src="img/ACT_2024.jpg"
               class="img-fluid"
-              alt="profile photo"
+              alt="profile photo" width="780" height="699"
             />
           </div>
           <div class="card border-primary">
@@ -427,7 +498,7 @@
               <a href="https://www.rpi.edu" target="_blank" title="Rensselaer Polytechnic Institute"
                  style="position:absolute;bottom:14px;right:14px;display:block;line-height:0;">
                 <img src="img/RPI_Logo_Red_on_White_With_Bar.png" alt="Rensselaer Polytechnic Institute"
-                     style="max-height:78px;max-width:165px;width:auto;height:auto;opacity:0.95;" />
+                     style="max-height:78px;max-width:165px;width:auto;height:auto;opacity:0.95;" width="284" height="170" />
               </a>
             </div>
             </div>
@@ -435,7 +506,7 @@
           <br>
        
         <div class="col-lg-7">
-          <h4>About Me</h4>
+          <h1 class="h4">About Me</h1>
           <p class="medium-text-justify" align="justify" style="margin-bottom:0.4rem;">
             In an era of expanding data and finite resources, advanced analytics and optimization <i>guide decisions that matter</i>: for <i>people</i>, <i>communities</i>, and <i>systems</i>. My research centers on integer and nonlinear optimization, together with machine learning and algorithms, to effectively allocate scarce resources and build decision support that can be used in practice. My research initiative, <a href="https://oasisimpact.org">ARCHES (now OASIS)</a>, and I employ mathematical modeling, methods and open-source software to benefit underserved individuals, groups, and communities.</p>
           <p class="medium-text-justify" align="justify" style="margin-bottom:0.4rem;">
@@ -505,7 +576,7 @@
           <div class="row">
             <div class="col-lg-6 d-flex align-items-center">
               <div class="card-header">
-                <img class="card-img-bottom" src="img/SWAP_System_Overview.png" alt="SWAP system overview: market formation, multilateral exchange, and community co-design" />
+                <img class="card-img-bottom" src="img/SWAP_System_Overview.png" alt="SWAP system overview: market formation, multilateral exchange, and community co-design" width="1600" height="890" />
               </div>
             </div>
             <div class="col-lg-6">
@@ -544,7 +615,7 @@
           <div class="row">
             <div class="col-lg-6 d-flex align-items-center">
               <div class="card-header">
-                <img class="card-img-bottom" src="img/SWAP_Route_Reoptimize_Comparison.png" alt="Solution comparison in the decision support platform: the reoptimized plan beside the original, with surplus, time and exchange counts" />
+                <img class="card-img-bottom" src="img/SWAP_Route_Reoptimize_Comparison.png" alt="Solution comparison in the decision support platform: the reoptimized plan beside the original, with surplus, time and exchange counts" width="1466" height="821" />
               </div>
             </div>
             <div class="col-lg-6">
@@ -583,7 +654,7 @@
           <div class="row">
             <div class="col-lg-5 d-flex align-items-center">
               <div class="card-header">
-                <img class="card-img-bottom" src="img/SWAP_System_Overview.png" alt="SWAP system overview: market formation, multilateral exchange, and community co-design" />
+                <img class="card-img-bottom" src="img/SWAP_System_Overview.png" alt="SWAP system overview: market formation, multilateral exchange, and community co-design" width="1600" height="890" />
               </div>
             </div>
             <div class="col-lg-7">
@@ -627,7 +698,7 @@
           <div class="row">
             <div class="col-lg-5 d-flex align-items-center">
               <div class="card-header">
-                <img class="card-img-bottom" src="img/eurohope_summer_school_2026.png" alt="EURO HOpe Summer School 2026, University of Edinburgh and Tilburg University" />
+                <img class="card-img-bottom" src="img/eurohope_summer_school_2026.png" alt="EURO HOpe Summer School 2026, University of Edinburgh and Tilburg University" loading="lazy" width="1088" height="546" />
               </div>
             </div>
             <div class="col-lg-7">
@@ -664,7 +735,7 @@
           <div class="row">
             <div class="col-lg-5 d-flex align-items-center">
               <div class="card-header">
-                <img class="card-img-bottom" src="img/RARR_family_risk.png" alt="Family-level risk versus the risk-neutral curve across refugee families" />
+                <img class="card-img-bottom" src="img/RARR_family_risk.png" alt="Family-level risk versus the risk-neutral curve across refugee families" loading="lazy" width="1995" height="1178" />
               </div>
             </div>
             <div class="col-lg-7">
@@ -705,7 +776,7 @@
 			<div class="col-lg-5 d-flex align-items-center">
 			  <div class="card-header" style="background:transparent;border:0;width:100%;">
 				<a href="https://www.youtube.com/watch?v=gGRO5mWwmH4" target="_blank" style="position:relative;display:block;text-decoration:none;">
-				  <img class="card-img-bottom" src="img/SWAP_promo_thumb.jpg" alt="SWAP - Sharing With A Purpose featured video" />
+				  <img class="card-img-bottom" src="img/SWAP_promo_thumb.jpg" alt="SWAP - Sharing With A Purpose featured video" loading="lazy" width="1280" height="720" />
 				  <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:4.5rem;color:rgba(255,255,255,0.95);text-shadow:0 2px 14px rgba(0,0,0,0.7);pointer-events:none;line-height:1;"><i class="fas fa-play-circle"></i></span>
 				</a>
 			  </div>
@@ -744,7 +815,7 @@
 		  <div class="row">
 			<div class="col-lg-5 d-flex align-items-center">
 			  <div class="card-header">
-				<img class="card-img-bottom" src="img/RPI_Logo_Red_on_White_With_Bar.png" alt="" />
+				<img class="card-img-bottom" src="img/RPI_Logo_Red_on_White_With_Bar.png" alt="" loading="lazy" width="284" height="170" />
 			  </div>
 			</div>
 			<div class="col-lg-7">
@@ -781,7 +852,7 @@
 		  <div class="row">
 			<div class="col-lg-5 d-flex align-items-center">
 			  <div class="card-header">
-				<img class="card-img-bottom" src="img/ABW_logo.png" alt="" />
+				<img class="card-img-bottom" src="img/ABW_logo.png" alt="" loading="lazy" width="378" height="133" />
 			  </div>
 			</div>
 			<div class="col-lg-7">
@@ -819,7 +890,7 @@
 		  <div class="row">
 			<div class="col-lg-5 d-flex align-items-center">
 			  <div class="card-header">
-				<img class="card-img-bottom" src="img/Pitt_logo.png" alt="" />
+				<img class="card-img-bottom" src="img/Pitt_logo.png" alt="" loading="lazy" width="225" height="225" />
 			  </div>
 			</div>
 			<div class="col-lg-7">
@@ -856,7 +927,7 @@
 		  <div class="row">
 			<div class="col-lg-5 d-flex align-items-center">
 			  <div class="card-header">
-				<img class="card-img-bottom" src="img/EAAMO_Oxford_2025.png" alt="" />
+				<img class="card-img-bottom" src="img/EAAMO_Oxford_2025.png" alt="" loading="lazy" width="1213" height="711" />
 			  </div>
 			</div>
 			<div class="col-lg-7">
@@ -893,8 +964,8 @@
 		  <div class="row">
 			<div class="col-lg-5 d-flex align-items-center">
 			  <div class="card-header">
-				<img class="card-img-bottom" src="img/INFORMS_Atlanta_2026_ARCHES_cut.jpg" alt="" />
-<!-- 				<img class="card-img-bottom" src="img/INFORMS_Atlanta_2025.png" alt="" /> -->
+				<img class="card-img-bottom" src="img/INFORMS_Atlanta_2026_ARCHES_cut.jpg" alt="" loading="lazy" width="405" height="287" />
+<!-- 				<img class="card-img-bottom" src="img/INFORMS_Atlanta_2025.png" alt="" loading="lazy" width="316" height="159" /> -->
 			  </div>
 			</div>
 			<div class="col-lg-7">
@@ -931,7 +1002,7 @@
 		  <div class="row">
 			<div class="col-lg-5 d-flex align-items-center">
 			  <div class="card-header">
-				<img class="card-img-bottom" src="img/CWOS_2025.png" alt="" />
+				<img class="card-img-bottom" src="img/CWOS_2025.jpg" alt="" loading="lazy" width="1004" height="720" />
 			  </div>
 			</div>
 			<div class="col-lg-7">
@@ -969,7 +1040,7 @@
           <div class="row">
             <div class="col-lg-5 d-flex align-items-center">
               <div class="card-header">
-                <img class="card-img-bottom" src="img/Violation.png" alt="" />
+                <img class="card-img-bottom" src="img/Violation.png" alt="" loading="lazy" width="4425" height="2075" />
               </div>
             </div>
             <div class="col-lg-7">
@@ -1012,7 +1083,7 @@
           <div class="row">
             <div class="col-lg-5 d-flex align-items-center">
               <div class="card-header">
-                <img class="card-img-bottom" src="img/Trafficking_HC.png" alt="" />
+                <img class="card-img-bottom" src="img/Trafficking_HC.png" alt="" loading="lazy" width="1280" height="480" />
               </div>
             </div>
             <div class="col-lg-7">
@@ -1056,7 +1127,7 @@
           <div class="row">
             <div class="col-lg-5 d-flex align-items-center">
               <div class="card-header">
-                <img class="card-img-bottom" src="img/ChildrenFC3.png" alt="" />
+                <img class="card-img-bottom" src="img/ChildrenFC3.png" alt="" loading="lazy" width="1386" height="646" />
               </div>
             </div>
             <div class="col-lg-7">
@@ -1098,7 +1169,7 @@
           <div class="row">
             <div class="col-lg-5 d-flex align-items-center">
               <div class="card-header">
-                <img class="card-img-bottom" src="img/Weixiao_Huang_PhD.png" alt="" />
+                <img class="card-img-bottom" src="img/Weixiao_Huang_PhD.png" alt="" loading="lazy" width="515" height="390" />
               </div>
             </div>
             <div class="col-lg-7">
@@ -1138,8 +1209,8 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/DEA_Dashboard_2.png" alt="" />
-<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" /> -->
+              <img class="card-img-bottom" src="img/DEA_Dashboard_2.png" alt="" loading="lazy" width="1144" height="678" />
+<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" loading="lazy" width="1248" height="783" /> -->
             </div>
           </div>
           <div class="col-lg-7">
@@ -1183,8 +1254,8 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/JOGOv3.png" alt="" />
-<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" /> -->
+              <img class="card-img-bottom" src="img/JOGOv3.png" alt="" loading="lazy" width="253" height="159" />
+<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" loading="lazy" width="1248" height="783" /> -->
             </div>
           </div>
           <div class="col-lg-7">
@@ -1223,8 +1294,8 @@
            <div class="row">
                <div class="col-lg-5 d-flex align-items-center">
                    <div class="card-header">
-<!--                        <img class="card-img-bottom" src="img/NSF.png" alt="" /> -->
-                       <img class="card-img-bottom" src="img/Fatemehv2.png" style="max-width: 18rem;" alt="" />
+<!--                        <img class="card-img-bottom" src="img/NSF.png" alt="" loading="lazy" width="270" height="270" /> -->
+                       <img class="card-img-bottom" src="img/Fatemehv2.png" style="max-width: 18rem;" alt="" loading="lazy" width="225" height="225" />
 
                    </div>
                </div>
@@ -1261,8 +1332,8 @@
            <div class="row">
                <div class="col-lg-5 d-flex align-items-center">
                    <div class="card-header">
-<!--                        <img class="card-img-bottom" src="img/NSF.png" alt="" /> -->
-                       <img class="card-img-bottom" src="img/NSF.png" style="max-width: 18rem;" alt="" />
+<!--                        <img class="card-img-bottom" src="img/NSF.png" alt="" loading="lazy" width="270" height="270" /> -->
+                       <img class="card-img-bottom" src="img/NSF.png" style="max-width: 18rem;" alt="" loading="lazy" width="270" height="270" />
 
                    </div>
                </div>
@@ -1298,7 +1369,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/sabbatical.png" alt="" />
+              <img class="card-img-bottom" src="img/sabbatical.png" alt="" loading="lazy" width="390" height="259" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -1331,8 +1402,8 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/cacm_ref.png" alt="" />
-<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" /> -->
+              <img class="card-img-bottom" src="img/cacm_ref.png" alt="" loading="lazy" width="417" height="323" />
+<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" loading="lazy" width="1248" height="783" /> -->
             </div>
           </div>
           <div class="col-lg-7">
@@ -1378,7 +1449,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/ACT_2024.png" alt="" />
+              <img class="card-img-bottom" src="img/ACT_2024.jpg" alt="" loading="lazy" width="780" height="699" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -1411,7 +1482,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/ORAE.png" alt="" />
+              <img class="card-img-bottom" src="img/ORAE.png" alt="" loading="lazy" width="1007" height="647" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -1444,7 +1515,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/CWOS.jpeg" alt="" />
+              <img class="card-img-bottom" src="img/CWOS.jpeg" alt="" loading="lazy" width="800" height="277" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -1481,7 +1552,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/SWAP_Diagram.png" alt="" />
+              <img class="card-img-bottom" src="img/SWAP_Diagram.png" alt="" loading="lazy" width="532" height="541" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -1525,7 +1596,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/RUTH.png" alt="" />
+              <img class="card-img-bottom" src="img/RUTH.png" alt="" loading="lazy" width="649" height="426" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -1567,8 +1638,8 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Annie.gif" alt="" />
-<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" /> -->
+              <img class="card-img-bottom" src="img/Annie.gif" alt="" loading="lazy" width="1581" height="841" />
+<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" loading="lazy" width="1248" height="783" /> -->
             </div>
           </div>
           <div class="col-lg-7">
@@ -1614,8 +1685,8 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/WorldMapImage_Hero.jpeg" alt="" />
-<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" /> -->
+              <img class="card-img-bottom" src="img/WorldMapImage_Hero.jpeg" alt="" loading="lazy" width="1400" height="650" />
+<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" loading="lazy" width="1248" height="783" /> -->
             </div>
           </div>
           <div class="col-lg-7">
@@ -1655,8 +1726,8 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/DiversiTree_v2.png" alt="" />
-<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" /> -->
+              <img class="card-img-bottom" src="img/DiversiTree_v2.png" alt="" loading="lazy" width="1084" height="720" />
+<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" loading="lazy" width="1248" height="783" /> -->
             </div>
           </div>
           <div class="col-lg-7">
@@ -1699,7 +1770,7 @@
           <div class="row">
             <div class="col-lg-5 d-flex align-items-center">
               <div class="card-header">
-                <img class="card-img-bottom" src="img/Geri_Dimas_PhD.png" alt="" />
+                <img class="card-img-bottom" src="img/Geri_Dimas_PhD.jpg" alt="" loading="lazy" width="610" height="444" />
               </div>
             </div>
             <div class="col-lg-7">
@@ -1737,8 +1808,8 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/IISE_Podcast_Badge.png" alt="" />
-<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" /> -->
+              <img class="card-img-bottom" src="img/IISE_Podcast_Badge.png" alt="" loading="lazy" width="211" height="206" />
+<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" loading="lazy" width="1248" height="783" /> -->
             </div>
           </div>
           <div class="col-lg-7">
@@ -1778,8 +1849,8 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Ellis_Island_Pic.png" alt="" />
-<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" /> -->
+              <img class="card-img-bottom" src="img/Ellis_Island_Pic.png" alt="" loading="lazy" width="630" height="406" />
+<!--               <img class="card-img-bottom" src="img/Dynamic_Annie_2.png" alt="" loading="lazy" width="1248" height="783" /> -->
             </div>
           </div>
           <div class="col-lg-7">
@@ -1812,7 +1883,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/PSORYT2023.png" alt="" />
+              <img class="card-img-bottom" src="img/PSORYT2023.jpg" alt="" loading="lazy" width="707" height="581" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -1846,7 +1917,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/pinlo.png" alt="" />
+              <img class="card-img-bottom" src="img/pinlo.png" alt="" loading="lazy" width="507" height="411" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -1885,7 +1956,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Victim_Origins.png" alt="" />
+              <img class="card-img-bottom" src="img/Victim_Origins.png" alt="" loading="lazy" width="1022" height="720" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -1943,7 +2014,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/HT_Paper_Trends.png" alt="" />
+              <img class="card-img-bottom" src="img/HT_Paper_Trends.png" alt="" loading="lazy" width="1073" height="486" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -1988,7 +2059,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/RUTH.png" alt="" />
+              <img class="card-img-bottom" src="img/RUTH.png" alt="" loading="lazy" width="649" height="426" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -2030,7 +2101,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/NYC_Replications.png" alt="" />
+              <img class="card-img-bottom" src="img/NYC_Replications.png" alt="" loading="lazy" width="632" height="460" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -2075,7 +2146,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/BorderOps.png" alt="" />
+              <img class="card-img-bottom" src="img/BorderOps.png" alt="" loading="lazy" width="566" height="484" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -2116,7 +2187,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/SPC_CDF_Alt2.png" alt="" />
+              <img class="card-img-bottom" src="img/SPC_CDF_Alt2.png" alt="" loading="lazy" width="1216" height="825" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -2159,7 +2230,7 @@
            <div class="row">
                <div class="col-lg-5 d-flex align-items-center">
                    <div class="card-header">
-                       <img class="card-img-bottom" src="img/Shelter_Access.png" alt="" />
+                       <img class="card-img-bottom" src="img/Shelter_Access.png" alt="" loading="lazy" width="1151" height="663" />
                    </div>
                </div>
                <div class="col-lg-7">
@@ -2207,8 +2278,8 @@
            <div class="row">
                <div class="col-lg-5 d-flex align-items-center">
                    <div class="card-header">
-<!--                        <img class="card-img-bottom" src="img/NSF.png" alt="" /> -->
-                       <img class="card-img-bottom" src="img/NSF.png" style="max-width: 18rem;" alt="" />
+<!--                        <img class="card-img-bottom" src="img/NSF.png" alt="" loading="lazy" width="270" height="270" /> -->
+                       <img class="card-img-bottom" src="img/NSF.png" style="max-width: 18rem;" alt="" loading="lazy" width="270" height="270" />
 
                    </div>
                </div>
@@ -2243,7 +2314,7 @@
            <div class="row">
                <div class="col-lg-5 d-flex align-items-center">
                    <div class="card-header">
-                       <img class="card-img-bottom" src="img/Combat_HT.png" alt="" />
+                       <img class="card-img-bottom" src="img/Combat_HT.png" alt="" loading="lazy" width="2000" height="1128" />
                    </div>
                </div>
                <div class="col-lg-7">
@@ -2286,7 +2357,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/SWAP_Logo.png" alt="" />
+              <img class="card-img-bottom" src="img/SWAP_Logo.png" alt="" loading="lazy" width="530" height="531" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -2325,7 +2396,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/ShimaDefense.png" alt="" />
+              <img class="card-img-bottom" src="img/ShimaDefense.png" alt="" loading="lazy" width="1242" height="824" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -2367,7 +2438,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/NargesDefense2.png" alt="" />
+              <img class="card-img-bottom" src="img/NargesDefense2.png" alt="" loading="lazy" width="1682" height="836" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -2412,8 +2483,8 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/informs_logo.png" alt="" />
-<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" /> -->
+              <img class="card-img-bottom" src="img/informs_logo.png" alt="" loading="lazy" width="249" height="74" />
+<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" loading="lazy" width="568" height="517" /> -->
             </div>
           </div>
           <div class="col-lg-7">
@@ -2448,8 +2519,8 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/rhy_sim.png" alt="" />
-<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" /> -->
+              <img class="card-img-bottom" src="img/rhy_sim.png" alt="" loading="lazy" width="1446" height="811" />
+<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" loading="lazy" width="568" height="517" /> -->
             </div>
           </div>
           <div class="col-lg-7">
@@ -2497,8 +2568,8 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/diversitree.png" alt="" />
-<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" /> -->
+              <img class="card-img-bottom" src="img/diversitree.png" alt="" loading="lazy" width="515" height="367" />
+<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" loading="lazy" width="568" height="517" /> -->
             </div>
           </div>
           <div class="col-lg-7">
@@ -2539,8 +2610,8 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/PSU.png" alt="" />
-<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" /> -->
+              <img class="card-img-bottom" src="img/PSU.png" alt="" loading="lazy" width="811" height="272" />
+<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" loading="lazy" width="568" height="517" /> -->
             </div>
           </div>
           <div class="col-lg-7">
@@ -2586,8 +2657,8 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/BorderOps.png" alt="" />
-<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" /> -->
+              <img class="card-img-bottom" src="img/BorderOps.png" alt="" loading="lazy" width="566" height="484" />
+<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" loading="lazy" width="568" height="517" /> -->
             </div>
           </div>
           <div class="col-lg-7">
@@ -2626,8 +2697,8 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Annie.gif" alt="" />
-<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" /> -->
+              <img class="card-img-bottom" src="img/Annie.gif" alt="" loading="lazy" width="1581" height="841" />
+<!--               <img class="card-img-bottom" src="img/fp.png" style="max-width: 22rem;" alt="" loading="lazy" width="568" height="517" /> -->
             </div>
           </div>
           <div class="col-lg-7">
@@ -2668,7 +2739,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/NetHope21.jpg" alt="" />
+              <img class="card-img-bottom" src="img/NetHope21.jpg" alt="" loading="lazy" width="2999" height="1687" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -2719,7 +2790,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/PSOROfficers2122.png" alt="" />
+              <img class="card-img-bottom" src="img/PSOROfficers2122.png" alt="" loading="lazy" width="912" height="521" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -2757,7 +2828,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/pinlo.png" alt="" />
+              <img class="card-img-bottom" src="img/pinlo.png" alt="" loading="lazy" width="507" height="411" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -2791,7 +2862,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/RefCamp_Allocation_vs_Supply.png" alt="" />
+              <img class="card-img-bottom" src="img/RefCamp_Allocation_vs_Supply.png" alt="" loading="lazy" width="1796" height="911" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -2836,7 +2907,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Pres_Leshin_2021.png" alt="" />
+              <img class="card-img-bottom" src="img/Pres_Leshin_2021.jpg" alt="" loading="lazy" width="1430" height="799" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -2869,7 +2940,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/DOTs.png" alt="" />
+              <img class="card-img-bottom" src="img/DOTs.png" alt="" loading="lazy" width="438" height="264" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -2905,7 +2976,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/PSOR_Officers.png" alt="" />
+              <img class="card-img-bottom" src="img/PSOR_Officers.png" alt="" loading="lazy" width="780" height="651" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -2940,7 +3011,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/RR_ROC.png" alt="" />
+              <img class="card-img-bottom" src="img/RR_ROC.png" alt="" loading="lazy" width="1205" height="931" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -2982,7 +3053,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/CDO.png" alt="" />
+              <img class="card-img-bottom" src="img/CDO.png" alt="" loading="lazy" width="591" height="394" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3015,7 +3086,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/CP_Plot.png" alt="" />
+              <img class="card-img-bottom" src="img/CP_Plot.png" alt="" loading="lazy" width="1015" height="698" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3049,7 +3120,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Coopetition_CO2_Emissions.png" alt="" />
+              <img class="card-img-bottom" src="img/Coopetition_CO2_Emissions.png" alt="" loading="lazy" width="658" height="638" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3081,7 +3152,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/arxiv4.jpg" alt="" />
+              <img class="card-img-bottom" src="img/arxiv4.jpg" alt="" loading="lazy" width="225" height="129" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3112,7 +3183,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/UNGA.png" alt="" />
+              <img class="card-img-bottom" src="img/UNGA.png" alt="" loading="lazy" width="803" height="392" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3147,7 +3218,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Outlier_Aware_Fixations.png" alt="" />
+              <img class="card-img-bottom" src="img/Outlier_Aware_Fixations.png" alt="" loading="lazy" width="886" height="569" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3184,7 +3255,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Closing-the-Loopv2.png" alt="" />
+              <img class="card-img-bottom" src="img/Closing-the-Loopv2.png" alt="" loading="lazy" width="400" height="267" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3223,7 +3294,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/MAP_Convergence.png" alt="" />
+              <img class="card-img-bottom" src="img/MAP_Convergence.png" alt="" loading="lazy" width="487" height="369" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3263,7 +3334,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Friends_of_Europe.png" alt="" />
+              <img class="card-img-bottom" src="img/Friends_of_Europe.png" alt="" loading="lazy" width="289" height="174" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3298,7 +3369,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Annie_MOORE_Video.png" alt="" />
+              <img class="card-img-bottom" src="img/Annie_MOORE_Video.jpg" alt="" loading="lazy" width="1600" height="900" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3331,7 +3402,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/RefCamp.png" alt="" />
+              <img class="card-img-bottom" src="img/RefCamp.png" alt="" loading="lazy" width="415" height="263" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3373,7 +3444,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Shima_Picture_Passed_Qual.png" alt="" />
+              <img class="card-img-bottom" src="img/Shima_Picture_Passed_Qual.jpg" alt="" loading="lazy" width="1278" height="947" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3407,7 +3478,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Toronto-Engineering.png" alt="" />
+              <img class="card-img-bottom" src="img/Toronto-Engineering.png" alt="" loading="lazy" width="400" height="267" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3467,7 +3538,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Podcast.png" alt="" />
+              <img class="card-img-bottom" src="img/Podcast.png" alt="" loading="lazy" width="400" height="267" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3501,7 +3572,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Fabulous-Talk.png" alt="" />
+              <img class="card-img-bottom" src="img/Fabulous-Talk.png" alt="" loading="lazy" width="400" height="267" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3560,7 +3631,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Asylum_A_S.png" alt="" />
+              <img class="card-img-bottom" src="img/Asylum_A_S.jpg" alt="" loading="lazy" width="1017" height="716" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3595,7 +3666,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Conversation.png" alt="" />
+              <img class="card-img-bottom" src="img/Conversation.png" alt="" loading="lazy" width="400" height="267" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3627,7 +3698,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Research-Grant.png" alt="" />
+              <img class="card-img-bottom" src="img/Research-Grant.png" alt="" loading="lazy" width="400" height="267" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3661,7 +3732,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/Optimizing-Placement-of.png" alt="" />
+              <img class="card-img-bottom" src="img/Optimizing-Placement-of.png" alt="" loading="lazy" width="400" height="267" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3694,7 +3765,7 @@
     <div class="row">
       <div class="col-lg-5 d-flex align-items-center">
         <div class="card-header">
-          <img class="card-img-bottom" src="img/Research-Grant.png" alt="" />
+          <img class="card-img-bottom" src="img/Research-Grant.png" alt="" loading="lazy" width="400" height="267" />
         </div>
       </div>
       <div class="col-lg-7">
@@ -3727,7 +3798,7 @@
     <div class="row">
       <div class="col-lg-5 d-flex align-items-center">
         <div class="card-header">
-          <img class="card-img-bottom" src="img/A-Global-Optimization.png" alt="" />
+          <img class="card-img-bottom" src="img/A-Global-Optimization.png" alt="" loading="lazy" width="400" height="267" />
         </div>
       </div>
       <div class="col-lg-7">
@@ -3761,7 +3832,7 @@
         <div class="row">
           <div class="col-lg-5 d-flex align-items-center">
             <div class="card-header">
-              <img class="card-img-bottom" src="img/METU2.png" alt="" />
+              <img class="card-img-bottom" src="img/METU2.png" alt="" loading="lazy" width="290" height="174" />
             </div>
           </div>
           <div class="col-lg-7">
@@ -3806,7 +3877,7 @@
     <div class="row">
       <div class="col-lg-5 d-flex align-items-center">
         <div class="card-header">
-          <img class="card-img-bottom" src="img/How-Technology-Could.png" alt="" />
+          <img class="card-img-bottom" src="img/How-Technology-Could.png" alt="" loading="lazy" width="400" height="267" />
         </div>
       </div>
       <div class="col-lg-7">
@@ -3838,7 +3909,7 @@
     <div class="row">
       <div class="col-lg-5 d-flex align-items-center">
         <div class="card-header">
-          <img class="card-img-bottom" src="img/Research-Grant.png" alt="" />
+          <img class="card-img-bottom" src="img/Research-Grant.png" alt="" loading="lazy" width="400" height="267" />
         </div>
       </div>
       <div class="col-lg-7">
@@ -3870,7 +3941,7 @@
     <div class="row">
       <div class="col-lg-5 d-flex align-items-center">
         <div class="card-header">
-          <img class="card-img-bottom" src="img/Enriching-Solutions-to.png" alt="" />
+          <img class="card-img-bottom" src="img/Enriching-Solutions-to.png" alt="" loading="lazy" width="400" height="267" />
         </div>
       </div>
       <div class="col-lg-7">
@@ -3903,7 +3974,7 @@
     <div class="row">
       <div class="col-lg-5 d-flex align-items-center">
         <div class="card-header">
-          <img class="card-img-bottom" src="img/Identifying-Fixations-in.png" alt="" />
+          <img class="card-img-bottom" src="img/Identifying-Fixations-in.png" alt="" loading="lazy" width="400" height="267" />
         </div>
       </div>
       <div class="col-lg-7">
@@ -3935,7 +4006,7 @@
     <div class="row">
       <div class="col-lg-5 d-flex align-items-center">
         <div class="card-header">
-          <img class="card-img-bottom" src="img/Detecting-Task-Demand.png" alt="" />
+          <img class="card-img-bottom" src="img/Detecting-Task-Demand.png" alt="" loading="lazy" width="400" height="267" />
         </div>
       </div>
       <div class="col-lg-7">
@@ -3967,7 +4038,7 @@
     <div class="row">
       <div class="col-lg-5 d-flex align-items-center">
         <div class="card-header">
-          <img class="card-img-bottom" src="img/Refugee-Resettlement-via.png" alt="" />
+          <img class="card-img-bottom" src="img/Refugee-Resettlement-via.png" alt="" loading="lazy" width="400" height="267" />
         </div>
       </div>
       <div class="col-lg-7">
@@ -4001,7 +4072,7 @@
     <div class="row">
       <div class="col-lg-5 d-flex align-items-center">
         <div class="card-header">
-          <img class="card-img-bottom" src="img/Overcoming-human-trafficking.png" alt="" />
+          <img class="card-img-bottom" src="img/Overcoming-human-trafficking.png" alt="" loading="lazy" width="400" height="267" />
         </div>
       </div>
       <div class="col-lg-7">
