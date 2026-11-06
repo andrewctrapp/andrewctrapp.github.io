@@ -24,6 +24,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
   <style>
+    /* Images carry width and height attributes (added 2026-10-18) so browsers can reserve space before
+       loading; height auto keeps the CSS in charge of sizing so the attributes never stretch an image. */
+    img[width][height] { height: auto; }
     :root {
       /* Four families: page tints, ink greys, one navy accent, one hairline.
          Each name below describes the value it actually holds. */

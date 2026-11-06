@@ -142,6 +142,9 @@
          Recent Accomplishments — polished card styling
          ==================================================== -->
     <style>
+      /* Images carry width and height attributes (added 2026-10-18) so browsers can reserve space before
+         loading; height auto keeps the CSS in charge of sizing so the attributes never stretch an image. */
+      img[width][height] { height: auto; }
       /* === Card polish (subtle shadows, hover lift, consistent spacing) === */
       #recent-accomplishments .card {
         border: 1px solid #e5e7eb;
