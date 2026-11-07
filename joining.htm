@@ -537,6 +537,39 @@
       border-color: var(--paper);
     }
 
+    /* ROUTES STRIP */
+    .routes-strip {
+      padding: 18px 0;
+      background: var(--paper-deep);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      font-family: var(--font-ui);
+    }
+    .routes-strip .routes-title {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      font-weight: 600;
+      margin: 0 0 8px;
+    }
+    .routes-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 28px;
+    }
+    .routes-list a {
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(30,58,138,0.35);
+      font-size: 0.98rem;
+    }
+    .routes-list a:hover { border-bottom-color: var(--navy); text-decoration: none; }
+    .practical-section dt { scroll-margin-top: 24px; }
+
     /* PRACTICAL */
     .practical-section {
       padding: 80px 0;
@@ -624,6 +657,19 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ROUTES - one line per role, linking to the full text at the foot of the page -->
+  <section class="routes-strip" aria-label="Routes in, by role">
+    <div class="container">
+      <p class="routes-title">Choose your route</p>
+      <ul class="routes-list">
+        <li><a href="#route-phd">Prospective PhD student</a></li>
+        <li><a href="#route-postdoc">Postdoctoral researcher</a></li>
+        <li><a href="#route-rpi">Rensselaer undergraduate or master's student</a></li>
+        <li><a href="#route-visiting">Visiting scholar</a></li>
+      </ul>
     </div>
   </section>
 
@@ -874,19 +920,25 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-10">
-          <h5>Practical items of note</h5>
+          <h5>Routes and practical items</h5>
           <dl>
+            <dt id="route-phd">Prospective PhD students</dt>
+            <dd>Apply to the <a href="https://ise.rpi.edu/programs/decision-sciences-and-engineering-systems-phd">Decision Sciences and Engineering Systems (DSES) PhD program</a> by <a href="https://gradadmissions.rpi.edu/deadlines-and-requirements">December 15, 2026</a> for Fall 2027, and name me in your statement of purpose; that is the one step that guarantees I read your file. The GRE is optional; I personally encourage submitting it. International applicants whose first language is not English need a TOEFL of 88, an IELTS of 6.5, a Duolingo of 120, or a PTE of 59. A note through the form before you apply is welcome and every one will be read; admission decisions rest on the full application, and I am unable to review CVs or draft statements in advance. Most arrivals happen in the fall.</dd>
+
+            <dt id="route-postdoc">Postdoctoral researchers</dt>
+            <dd>Openings depend on grants and are announced on this page first; the status line at the top is current. If you would bring your own fellowship, write with your CV and a one-page research idea tied to one of our projects. Postdocs here co-lead a project with a partner organization, co-write proposals, and mentor a doctoral student.</dd>
+
+            <dt id="route-rpi">Rensselaer undergraduates and master's students</dt>
+            <dd>I take a small number each semester, for credit or, when a grant allows, for pay. Expect about ten hours a week for at least two semesters, starting with a well-defined piece of a live project. Write before the semester begins.</dd>
+
+            <dt id="route-visiting">Visiting scholars</dt>
+            <dd>Case by case, with your own funding. Send the same three paragraphs the form asks for, plus your dates.</dd>
+
+            <dt>Who I am unable to host</dt>
+            <dd>Unpaid remote interns, and high-school students outside a structured school research program with a teacher sponsor and a defined term. The time of the students already here comes first, and this note is the most common reply I send.</dd>
+
             <dt>Funding</dt>
             <dd>I support graduate students through NSF, federal, and foundation grants. Most join with funding in place.</dd>
-
-            <dt>Visiting scholars</dt>
-            <dd>Yes, case-by-case. Reach out with the same kind of details you would as a prospective student.</dd>
-
-            <dt>Timing</dt>
-            <dd>Most arrivals happen in fall cycles. Off-cycle inquiries welcome but slower.</dd>
-
-            <dt>Application materials</dt>
-            <dd>For doctoral inquiries: a copy of your CV, transcripts, GRE, and TOEFL scores (if applicable).</dd>
           </dl>
         </div>
       </div>
