@@ -453,6 +453,7 @@
     .cta-form.is-sent input[type="email"],
     .cta-form.is-sent .submit-btn { display: none; }
     .cta-form .form-note {
+      margin-top: 18px;
       font-family: var(--font-ui);
       font-size: 0.84rem;
       color: var(--ink-muted);
@@ -533,6 +534,7 @@
       border-bottom: 1px solid rgba(245,239,226,0.45);
       text-decoration: none;
     }
+    .cta-alt-action .alt-ask { font-size: 0.95rem; margin-top: 12px; }
     .cta-alt-action .alt-direct a:hover {
       border-color: var(--paper);
     }
@@ -883,6 +885,13 @@
             </label>
             <textarea id="q3" name="Hoped-for direction"></textarea>
 
+            <label for="q4">
+              <span class="label-number">iv.</span>
+              One OASIS paper, platform, or project that piqued your attention, and why
+              <span class="label-hint">Required. A sentence or two is enough; it tells me you have looked at what we do.</span>
+            </label>
+            <textarea id="q4" name="OASIS work that piqued your attention" required></textarea>
+
             <label for="cvlink">
               Link to your CV or a writing sample <span class="label-optional">(optional)</span>
               <span class="label-hint">A Drive or Dropbox link, a personal page, anything I can open.</span>
@@ -896,6 +905,7 @@
               <button type="submit" class="submit-btn">Send to me</button>
               <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
             </div>
+            <p class="form-note">What happens next: every submission will be read. A reply comes within two weeks, if not earlier, when there is a potential fit. After three weeks of silence, you can assume there is no match this cycle, and you are welcome to write again next year.</p>
           </form>
         </div>
       </div>
@@ -911,6 +921,7 @@
         <p class="alt-direct">
           or simply email <a href="mailto:trappa@rpi.edu">trappa@rpi.edu</a>
         </p>
+        <p class="alt-direct alt-ask">In your email, name the OASIS paper, platform, or project that piqued your attention.</p>
       </div>
     </div>
   </section>
@@ -975,7 +986,7 @@
           if (!res.ok) { throw new Error(res.j && res.j.message ? res.j.message : 'Submission failed'); }
           form.classList.add('is-sent');
           status.className = 'form-status is-ok';
-          status.textContent = 'Thank you, your note is on its way.';
+          status.textContent = 'Thank you. Every submission will be read; if there is a potential fit you will hear from me within two weeks, if not earlier.';
           form.reset();
         })
         .catch(function () {
